@@ -22,6 +22,14 @@ namespace DemoTradingApp
         private DataTable? _cashAssetsTable;
         private DataTable? _cryptoAssetsTable;
 
+        /// <summary>
+        /// Initializes a new instance of the TradesForm class.
+        /// </summary>
+        /// <param name="owner">The dashboard form that owns this form</param>
+        /// <param name="user">The current user</param>
+        /// <param name="userAssets">User's asset data</param>
+        /// <param name="marketPricesData">Current market prices</param>
+        /// <param name="exchangeRates">Exchange rates for currencies</param>
         public TradesForm(DashboardForm owner, User user, DataTable userAssets, Dictionary<string, PriceInfo> marketPricesData, PriceInfo? exchangeRates)
         {
             InitializeComponent();
@@ -32,60 +40,35 @@ namespace DemoTradingApp
             _exchangeRates = exchangeRates;
             this.kryptonManager1.GlobalPaletteMode = PaletteMode.SparkleBlue;
         }
-
         private void TradesForm_Load(object? sender, EventArgs e)
         {
-            kryptonLabel1.Location = new System.Drawing.Point(22, 128);
-            cmbBaseCurrency.Location = new System.Drawing.Point(160, 125);
-            lblBalance.Location = new System.Drawing.Point(160, 155);
-            kryptonLabel4.Location = new System.Drawing.Point(34, 198);
-            cmbQuoteAsset.Location = new System.Drawing.Point(160, 195);
-            lblAmount.Location = new System.Drawing.Point(12, 248);
-            numAmount.Location = new System.Drawing.Point(160, 245);
-            lblRate.Location = new System.Drawing.Point(160, 280);
-            lblResult.Location = new System.Drawing.Point(160, 305);
-            btnExecuteTrade.Location = new System.Drawing.Point(160, 350);
-
             PrepareDataSources();
             radioBuy.Checked = true;
             SetupUIForTradeType();
         }
-
-        // DÜZELTİLEN METOT
         private void PrepareDataSources()
         {
             try
             {
-                // DÜZELTME: StringComparer.OrdinalIgnoreCase kullanılarak büyük-küçük harf duyarlılığı kaldırıldı.
                 var cashAssetsQuery = _userAssets.AsEnumerable()
-                    .Where(r => r.Field<string>("Varlık") != null &&
-                                new[] { "USD", "TRY", "EUR" }.Contains(r.Field<string>("Varlık"), StringComparer.OrdinalIgnoreCase));
+                    .Where(r => r.Field<string>("Asset") != null &&
+                                new[] { "USD", "TRY", "EUR" }.Contains(r.Field<string>("Asset")!, StringComparer.OrdinalIgnoreCase));
+                _cashAssetsTable = cashAssetsQuery.Any() ? cashAssetsQuery.CopyToDataTable() : _userAssets.Clone();
 
-                if (cashAssetsQuery.Any())
-                    _cashAssetsTable = cashAssetsQuery.CopyToDataTable();
-                else
-                    _cashAssetsTable = _userAssets.Clone();
-            }
-            catch (Exception) { _cashAssetsTable = _userAssets.Clone(); }
-
-            try
-            {
-                // DÜZELTME: StringComparer.OrdinalIgnoreCase kullanılarak büyük-küçük harf duyarlılığı kaldırıldı.
                 var cryptoAssetsQuery = _userAssets.AsEnumerable()
-                    .Where(r => r.Field<string>("Varlık") != null &&
-                                !new[] { "USD", "TRY", "EUR" }.Contains(r.Field<string>("Varlık"), StringComparer.OrdinalIgnoreCase));
-
-                if (cryptoAssetsQuery.Any())
-                    _cryptoAssetsTable = cryptoAssetsQuery.CopyToDataTable();
-                else
-                    _cryptoAssetsTable = _userAssets.Clone();
+                    .Where(r => r.Field<string>("Asset") != null &&
+                                !new[] { "USD", "TRY", "EUR" }.Contains(r.Field<string>("Asset")!, StringComparer.OrdinalIgnoreCase));
+                _cryptoAssetsTable = cryptoAssetsQuery.Any() ? cryptoAssetsQuery.CopyToDataTable() : _userAssets.Clone();
             }
-            catch (Exception) { _cryptoAssetsTable = _userAssets.Clone(); }
+            catch (Exception ex)
+            {
+                _cashAssetsTable = _userAssets.Clone();
+                _cryptoAssetsTable = _userAssets.Clone();
+                KryptonMessageBox.Show("Error preparing data sources for trade: " + ex.Message);
+            }
         }
-
         private void SetupUIForTradeType()
         {
-            // 1. Önce tüm kontrolleri varsayılan durumuna getirelim (görünür ve aktif)
             lblStatusMessage.Visible = false;
             kryptonLabel1.Visible = true;
             cmbBaseCurrency.Visible = true;
@@ -96,22 +79,20 @@ namespace DemoTradingApp
             numAmount.Visible = true;
             numAmount.Enabled = true;
             btnExecuteTrade.Enabled = true;
-            btnExecuteTrade.Visible = true; // Butonun da görünür olduğundan emin oluyoruz
+            btnExecuteTrade.Visible = true;
 
-            // Olay aboneliklerini temizle
             cmbBaseCurrency.SelectedIndexChanged -= CmbBaseCurrency_SelectedIndexChanged;
             cmbQuoteAsset.SelectedIndexChanged -= Cmb_SelectedIndexChanged;
 
-            if (radioBuy.Checked) // ALIM MODU
+            if (radioBuy.Checked)
             {
-                kryptonLabel1.Text = "Harcanacak Para:";
-                kryptonLabel4.Text = "Alınacak Varlık:";
-                btnExecuteTrade.Text = "Varlık Al";
-                lblAmount.Text = "Harcanacak Miktar:";
+                kryptonLabel1.Text = Properties.Resources.SpendingMoney;
+                kryptonLabel4.Text = Properties.Resources.AssetToBuy;
+                btnExecuteTrade.Text = Properties.Resources.BuyAsset;
+                lblAmount.Text = Properties.Resources.AmountToSpend;
 
                 if (_cashAssetsTable == null || _cashAssetsTable.Rows.Count == 0)
                 {
-                    // Harcanacak para yoksa ilgili kontrolleri gizle
                     kryptonLabel1.Visible = false;
                     cmbBaseCurrency.Visible = false;
                     lblBalance.Visible = false;
@@ -121,13 +102,10 @@ namespace DemoTradingApp
                     numAmount.Visible = false;
                     lblRate.Visible = false;
                     lblResult.Visible = false;
-                    btnExecuteTrade.Visible = false; // Enabled yerine Visible = false yapıldı
+                    btnExecuteTrade.Visible = false;
 
-                    // Uyarı mesajını göster ve ortala
-                    lblStatusMessage.Text = "Harcanacak bakiye bulunmuyor.";
+                    lblStatusMessage.Text = Properties.Resources.NoSpendingBalance;
                     lblStatusMessage.Visible = true;
-                    lblStatusMessage.Left = (this.kryptonPanel1.ClientSize.Width - lblStatusMessage.Width) / 2;
-                    lblStatusMessage.Top = (this.kryptonPanel1.ClientSize.Height - lblStatusMessage.Height) / 2;
                 }
                 else
                 {
@@ -136,7 +114,7 @@ namespace DemoTradingApp
                     lblResult.Visible = true;
 
                     cmbBaseCurrency.DataSource = _cashAssetsTable;
-                    cmbBaseCurrency.DisplayMember = "Varlık";
+                    cmbBaseCurrency.DisplayMember = "Asset";
                     cmbBaseCurrency.ValueMember = "asset_type_id";
 
                     var cryptoMarket = _marketPricesData
@@ -149,19 +127,18 @@ namespace DemoTradingApp
                     cmbBaseCurrency.SelectedIndexChanged += CmbBaseCurrency_SelectedIndexChanged;
                 }
             }
-            else // SATIŞ MODU
+            else
             {
                 lblAmount.Visible = true;
                 numAmount.Visible = true;
 
-                kryptonLabel1.Text = "Satılacak Varlık:";
-                kryptonLabel4.Text = "Alınacak Para:";
-                btnExecuteTrade.Text = "Varlık Sat";
-                lblAmount.Text = "Satılacak Miktar:";
+                kryptonLabel1.Text = Properties.Resources.AssetToSell;
+                kryptonLabel4.Text = Properties.Resources.MoneyToReceive;
+                btnExecuteTrade.Text = Properties.Resources.SellAsset;
+                lblAmount.Text = Properties.Resources.AmountToSell;
 
                 if (_cryptoAssetsTable == null || _cryptoAssetsTable.Rows.Count == 0)
                 {
-                    // Satılacak varlık yoksa ilgili kontrolleri gizle
                     kryptonLabel1.Visible = false;
                     cmbBaseCurrency.Visible = false;
                     lblBalance.Visible = false;
@@ -171,13 +148,10 @@ namespace DemoTradingApp
                     numAmount.Visible = false;
                     lblRate.Visible = false;
                     lblResult.Visible = false;
-                    btnExecuteTrade.Visible = false; // DÜZELTME: Butonu devre dışı bırakmak yerine GİZLİYORUZ
+                    btnExecuteTrade.Visible = false;
 
-                    // Uyarı mesajını göster ve ortala
-                    lblStatusMessage.Text = "Satılacak herhangi bir varlığınız bulunmuyor.";
+                    lblStatusMessage.Text = Properties.Resources.NoAssetsToSell;
                     lblStatusMessage.Visible = true;
-                    lblStatusMessage.Left = (this.kryptonPanel1.ClientSize.Width - lblStatusMessage.Width) / 2;
-                    lblStatusMessage.Top = (this.kryptonPanel1.ClientSize.Height - lblStatusMessage.Height) / 2;
                 }
                 else
                 {
@@ -186,7 +160,7 @@ namespace DemoTradingApp
                     lblResult.Visible = true;
 
                     cmbBaseCurrency.DataSource = _cryptoAssetsTable;
-                    cmbBaseCurrency.DisplayMember = "Varlık";
+                    cmbBaseCurrency.DisplayMember = "Asset";
                     cmbBaseCurrency.ValueMember = "asset_type_id";
                     cmbBaseCurrency.SelectedIndexChanged += CmbBaseCurrency_SelectedIndexChanged;
 
@@ -207,7 +181,7 @@ namespace DemoTradingApp
             }
 
             var selectedAssetRow = (DataRowView)cmbBaseCurrency.SelectedItem;
-            string selectedAssetName = selectedAssetRow["Varlık"].ToString()!.ToLower();
+            string selectedAssetName = selectedAssetRow["Asset"].ToString()!.ToLower();
 
             var quoteAssets = _marketPricesData.Keys
                 .Where(key => key != selectedAssetName)
@@ -221,23 +195,21 @@ namespace DemoTradingApp
 
         private void UpdateUI()
         {
-            // Temel null kontrolleri
             if (cmbBaseCurrency.SelectedItem == null || !(cmbBaseCurrency.SelectedItem is DataRowView baseAssetRowView))
             {
-                lblRate.Text = "Anlık Fiyat: -";
-                lblResult.Text = "Tahmini Sonuç: -";
-                lblBalance.Text = "Bakiye: -";
+                lblRate.Text = Properties.Resources.LivePrice;
+                lblResult.Text = Properties.Resources.EstimatedResult;
+                lblBalance.Text = Properties.Resources.Balance; 
                 btnExecuteTrade.Enabled = false;
                 return;
             }
 
-            // Harcama/Satma miktarı sıfırsa işlem butonunu devre dışı bırak
             btnExecuteTrade.Enabled = (numAmount.Value > 0);
 
-            string baseAssetName = baseAssetRowView["Varlık"].ToString()!;
-            decimal availableBalance = Convert.ToDecimal(baseAssetRowView["Miktar"]);
-            string baseFormat = radioBuy.Checked ? "N2" : "N6";
-            lblBalance.Text = $"Bakiye: {availableBalance.ToString(baseFormat)} {baseAssetName}";
+            string baseAssetName = baseAssetRowView["Asset"].ToString()!;
+            decimal availableBalance = Convert.ToDecimal(baseAssetRowView["Amount"]);
+            string balanceFormat = radioBuy.Checked ? "N2" : "N6";
+            lblBalance.Text = $"Balance: {availableBalance.ToString(balanceFormat)} {baseAssetName}";
 
             decimal tradeAmount = numAmount.Value;
 
@@ -257,52 +229,47 @@ namespace DemoTradingApp
                     decimal rate = toCryptoPriceInUsd / fromCurrencyPriceInUsd;
                     lblRate.Text = $"1 {toCryptoAsset.ToUpper()} ≈ {rate:N2} {fromCurrency}";
                     decimal amountToReceive = (tradeAmount * fromCurrencyPriceInUsd) / toCryptoPriceInUsd;
-                    lblResult.Text = $"Tahmini Alınacak: ~{amountToReceive:N6} {toCryptoAsset.ToUpper()}";
+                    lblResult.Text = string.Format(Properties.Resources.EstimatedToReceive, amountToReceive.ToString("N6"), toCryptoAsset.ToUpper());
                 }
                 else
                 {
-                    lblRate.Text = "Anlık Fiyat: -";
-                    lblResult.Text = "Tahmini Sonuç: -";
+                    lblRate.Text = Properties.Resources.LivePrice;
+                    lblResult.Text = Properties.Resources.EstimatedResult;
                 }
             }
-            else // SATIŞ MODU
+            else
             {
                 if (cmbQuoteAsset.SelectedItem == null) return;
 
                 string fromCryptoAsset = baseAssetName.ToLower();
                 if (!_marketPricesData.ContainsKey(fromCryptoAsset))
                 {
-                    lblRate.Text = "Fiyat Bilgisi Yok";
+                    lblRate.Text = Properties.Resources.NoPriceInfo;
                     lblResult.Text = "-";
                     return;
                 }
 
-                string toAsset = cmbQuoteAsset.SelectedItem.ToString()!.ToUpper(); // Alınacak para birimi (USD, TRY, EUR)
+                string toAsset = cmbQuoteAsset.SelectedItem.ToString()!.ToUpper();
 
                 decimal fromCryptoPriceUsd = _marketPricesData[fromCryptoAsset].Usd;
                 decimal totalValueInUsd = tradeAmount * fromCryptoPriceUsd;
 
-                // ===== BAŞLANGIÇ: DÜZELTME KODU =====
                 if (new[] { "TRY", "USD", "EUR" }.Contains(toAsset))
                 {
-                    // 1. Kripto paranın 1 biriminin, seçilen para birimindeki değerini hesapla
                     decimal rateInTargetCurrency = ConvertFromUsd(fromCryptoPriceUsd, toAsset);
 
-                    // 2. Doğru formatlama için Kültür (CultureInfo) bilgisini al
                     CultureInfo culture = FormattingHelper.GetCultureInfoFor(toAsset);
 
-                    // 3. Etiketi, doğru para birimi formatıyla güncelle
                     lblRate.Text = $"1 {fromCryptoAsset.ToUpper()} ≈ {rateInTargetCurrency.ToString("N2", culture)} {toAsset}";
 
-                    // Sonuç miktarını hesapla
                     decimal amountToReceive = ConvertFromUsd(totalValueInUsd, toAsset);
-                    lblResult.Text = $"Tahmini Ele Geçecek: ~{amountToReceive:N2} {toAsset}";
+                    lblResult.Text = string.Format(Properties.Resources.EstimatedToGet, amountToReceive.ToString("N2"), toAsset);
                 }
-                else // Kripto'dan Kripto'ya satış (Bu kısım zaten doğru çalışıyordu)
+                else
                 {
                     if (!_marketPricesData.ContainsKey(toAsset.ToLower()))
                     {
-                        lblRate.Text = "Parite Fiyatı Yok";
+                        lblRate.Text = Properties.Resources.NoPairPrice;
                         lblResult.Text = "-";
                         return;
                     }
@@ -313,63 +280,55 @@ namespace DemoTradingApp
                     decimal rate = fromCryptoPriceUsd / toCryptoPriceUsd;
                     lblRate.Text = $"1 {fromCryptoAsset.ToUpper()} ≈ {rate:N6} {toAsset.ToUpper()}";
                     decimal amountToReceive = totalValueInUsd / toCryptoPriceUsd;
-                    lblResult.Text = $"Tahmini Alınacak: ~{amountToReceive:N6} {toAsset.ToUpper()}";
+                    lblResult.Text = string.Format(Properties.Resources.EstimatedToReceive, amountToReceive.ToString("N6"), toAsset.ToUpper());
                 }
-                // ===== BİTİŞ: DÜZELTME KODU =====
             }
         }
         private void CmbBaseCurrency_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            // Eğer "Sat" modu aktifse, karşıdaki para birimi listesini güncellememiz gerekir.
             if (radioSell.Checked)
             {
                 UpdateQuoteAssetsForSellMode();
             }
 
-            // Her durumda ana arayüzü güncelle.
             UpdateUI();
         }
         private async void btnExecuteTrade_Click(object? sender, EventArgs e)
         {
             if (cmbBaseCurrency.SelectedItem == null || !(cmbBaseCurrency.SelectedItem is DataRowView) || cmbQuoteAsset.SelectedItem == null || numAmount.Value <= 0)
             {
-                KryptonMessageBox.Show("Lütfen tüm alanları doğru bir şekilde doldurun.", "Eksik Bilgi");
+                KryptonMessageBox.Show(Properties.Resources.FillAllFieldsCorrectly, Properties.Resources.MissingInfo);
                 return;
             }
-
             var baseAssetRowView = (DataRowView)cmbBaseCurrency.SelectedItem;
             int fromWalletId = Convert.ToInt32(baseAssetRowView["wallet_id"]);
             int fromAssetTypeId = Convert.ToInt32(baseAssetRowView["asset_type_id"]);
-            string fromAssetName = baseAssetRowView["Varlık"].ToString()!;
-            decimal availableBalance = Convert.ToDecimal(baseAssetRowView["Miktar"]);
-            decimal amountToTrade = numAmount.Value;
-
-            if (amountToTrade > availableBalance)
+            string fromAssetName = baseAssetRowView["Asset"].ToString()!;
+            decimal availableBalance = Convert.ToDecimal(baseAssetRowView["Amount"]);
+            decimal amountToSpend = numAmount.Value;
+            if (amountToSpend > availableBalance)
             {
-                KryptonMessageBox.Show("Yetersiz bakiye!", "İşlem Hatası");
+                KryptonMessageBox.Show(Properties.Resources.InsufficientBalanceExclamation, Properties.Resources.OperationError);
                 return;
             }
-
             string toAssetName;
             decimal price = 0;
             decimal amountToReceive = 0;
             string tradeType = radioBuy.Checked ? "BUY" : "SELL";
-            decimal amountToSpend = amountToTrade;
-
             try
             {
                 if (tradeType == "BUY")
                 {
                     toAssetName = ((KeyValuePair<string, PriceInfo>)cmbQuoteAsset.SelectedItem).Key;
-                    price = _marketPricesData[toAssetName.ToLower()].Usd;
+                    price = _marketPricesData![toAssetName.ToLower()].Usd;
                     decimal amountToSpendInUsd = ConvertToUsd(amountToSpend, fromAssetName);
                     if (price > 0)
                         amountToReceive = amountToSpendInUsd / price;
                 }
-                else // SELL
+                else 
                 {
                     toAssetName = cmbQuoteAsset.SelectedItem.ToString()!;
-                    price = _marketPricesData[fromAssetName.ToLower()].Usd;
+                    price = _marketPricesData![fromAssetName.ToLower()].Usd;
                     decimal totalValueInUsd = amountToSpend * price;
                     string toAssetLower = toAssetName.ToLower();
 
@@ -381,7 +340,7 @@ namespace DemoTradingApp
                     {
                         if (!_marketPricesData.ContainsKey(toAssetLower))
                         {
-                            KryptonMessageBox.Show($"Alınacak varlık olan '{toAssetName}' için anlık fiyat bilgisi bulunamadı.", "Fiyat Hatası");
+                            KryptonMessageBox.Show(string.Format(Properties.Resources.PriceNotFoundForAsset, toAssetName), Properties.Resources.PriceError);
                             return;
                         }
                         decimal toCryptoPriceUsd = _marketPricesData[toAssetLower].Usd;
@@ -392,56 +351,49 @@ namespace DemoTradingApp
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show($"İşlem için gereken veriler hesaplanırken bir hata oluştu:\n{ex.Message}", "Hesaplama Hatası");
+                KryptonMessageBox.Show(string.Format(Properties.Resources.CalculationError, ex.Message), "Calculation Error");
                 return;
             }
-
             int? toAssetTypeId = DatabaseHelper.GetAssetTypeIdByName(toAssetName.ToLower());
-
             if (toAssetTypeId == null)
             {
-                KryptonMessageBox.Show($"Alınacak varlık olan '{toAssetName}' veritabanında tanımlı değil.", "Varlık Tanımsız");
+                KryptonMessageBox.Show(string.Format(Properties.Resources.AssetNotDefinedInDatabase, toAssetName), Properties.Resources.AssetUndefined);
                 return;
             }
-            if (price <= 0)
+            if (price <= 0 || amountToReceive <= 0)
             {
-                KryptonMessageBox.Show($"İşleme konu olan varlığın fiyatı sıfır veya geçersiz. (Fiyat: {price:C2})", "Geçersiz Fiyat");
+                KryptonMessageBox.Show(Properties.Resources.CalculatedAmountError, "Calculation Error");
                 return;
             }
-            if (amountToReceive <= 0)
-            {
-                KryptonMessageBox.Show($"Hesaplama sonucu alınacak miktar sıfır veya daha az. Lütfen girdiğiniz tutarı kontrol edin.\nHesaplanan Miktar: {amountToReceive}", "Hesaplama Hatası");
-                return;
-            }
-
             string fromFormat = tradeType == "SELL" ? "N6" : "N2";
             string toFormat = new[] { "TRY", "USD", "EUR" }.Contains(toAssetName.ToUpper()) ? "N2" : "N6";
 
-            string confirmationMessage =
-                $"{amountToSpend.ToString(fromFormat)} {fromAssetName} vererek\n" +
-                $"~{amountToReceive.ToString(toFormat)} {toAssetName.ToUpper()} alacaksınız.\n\n" +
-                "İşlemi onaylıyor musunuz?";
+            string rawMessage = string.Format(
+                Properties.Resources.TradeConfirmationMessage,
+                amountToSpend.ToString(fromFormat),
+                fromAssetName,
+                amountToReceive.ToString(toFormat),
+                toAssetName.ToUpper());
 
-            if (KryptonMessageBox.Show(confirmationMessage, "İşlem Onayı", KryptonMessageBoxButtons.YesNo, KryptonMessageBoxIcon.Question) == DialogResult.No)
+            string finalMessage = rawMessage.Replace("\\n", Environment.NewLine);
+
+            if (KryptonMessageBox.Show(finalMessage, Properties.Resources.TradeConfirmationTitle, KryptonMessageBoxButtons.YesNo, KryptonMessageBoxIcon.Question) == DialogResult.No)
                 return;
-
             try
             {
-                bool success = DatabaseHelper.ExecuteTrade(_currentUser.UserId, fromWalletId, fromAssetTypeId, amountToSpend, fromWalletId, (int)toAssetTypeId, amountToReceive, price, tradeType);
-                if (success)
+                bool success = DatabaseHelper.ExecuteTrade(_currentUser.UserId, fromWalletId, fromAssetTypeId, amountToSpend, (int)toAssetTypeId, amountToReceive, price, tradeType); if (success)
                 {
-                    KryptonMessageBox.Show("İşlem başarıyla gerçekleştirildi.", "Başarılı", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
+                    KryptonMessageBox.Show(Properties.Resources.TradeCompletedSuccessfully, Properties.Resources.Success, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
                     await _owner.LoadAllData();
                     this.Close();
                 }
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Trade işlemi sırasında bir hata oluştu: " + ex.Message, "Veritabanı Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                KryptonMessageBox.Show(string.Format(Properties.Resources.TradeError, ex.Message), Properties.Resources.DatabaseError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
             }
         }
 
-        #region Helper and UI Event Methods
         private decimal ConvertToUsd(decimal amount, string currency)
         {
             if (_exchangeRates == null) return 0;
@@ -475,6 +427,5 @@ namespace DemoTradingApp
                 SetupUIForTradeType();
             }
         }
-        #endregion
     }
 }

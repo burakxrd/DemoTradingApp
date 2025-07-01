@@ -14,8 +14,12 @@ namespace DemoTradingApp
 {
     public partial class MenuForm : KryptonForm
     {
-        // Ana forma geri bildirim yapmak için
         private DashboardForm _owner;
+
+        /// <summary>
+        /// Initializes a new instance of the MenuForm class.
+        /// </summary>
+        /// <param name="owner">The dashboard form that owns this menu</param>
         public MenuForm(DashboardForm owner)
         {
             InitializeComponent();
@@ -24,7 +28,6 @@ namespace DemoTradingApp
 
         private void MenuForm_Deactivate(object sender, System.EventArgs e)
         {
-            // Form odaktan çıktığı an (başka yere tıklandığında) kendini kapatır.
             this.Close();
         }
         private void btnShowDashboard_Click(object sender, System.EventArgs e)
@@ -64,7 +67,7 @@ namespace DemoTradingApp
 
         private void btnSignOut_Click(object sender, EventArgs e)
         {
-            _owner.Logout(); // Dashboard'daki Logout metodunu çağır
+            _owner.Logout();
         }
     }
 }

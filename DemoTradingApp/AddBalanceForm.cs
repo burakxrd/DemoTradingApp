@@ -8,7 +8,6 @@ namespace DemoTradingApp
         private readonly User _currentUser;
         private readonly DashboardForm _dashboard;
 
-        // Bakiye çıkarma ComboBox'ı için özel bir sınıf
         private class UserAssetDisplay
         {
             public string DisplayText { get; set; } = "";
@@ -17,6 +16,11 @@ namespace DemoTradingApp
             public decimal Amount { get; set; }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the AddBalanceForm class.
+        /// </summary>
+        /// <param name="user">The current user</param>
+        /// <param name="dashboard">The dashboard form reference</param>
         public AddBalanceForm(User user, DashboardForm dashboard)
         {
             InitializeComponent();
@@ -26,7 +30,6 @@ namespace DemoTradingApp
 
         private void AddBalanceForm_Load(object sender, EventArgs e)
         {
-            // Form yüklendiğinde tüm listeleri doldur
             LoadUserWallets();
             LoadCurrencies();
             LoadUserAssetsForRemoval();
@@ -43,7 +46,7 @@ namespace DemoTradingApp
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Cüzdanlar yüklenirken bir hata oluştu: " + ex.Message, "Veritabanı Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                KryptonMessageBox.Show(Properties.Resources.WalletLoadError + ex.Message, Properties.Resources.DatabaseError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
             }
         }
 
@@ -63,12 +66,12 @@ namespace DemoTradingApp
 
                 foreach (DataRow row in userAssetsTable.Rows)
                 {
-                    decimal amount = Convert.ToDecimal(row["Miktar"]);
-                    if (amount > 0) // Sadece miktarı olan varlıkları listele
+                    decimal amount = Convert.ToDecimal(row["Amount"]);
+                    if (amount > 0)
                     {
                         displayList.Add(new UserAssetDisplay
                         {
-                            DisplayText = $"{row["Cüzdan"]} - {row["Varlık"]} ({amount:N6})",
+                            DisplayText = $"{row["Wallet"]} - {row["Asset"]} ({amount:N6})",
                             WalletId = Convert.ToInt32(row["wallet_id"]),
                             AssetTypeId = Convert.ToInt32(row["asset_type_id"]),
                             Amount = amount
@@ -82,26 +85,38 @@ namespace DemoTradingApp
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Mevcut varlıklar yüklenirken bir hata oluştu: " + ex.Message, "Veritabanı Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                KryptonMessageBox.Show(Properties.Resources.AssetLoadError + ex.Message, Properties.Resources.DatabaseError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
             }
         }
 
         private async void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (cmbWallets.SelectedValue == null) { /* ... hata mesajı ... */ return; }
-            if (numAmount.Value <= 0) { /* ... hata mesajı ... */ return; }
-            if (cmbCurrency.SelectedItem == null) { /* ... hata mesajı ... */ return; }
+            if (cmbWallets.SelectedValue == null) 
+            { 
+                KryptonMessageBox.Show(Properties.Resources.SelectWallet, Properties.Resources.MissingInfo, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                return; 
+            }
+            if (numAmount.Value <= 0) 
+            { 
+                KryptonMessageBox.Show(Properties.Resources.EnterAmountGreaterThanZero, Properties.Resources.InvalidAmount, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                return; 
+            }
+            if (cmbCurrency.SelectedItem == null) 
+            { 
+                KryptonMessageBox.Show(Properties.Resources.SelectCurrency, Properties.Resources.MissingInfo, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                return; 
+            }
 
             try
             {
                 DatabaseHelper.AddOrUpdateAssetBalance((int)cmbWallets.SelectedValue, numAmount.Value, cmbCurrency.Text);
-                KryptonMessageBox.Show("Bakiye başarıyla eklendi.", "Başarılı", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
+                KryptonMessageBox.Show(Properties.Resources.BalanceAddedSuccess, Properties.Resources.Success, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
                 await _dashboard.LoadAllData();
                 this.Close();
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Bakiye eklenirken bir hata oluştu: " + ex.Message, "Veritabanı Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                KryptonMessageBox.Show(Properties.Resources.BalanceAddError + ex.Message, Properties.Resources.DatabaseError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
             }
         }
 
@@ -109,44 +124,42 @@ namespace DemoTradingApp
         {
             if (cmbAssetToRemove.SelectedItem is not UserAssetDisplay selectedAsset)
             {
-                KryptonMessageBox.Show("Lütfen bakiye çıkarılacak bir varlık seçin.", "Eksik Bilgi", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                KryptonMessageBox.Show(Properties.Resources.SelectAssetToRemove, Properties.Resources.MissingInfo, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
                 return;
             }
             if (numAmountToRemove.Value <= 0)
             {
-                KryptonMessageBox.Show("Lütfen 0'dan büyük bir miktar girin.", "Geçersiz Miktar", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                KryptonMessageBox.Show(Properties.Resources.EnterAmountGreaterThanZero, Properties.Resources.InvalidAmount, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
                 return;
             }
             if (numAmountToRemove.Value > selectedAsset.Amount)
             {
-                KryptonMessageBox.Show("Çekmek istediğiniz miktar, mevcut bakiyeden fazla olamaz.", "Yetersiz Bakiye", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                KryptonMessageBox.Show(Properties.Resources.AmountExceedsBalance, Properties.Resources.InsufficientBalance, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
                 return;
             }
 
             var confirmation = KryptonMessageBox.Show(
-                $"{selectedAsset.DisplayText} hesabından {numAmountToRemove.Value} birim bakiye çıkarmak istediğinizden emin misiniz?",
-                "Çıkarma Onayı", KryptonMessageBoxButtons.YesNo, KryptonMessageBoxIcon.Warning);
+                string.Format(Properties.Resources.RemoveConfirmationMessage, selectedAsset.DisplayText, numAmountToRemove.Value),
+                Properties.Resources.RemoveConfirmationTitle, KryptonMessageBoxButtons.YesNo, KryptonMessageBoxIcon.Warning);
 
             if (confirmation == DialogResult.Yes)
             {
                 try
                 {
-                    bool success = DatabaseHelper.DeductBalance(selectedAsset.WalletId, selectedAsset.AssetTypeId, numAmountToRemove.Value);
-
-                    if (success)
+                    bool success = DatabaseHelper.DeductBalance(selectedAsset.WalletId, selectedAsset.AssetTypeId, numAmountToRemove.Value); if (success)
                     {
-                        KryptonMessageBox.Show("Bakiye başarıyla çıkarıldı.", "Başarılı", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
+                        KryptonMessageBox.Show(Properties.Resources.BalanceRemovedSuccess, Properties.Resources.Success, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
                         await _dashboard.LoadAllData();
                         this.Close();
                     }
                     else
                     {
-                        KryptonMessageBox.Show("Bakiye çıkarma işlemi başarısız oldu. Yetersiz bakiye olabilir.", "İşlem Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                        KryptonMessageBox.Show(Properties.Resources.BalanceRemoveFailed, Properties.Resources.OperationError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
                 {
-                    KryptonMessageBox.Show("Bakiye çıkarılırken bir hata oluştu: " + ex.Message, "Veritabanı Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                    KryptonMessageBox.Show(Properties.Resources.BalanceRemoveError + ex.Message, Properties.Resources.DatabaseError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
                 }
             }
         }

@@ -73,7 +73,7 @@
           }
         }
       },
-      "Krypton.Toolkit/95.25.4.111": {
+      "Krypton.Toolkit/95.25.6.174": {
         "type": "package",
         "compile": {
           "lib/net8.0-windows7.0/Krypton.Toolkit.dll": {
@@ -89,10 +89,10 @@
           "Microsoft.WindowsDesktop.App.WindowsForms"
         ]
       },
-      "MailKit/4.12.1": {
+      "MailKit/4.13.0": {
         "type": "package",
         "dependencies": {
-          "MimeKit": "4.12.0",
+          "MimeKit": "4.13.0",
           "System.Formats.Asn1": "8.0.1"
         },
         "compile": {
@@ -479,7 +479,7 @@
           }
         }
       },
-      "MimeKit/4.12.0": {
+      "MimeKit/4.13.0": {
         "type": "package",
         "dependencies": {
           "BouncyCastle.Cryptography": "2.5.1",
@@ -827,17 +827,17 @@
         "packageIcon.png"
       ]
     },
-    "Krypton.Toolkit/95.25.4.111": {
-      "sha512": "f+3IaPFmuJGVDwGks1UAWtUaVy2yuBG483kjew7FsZ7DeXxdC9NO+h438WvLifmrIC7w5AlHlOVf0MynVONyMQ==",
+    "Krypton.Toolkit/95.25.6.174": {
+      "sha512": "eTMEp/UGtcLZzGA9Nl202WUM6SpkdXnQIJLXiMRKwthuuVSvH/vLQFy2J7PVrwU53rKOI69KQ8LGjZIUkrXJvg==",
       "type": "package",
-      "path": "krypton.toolkit/95.25.4.111",
+      "path": "krypton.toolkit/95.25.6.174",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Krypton Stable.png",
         "License.md",
         "README.md",
-        "krypton.toolkit.95.25.4.111.nupkg.sha512",
+        "krypton.toolkit.95.25.6.174.nupkg.sha512",
         "krypton.toolkit.nuspec",
         "lib/net462/Krypton.Toolkit.dll",
         "lib/net462/Krypton.Toolkit.xml",
@@ -857,10 +857,10 @@
         "lib/net9.0-windows7.0/Krypton.Toolkit.xml"
       ]
     },
-    "MailKit/4.12.1": {
-      "sha512": "rIqJm92qtHvk1hDchsJ95Hy7n46A7imE24ol++ikXBsjf3Bi1qDBu4H91FfY6LrYXJaxRlc2gIIpC8AOJrCbqg==",
+    "MailKit/4.13.0": {
+      "sha512": "GsepEHKkaQvbAuBizlhz93yc0ihJWzVCfoerfnpCeqiKLeS6gsTKInYy3/U2wqgkGE62TKs5OKS1a90pyc+j4g==",
       "type": "package",
-      "path": "mailkit/4.12.1",
+      "path": "mailkit/4.13.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -893,7 +893,7 @@
         "lib/netstandard2.1/MailKit.dll.config",
         "lib/netstandard2.1/MailKit.pdb",
         "lib/netstandard2.1/MailKit.xml",
-        "mailkit.4.12.1.nupkg.sha512",
+        "mailkit.4.13.0.nupkg.sha512",
         "mailkit.nuspec"
       ]
     },
@@ -1468,10 +1468,10 @@
         "microsoft.sqlserver.server.nuspec"
       ]
     },
-    "MimeKit/4.12.0": {
-      "sha512": "PFUHfs6BZxKYM/QPJksAwXphbJf0SEfdSfsoQ6p6yvFRaJPofFJMBiotWhFRrdSUzfp6C6K49EjBIqIwZ2TJqA==",
+    "MimeKit/4.13.0": {
+      "sha512": "oa4JuhAzJydHnPCc/XWeyBUGd3uiVyWW0NXqOVgkXEHjbHlPVBssklK3mpw9sokjzAaBGdj0bceFsr+NXvAukA==",
       "type": "package",
-      "path": "mimekit/4.12.0",
+      "path": "mimekit/4.13.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1499,7 +1499,7 @@
         "lib/netstandard2.1/MimeKit.dll.config",
         "lib/netstandard2.1/MimeKit.pdb",
         "lib/netstandard2.1/MimeKit.xml",
-        "mimekit.4.12.0.nupkg.sha512",
+        "mimekit.4.13.0.nupkg.sha512",
         "mimekit.nuspec"
       ]
     },
@@ -1940,8 +1940,8 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "BCrypt.Net-Next >= 4.0.3",
-      "Krypton.Toolkit >= 95.25.4.111",
-      "MailKit >= 4.12.1",
+      "Krypton.Toolkit >= 95.25.6.174",
+      "MailKit >= 4.13.0",
       "Microsoft.Data.SqlClient >= 6.0.2"
     ]
   },
@@ -2001,11 +2001,11 @@
           },
           "Krypton.Toolkit": {
             "target": "Package",
-            "version": "[95.25.4.111, )"
+            "version": "[95.25.6.174, )"
           },
           "MailKit": {
             "target": "Package",
-            "version": "[4.12.1, )"
+            "version": "[4.13.0, )"
           },
           "Microsoft.Data.SqlClient": {
             "target": "Package",

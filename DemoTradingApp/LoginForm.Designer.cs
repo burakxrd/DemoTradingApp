@@ -110,7 +110,7 @@
             this.linkBackToLogin.Name = "linkBackToLogin";
             this.linkBackToLogin.Size = new System.Drawing.Size(91, 24);
             this.linkBackToLogin.TabIndex = 4;
-            this.linkBackToLogin.Values.Text = "< Giriş Ekranı";
+            this.linkBackToLogin.Values.Text = global::DemoTradingApp.Properties.Resources.BackToLoginLink;
             this.linkBackToLogin.Click += new System.EventHandler(this.linkBackToLogin_LinkClicked);
             // 
             // pnlResetPassword
@@ -136,7 +136,7 @@
             this.chkShowNewPassword.Name = "chkShowNewPassword";
             this.chkShowNewPassword.Size = new System.Drawing.Size(125, 24);
             this.chkShowNewPassword.TabIndex = 13;
-            this.chkShowNewPassword.Values.Text = "Şifreleri Göster";
+            this.chkShowNewPassword.Values.Text = global::DemoTradingApp.Properties.Resources.ShowPassword;
             this.chkShowNewPassword.CheckedChanged += new System.EventHandler(this.chkShowNewPassword_CheckedChanged);
             // 
             // btnResetPassword
@@ -146,7 +146,7 @@
             this.btnResetPassword.Size = new System.Drawing.Size(347, 42);
             this.btnResetPassword.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnResetPassword.TabIndex = 3;
-            this.btnResetPassword.Values.Text = "Şifreyi Sıfırla";
+            this.btnResetPassword.Values.Text = global::DemoTradingApp.Properties.Resources.ResetPasswordButton;
             this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // txtNewPasswordConfirm
@@ -164,7 +164,7 @@
             this.kryptonLabel4.Name = "kryptonLabel4";
             this.kryptonLabel4.Size = new System.Drawing.Size(122, 24);
             this.kryptonLabel4.TabIndex = 12;
-            this.kryptonLabel4.Values.Text = "Yeni Şifre Tekrar";
+            this.kryptonLabel4.Values.Text = global::DemoTradingApp.Properties.Resources.NewPasswordConfirmLabel;
             // 
             // txtNewPassword
             // 
@@ -181,7 +181,7 @@
             this.kryptonLabel3.Name = "kryptonLabel3";
             this.kryptonLabel3.Size = new System.Drawing.Size(75, 24);
             this.kryptonLabel3.TabIndex = 10;
-            this.kryptonLabel3.Values.Text = "Yeni Şifre";
+            this.kryptonLabel3.Values.Text = global::DemoTradingApp.Properties.Resources.NewPasswordLabel;
             // 
             // txtVerificationCode
             // 
@@ -197,7 +197,7 @@
             this.kryptonLabel2.Name = "kryptonLabel2";
             this.kryptonLabel2.Size = new System.Drawing.Size(127, 24);
             this.kryptonLabel2.TabIndex = 8;
-            this.kryptonLabel2.Values.Text = "Doğrulama Kodu";
+            this.kryptonLabel2.Values.Text = global::DemoTradingApp.Properties.Resources.VerificationCodeLabel;
             // 
             // btnSendCode
             // 
@@ -206,7 +206,7 @@
             this.btnSendCode.Size = new System.Drawing.Size(347, 42);
             this.btnSendCode.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnSendCode.TabIndex = 1;
-            this.btnSendCode.Values.Text = "Doğrulama Kodu Gönder";
+            this.btnSendCode.Values.Text = global::DemoTradingApp.Properties.Resources.SendVerificationCode;
             this.btnSendCode.Click += new System.EventHandler(this.btnSendCode_Click);
             // 
             // txtForgotEmail
@@ -223,7 +223,7 @@
             this.kryptonLabel1.Name = "kryptonLabel1";
             this.kryptonLabel1.Size = new System.Drawing.Size(174, 24);
             this.kryptonLabel1.TabIndex = 0;
-            this.kryptonLabel1.Values.Text = "Kayıtlı E-Posta Adresiniz";
+            this.kryptonLabel1.Values.Text = global::DemoTradingApp.Properties.Resources.RegisteredEmailLabel;
             // 
             // pnlRegister
             // 
@@ -250,7 +250,7 @@
             this.chkShowRegisterPassword.Name = "chkShowRegisterPassword";
             this.chkShowRegisterPassword.Size = new System.Drawing.Size(125, 24);
             this.chkShowRegisterPassword.TabIndex = 9;
-            this.chkShowRegisterPassword.Values.Text = "Şifreleri Göster";
+            this.chkShowRegisterPassword.Values.Text = global::DemoTradingApp.Properties.Resources.ShowPassword;
             this.chkShowRegisterPassword.CheckedChanged += new System.EventHandler(this.chkShowRegisterPassword_CheckedChanged);
             // 
             // linkLogin
@@ -259,7 +259,7 @@
             this.linkLogin.Name = "linkLogin";
             this.linkLogin.Size = new System.Drawing.Size(247, 24);
             this.linkLogin.TabIndex = 5;
-            this.linkLogin.Values.Text = "Zaten bir hesabın var mı? Giriş Yap";
+            this.linkLogin.Values.Text = global::DemoTradingApp.Properties.Resources.LoginLink;
             this.linkLogin.Click += new System.EventHandler(this.linkLogin_LinkClicked);
             // 
             // btnRegister
@@ -269,7 +269,7 @@
             this.btnRegister.Size = new System.Drawing.Size(347, 42);
             this.btnRegister.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnRegister.TabIndex = 4;
-            this.btnRegister.Values.Text = "Kayıt Ol";
+            this.btnRegister.Values.Text = global::DemoTradingApp.Properties.Resources.RegisterButton;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // txtRegisterConfirmPassword
@@ -287,7 +287,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 24);
             this.label5.TabIndex = 8;
-            this.label5.Values.Text = "Şifre Tekrar";
+            this.label5.Values.Text = global::DemoTradingApp.Properties.Resources.ConfirmPasswordLabel;
             // 
             // txtRegisterPassword
             // 
@@ -304,7 +304,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 24);
             this.label6.TabIndex = 6;
-            this.label6.Values.Text = "Şifre";
+            this.label6.Values.Text = global::DemoTradingApp.Properties.Resources.PasswordLabel;
             // 
             // txtRegisterEmail
             // 
@@ -320,7 +320,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 24);
             this.label4.TabIndex = 4;
-            this.label4.Values.Text = "E-Posta";
+            this.label4.Values.Text = global::DemoTradingApp.Properties.Resources.EmailLabel;
             // 
             // txtRegisterUsername
             // 
@@ -336,7 +336,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 24);
             this.label3.TabIndex = 2;
-            this.label3.Values.Text = "Kullanıcı Adı";
+            this.label3.Values.Text = global::DemoTradingApp.Properties.Resources.UsernameLabel;
             // 
             // pnlLogin
             // 
@@ -360,7 +360,7 @@
             this.chkShowLoginPassword.Name = "chkShowLoginPassword";
             this.chkShowLoginPassword.Size = new System.Drawing.Size(125, 24);
             this.chkShowLoginPassword.TabIndex = 5;
-            this.chkShowLoginPassword.Values.Text = "Şifreyi Göster";
+            this.chkShowLoginPassword.Values.Text = global::DemoTradingApp.Properties.Resources.ShowPassword;
             this.chkShowLoginPassword.CheckedChanged += new System.EventHandler(this.chkShowLoginPassword_CheckedChanged);
             // 
             // linkForgotPassword
@@ -369,7 +369,7 @@
             this.linkForgotPassword.Name = "linkForgotPassword";
             this.linkForgotPassword.Size = new System.Drawing.Size(124, 24);
             this.linkForgotPassword.TabIndex = 4;
-            this.linkForgotPassword.Values.Text = "Şifremi Unuttum";
+            this.linkForgotPassword.Values.Text = global::DemoTradingApp.Properties.Resources.ForgotPasswordLink;
             this.linkForgotPassword.Click += new System.EventHandler(this.linkForgotPassword_LinkClicked);
             // 
             // linkRegister
@@ -378,7 +378,7 @@
             this.linkRegister.Name = "linkRegister";
             this.linkRegister.Size = new System.Drawing.Size(185, 24);
             this.linkRegister.TabIndex = 3;
-            this.linkRegister.Values.Text = "Hesabın yok mu? Kayıt Ol";
+            this.linkRegister.Values.Text = global::DemoTradingApp.Properties.Resources.RegisterLink;
             this.linkRegister.Click += new System.EventHandler(this.linkRegister_LinkClicked);
             // 
             // btnLogin
@@ -388,7 +388,7 @@
             this.btnLogin.Size = new System.Drawing.Size(347, 42);
             this.btnLogin.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnLogin.TabIndex = 2;
-            this.btnLogin.Values.Text = "Giriş Yap";
+            this.btnLogin.Values.Text = global::DemoTradingApp.Properties.Resources.LoginButton;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtLoginPassword
@@ -407,7 +407,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 24);
             this.label2.TabIndex = 2;
-            this.label2.Values.Text = "Şifre";
+            this.label2.Values.Text = global::DemoTradingApp.Properties.Resources.PasswordLabel;
             // 
             // txtLoginUsername
             // 
@@ -424,7 +424,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 24);
             this.label1.TabIndex = 0;
-            this.label1.Values.Text = "Kullanıcı Adı";
+            this.label1.Values.Text = global::DemoTradingApp.Properties.Resources.UsernameLabel;
             // 
             // lblTitle
             // 
@@ -434,7 +434,7 @@
             this.lblTitle.StateCommon.ShortText.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblTitle.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             this.lblTitle.TabIndex = 1;
-            this.lblTitle.Values.Text = "Kullanıcı Girişi";
+            this.lblTitle.Values.Text = global::DemoTradingApp.Properties.Resources.UserLogin;
             // 
             // LoginForm
             // 
@@ -445,7 +445,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Demo Trading - Giriş";
+            this.Text = "Demo Trading - Login";
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel)).EndInit();
             this.kryptonPanel.ResumeLayout(false);
             this.kryptonPanel.PerformLayout();
@@ -458,6 +458,7 @@
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.ResumeLayout(false);
+
         }
         #endregion
 

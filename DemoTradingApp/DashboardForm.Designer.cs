@@ -1,6 +1,4 @@
-﻿// Bu kodun tamamını kopyalayıp DashboardForm.Designer.cs dosyanızın içine yapıştırın.
-
-namespace DemoTradingApp
+﻿namespace DemoTradingApp
 {
     partial class DashboardForm
     {
@@ -34,6 +32,7 @@ namespace DemoTradingApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             kryptonManager1 = new Krypton.Toolkit.KryptonManager(components);
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            btnRefresh = new Krypton.Toolkit.KryptonButton();
             cmbDisplayCurrency = new Krypton.Toolkit.KryptonComboBox();
             lblDisplayCurrency = new Krypton.Toolkit.KryptonLabel();
             btnMenu = new Krypton.Toolkit.KryptonButton();
@@ -54,6 +53,7 @@ namespace DemoTradingApp
             dgvAssets = new Krypton.Toolkit.KryptonDataGridView();
             groupBalance = new Krypton.Toolkit.KryptonHeaderGroup();
             lblBalance = new Krypton.Toolkit.KryptonLabel();
+            refreshButtonSpec = new Krypton.Toolkit.ButtonSpecAny();
             pnlUpdateTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
             kryptonPanel1.SuspendLayout();
@@ -84,6 +84,7 @@ namespace DemoTradingApp
             // 
             // kryptonPanel1
             // 
+            kryptonPanel1.Controls.Add(btnRefresh);
             kryptonPanel1.Controls.Add(cmbDisplayCurrency);
             kryptonPanel1.Controls.Add(lblDisplayCurrency);
             kryptonPanel1.Controls.Add(btnMenu);
@@ -91,11 +92,20 @@ namespace DemoTradingApp
             kryptonPanel1.Controls.Add(pnlMainDashboard);
             kryptonPanel1.Dock = DockStyle.Fill;
             kryptonPanel1.Location = new Point(0, 0);
-            kryptonPanel1.Margin = new Padding(3, 4, 3, 4);
             kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Padding = new Padding(10, 12, 10, 12);
-            kryptonPanel1.Size = new Size(1358, 809);
+            kryptonPanel1.Padding = new Padding(10);
+            kryptonPanel1.Size = new Size(1374, 646);
             kryptonPanel1.TabIndex = 0;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(1138, 8);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(112, 31);
+            btnRefresh.TabIndex = 11;
+            btnRefresh.Values.DropDownArrowColor = Color.Empty;
+            btnRefresh.Values.Text = Properties.Resources.Refresh;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // cmbDisplayCurrency
             // 
@@ -103,8 +113,7 @@ namespace DemoTradingApp
             cmbDisplayCurrency.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDisplayCurrency.DropDownWidth = 121;
             cmbDisplayCurrency.IntegralHeight = false;
-            cmbDisplayCurrency.Location = new Point(1132, 10);
-            cmbDisplayCurrency.Margin = new Padding(3, 4, 3, 4);
+            cmbDisplayCurrency.Location = new Point(1003, 8);
             cmbDisplayCurrency.Name = "cmbDisplayCurrency";
             cmbDisplayCurrency.Size = new Size(121, 26);
             cmbDisplayCurrency.TabIndex = 9;
@@ -113,19 +122,17 @@ namespace DemoTradingApp
             // lblDisplayCurrency
             // 
             lblDisplayCurrency.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblDisplayCurrency.Location = new Point(1038, 11);
-            lblDisplayCurrency.Margin = new Padding(3, 4, 3, 4);
+            lblDisplayCurrency.Location = new Point(909, 10);
             lblDisplayCurrency.Name = "lblDisplayCurrency";
             lblDisplayCurrency.Size = new Size(88, 24);
             lblDisplayCurrency.TabIndex = 10;
-            lblDisplayCurrency.Values.Text = "Para Birimi:";
+            lblDisplayCurrency.Values.Text = Properties.Resources.Currency;
             // 
             // btnMenu
             // 
             btnMenu.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnMenu.KryptonContextMenu = kcmMenu;
-            btnMenu.Location = new Point(1259, 10);
-            btnMenu.Margin = new Padding(3, 4, 3, 4);
+            btnMenu.Location = new Point(1275, 8);
             btnMenu.Name = "btnMenu";
             btnMenu.Size = new Size(87, 31);
             btnMenu.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
@@ -144,27 +151,25 @@ namespace DemoTradingApp
             // 
             // cmiShowDashboard
             // 
-            cmiShowDashboard.Text = "Ana Panel";
+            cmiShowDashboard.Text = Properties.Resources.MainPanel;
             cmiShowDashboard.Click += cmiShowDashboard_Click;
             // 
             // lblWelcome
             // 
-            lblWelcome.Location = new Point(13, 10);
-            lblWelcome.Margin = new Padding(3, 4, 3, 4);
+            lblWelcome.Location = new Point(13, 8);
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(161, 32);
+            lblWelcome.Size = new Size(178, 32);
             lblWelcome.StateCommon.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblWelcome.TabIndex = 0;
-            lblWelcome.Values.Text = "Hoş geldiniz, ...";
+            lblWelcome.Values.Text = Properties.Resources.WelcomeMessage;
             // 
             // pnlMainDashboard
             // 
             pnlMainDashboard.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlMainDashboard.Controls.Add(tableLayoutPanel1);
-            pnlMainDashboard.Location = new Point(10, 56);
-            pnlMainDashboard.Margin = new Padding(3, 4, 3, 4);
+            pnlMainDashboard.Location = new Point(10, 45);
             pnlMainDashboard.Name = "pnlMainDashboard";
-            pnlMainDashboard.Size = new Size(1338, 740);
+            pnlMainDashboard.Size = new Size(1354, 581);
             pnlMainDashboard.TabIndex = 8;
             // 
             // tableLayoutPanel1
@@ -179,28 +184,26 @@ namespace DemoTradingApp
             tableLayoutPanel1.Controls.Add(groupBalance, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 250F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 200F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1338, 740);
+            tableLayoutPanel1.Size = new Size(1354, 581);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // groupTrades
             // 
             groupTrades.Dock = DockStyle.Fill;
             groupTrades.HeaderVisibleSecondary = false;
-            groupTrades.Location = new Point(672, 254);
-            groupTrades.Margin = new Padding(3, 4, 3, 4);
+            groupTrades.Location = new Point(680, 203);
             // 
             // 
             // 
             groupTrades.Panel.Controls.Add(dgvTrades);
-            groupTrades.Size = new Size(663, 482);
+            groupTrades.Size = new Size(671, 375);
             groupTrades.StateCommon.HeaderPrimary.Content.ShortText.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             groupTrades.TabIndex = 8;
-            groupTrades.ValuesPrimary.Heading = "Son İşlemler";
+            groupTrades.ValuesPrimary.Heading = Properties.Resources.RecentTrades;
             groupTrades.ValuesPrimary.Image = (Image)resources.GetObject("groupTrades.ValuesPrimary.Image");
             // 
             // dgvTrades
@@ -211,28 +214,26 @@ namespace DemoTradingApp
             dgvTrades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTrades.Dock = DockStyle.Fill;
             dgvTrades.Location = new Point(0, 0);
-            dgvTrades.Margin = new Padding(3, 4, 3, 4);
             dgvTrades.Name = "dgvTrades";
             dgvTrades.ReadOnly = true;
             dgvTrades.RowHeadersWidth = 51;
             dgvTrades.RowTemplate.Height = 24;
-            dgvTrades.Size = new Size(661, 435);
+            dgvTrades.Size = new Size(669, 328);
             dgvTrades.TabIndex = 0;
             // 
             // groupMarket
             // 
-            groupMarket.Dock = DockStyle.Fill;
+            groupMarket.Dock = DockStyle.Top;
             groupMarket.HeaderVisibleSecondary = false;
-            groupMarket.Location = new Point(672, 4);
-            groupMarket.Margin = new Padding(3, 4, 3, 4);
+            groupMarket.Location = new Point(680, 3);
             // 
             // 
             // 
             groupMarket.Panel.Controls.Add(dgvMarket);
-            groupMarket.Size = new Size(663, 242);
+            groupMarket.Size = new Size(671, 194);
             groupMarket.StateCommon.HeaderPrimary.Content.ShortText.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             groupMarket.TabIndex = 7;
-            groupMarket.ValuesPrimary.Heading = "Piyasa Fiyatları";
+            groupMarket.ValuesPrimary.Heading = Properties.Resources.MarketPrices;
             groupMarket.ValuesPrimary.Image = (Image)resources.GetObject("groupMarket.ValuesPrimary.Image");
             // 
             // dgvMarket
@@ -243,28 +244,26 @@ namespace DemoTradingApp
             dgvMarket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMarket.Dock = DockStyle.Fill;
             dgvMarket.Location = new Point(0, 0);
-            dgvMarket.Margin = new Padding(3, 4, 3, 4);
             dgvMarket.Name = "dgvMarket";
             dgvMarket.ReadOnly = true;
             dgvMarket.RowHeadersWidth = 51;
             dgvMarket.RowTemplate.Height = 24;
-            dgvMarket.Size = new Size(661, 195);
+            dgvMarket.Size = new Size(669, 147);
             dgvMarket.TabIndex = 0;
             // 
             // groupAssets
             // 
             groupAssets.Dock = DockStyle.Fill;
             groupAssets.HeaderVisibleSecondary = false;
-            groupAssets.Location = new Point(3, 254);
-            groupAssets.Margin = new Padding(3, 4, 3, 4);
+            groupAssets.Location = new Point(3, 203);
             // 
             // 
             // 
             groupAssets.Panel.Controls.Add(dgvAssets);
-            groupAssets.Size = new Size(663, 482);
+            groupAssets.Size = new Size(671, 375);
             groupAssets.StateCommon.HeaderPrimary.Content.ShortText.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             groupAssets.TabIndex = 6;
-            groupAssets.ValuesPrimary.Heading = "Varlıklarım";
+            groupAssets.ValuesPrimary.Heading = Properties.Resources.MyAssets;
             groupAssets.ValuesPrimary.Image = (Image)resources.GetObject("groupAssets.ValuesPrimary.Image");
             // 
             // dgvAssets
@@ -275,37 +274,34 @@ namespace DemoTradingApp
             dgvAssets.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAssets.Dock = DockStyle.Fill;
             dgvAssets.Location = new Point(0, 0);
-            dgvAssets.Margin = new Padding(3, 4, 3, 4);
             dgvAssets.Name = "dgvAssets";
             dgvAssets.ReadOnly = true;
             dgvAssets.RowHeadersWidth = 51;
             dgvAssets.RowTemplate.Height = 24;
-            dgvAssets.Size = new Size(661, 435);
+            dgvAssets.Size = new Size(669, 328);
             dgvAssets.TabIndex = 0;
             // 
             // groupBalance
             // 
             groupBalance.Dock = DockStyle.Fill;
             groupBalance.HeaderVisibleSecondary = false;
-            groupBalance.Location = new Point(3, 4);
-            groupBalance.Margin = new Padding(3, 4, 3, 4);
+            groupBalance.Location = new Point(3, 3);
             // 
             // 
             // 
             groupBalance.Panel.Controls.Add(lblBalance);
-            groupBalance.Size = new Size(663, 242);
+            groupBalance.Size = new Size(671, 194);
             groupBalance.StateCommon.HeaderPrimary.Content.ShortText.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 162);
             groupBalance.TabIndex = 5;
-            groupBalance.ValuesPrimary.Heading = "Toplam Varlık Değeri";
+            groupBalance.ValuesPrimary.Heading = Properties.Resources.TotalAssetsValue;
             groupBalance.ValuesPrimary.Image = (Image)resources.GetObject("groupBalance.ValuesPrimary.Image");
             // 
             // lblBalance
             // 
             lblBalance.Dock = DockStyle.Fill;
             lblBalance.Location = new Point(0, 0);
-            lblBalance.Margin = new Padding(3, 4, 3, 4);
             lblBalance.Name = "lblBalance";
-            lblBalance.Size = new Size(661, 195);
+            lblBalance.Size = new Size(669, 147);
             lblBalance.StateCommon.ShortText.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblBalance.StateCommon.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             lblBalance.StateCommon.ShortText.TextV = Krypton.Toolkit.PaletteRelativeAlign.Center;
@@ -314,21 +310,19 @@ namespace DemoTradingApp
             // 
             // pnlUpdateTimer
             // 
-            pnlUpdateTimer.Enabled = true;
-            pnlUpdateTimer.Interval = 60000;
+            pnlUpdateTimer.Interval = 300000;
             pnlUpdateTimer.Tick += pnlUpdateTimer_Tick;
             // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1358, 809);
+            ClientSize = new Size(1374, 646);
             Controls.Add(kryptonPanel1);
-            Margin = new Padding(3, 4, 3, 4);
-            MinimumSize = new Size(1300, 863);
+            MinimumSize = new Size(1300, 700);
             Name = "DashboardForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Ana Panel";
+            Text = Properties.Resources.MainPanel;
             Load += DashboardForm_Load;
             Resize += DashboardForm_Resize;
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
@@ -383,5 +377,7 @@ namespace DemoTradingApp
         private Krypton.Toolkit.KryptonLabel lblDisplayCurrency;
         private Krypton.Toolkit.KryptonComboBox cmbDisplayCurrency;
         private System.Windows.Forms.Timer pnlUpdateTimer;
+        private Krypton.Toolkit.KryptonButton btnRefresh;
+        private Krypton.Toolkit.ButtonSpecAny refreshButtonSpec;
     }
 }

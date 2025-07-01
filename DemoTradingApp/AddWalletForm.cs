@@ -10,6 +10,11 @@ namespace DemoTradingApp
         private readonly User _currentUser;
         private readonly DashboardForm _dashboard;
 
+        /// <summary>
+        /// Initializes a new instance of the AddWalletForm class.
+        /// </summary>
+        /// <param name="user">The current user.</param>
+        /// <param name="dashboard">The dashboard form to refresh after changes.</param>
         public AddWalletForm(User user, DashboardForm dashboard)
         {
             InitializeComponent();
@@ -17,9 +22,13 @@ namespace DemoTradingApp
             _dashboard = dashboard;
         }
 
+        /// <summary>
+        /// Handles the form load event and populates wallet type and existing wallet lists.
+        /// </summary>
+        /// <param name="sender">The event sender.</param>
+        /// <param name="e">The event arguments.</param>
         private void AddWalletForm_Load(object sender, EventArgs e)
         {
-            // Form yüklendiğinde her iki ComboBox'ı da doldur
             LoadWalletTypes();
             LoadExistingWallets();
         }
@@ -35,7 +44,7 @@ namespace DemoTradingApp
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Cüzdan türleri yüklenirken bir hata oluştu: " + ex.Message, "Veritabanı Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                KryptonMessageBox.Show(Properties.Resources.WalletTypeLoadError + ex.Message, Properties.Resources.DatabaseError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
             }
         }
 
@@ -50,20 +59,25 @@ namespace DemoTradingApp
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Mevcut cüzdanlar yüklenirken bir hata oluştu: " + ex.Message, "Veritabanı Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                KryptonMessageBox.Show(Properties.Resources.ExistingWalletsLoadError + ex.Message, Properties.Resources.DatabaseError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// Handles the confirm button click event to create a new wallet.
+        /// </summary>
+        /// <param name="sender">The event sender.</param>
+        /// <param name="e">The event arguments.</param>
         private async void btnConfirm_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtWalletName.Text))
             {
-                KryptonMessageBox.Show("Cüzdan adı boş bırakılamaz.", "Eksik Bilgi", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                KryptonMessageBox.Show(Properties.Resources.WalletNameRequired, Properties.Resources.MissingInfo, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
                 return;
             }
             if (cmbWalletType.SelectedValue == null)
             {
-                KryptonMessageBox.Show("Lütfen bir cüzdan türü seçin.", "Eksik Bilgi", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                KryptonMessageBox.Show(Properties.Resources.SelectWalletType, Properties.Resources.MissingInfo, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
                 return;
             }
 
@@ -73,33 +87,38 @@ namespace DemoTradingApp
 
                 if (success)
                 {
-                    KryptonMessageBox.Show("Cüzdan başarıyla oluşturuldu.", "Başarılı", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
+                    KryptonMessageBox.Show(Properties.Resources.WalletCreatedSuccess, Properties.Resources.Success, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
                     await _dashboard.LoadAllData();
                     this.Close();
                 }
                 else
                 {
-                    KryptonMessageBox.Show("Cüzdan oluşturulurken bir hata oluştu.", "İşlem Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                    KryptonMessageBox.Show(Properties.Resources.WalletCreateError, Properties.Resources.OperationError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Kritik veritabanı hatası: " + ex.Message, "Hata", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                KryptonMessageBox.Show(Properties.Resources.CriticalDatabaseError + ex.Message, Properties.Resources.Error, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// Handles the delete button click event to delete the selected wallet.
+        /// </summary>
+        /// <param name="sender">The event sender.</param>
+        /// <param name="e">The event arguments.</param>
         private async void btnDelete_Click(object sender, EventArgs e)
         {
             if (cmbExistingWallets.SelectedValue == null)
             {
-                KryptonMessageBox.Show("Lütfen silmek için bir cüzdan seçin.", "Eksik Bilgi", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                KryptonMessageBox.Show(Properties.Resources.SelectWalletToDelete, Properties.Resources.MissingInfo, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
                 return;
             }
 
             string walletNameToDelete = cmbExistingWallets.Text;
             var confirmation = KryptonMessageBox.Show(
-                $"'{walletNameToDelete}' adlı cüzdanı silmek istediğinizden emin misiniz?\n\nBU İŞLEM GERİ ALINAMAZ VE CÜZDAN İÇİNDEKİ TÜM VARLIKLAR SİLİNİR!",
-                "Silme Onayı",
+                string.Format(Properties.Resources.DeleteWalletConfirmation, walletNameToDelete),
+                Properties.Resources.DeleteConfirmationTitle,
                 KryptonMessageBoxButtons.YesNo,
                 KryptonMessageBoxIcon.Warning);
 
@@ -112,22 +131,27 @@ namespace DemoTradingApp
 
                     if (success)
                     {
-                        KryptonMessageBox.Show("Cüzdan başarıyla silindi.", "Başarılı", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
+                        KryptonMessageBox.Show(Properties.Resources.WalletDeletedSuccess, Properties.Resources.Success, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
                         await _dashboard.LoadAllData();
                         this.Close();
                     }
                     else
                     {
-                        KryptonMessageBox.Show("Cüzdan silinirken bir hata oluştu.", "İşlem Hatası", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                        KryptonMessageBox.Show(Properties.Resources.WalletDeleteError, Properties.Resources.OperationError, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
                 {
-                    KryptonMessageBox.Show("Kritik veritabanı hatası: " + ex.Message, "Hata", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                    KryptonMessageBox.Show(Properties.Resources.CriticalDatabaseError + ex.Message, Properties.Resources.Error, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
                 }
             }
         }
 
+        /// <summary>
+        /// Handles the cancel button click event to close the form.
+        /// </summary>
+        /// <param name="sender">The event sender.</param>
+        /// <param name="e">The event arguments.</param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();

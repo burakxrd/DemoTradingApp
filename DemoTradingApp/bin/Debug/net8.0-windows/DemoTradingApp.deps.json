@@ -9,12 +9,17 @@
       "DemoTradingApp/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
-          "Krypton.Toolkit": "95.25.4.111",
-          "MailKit": "4.12.1",
+          "Krypton.Toolkit": "95.25.6.174",
+          "MailKit": "4.13.0",
           "Microsoft.Data.SqlClient": "6.0.2"
         },
         "runtime": {
           "DemoTradingApp.dll": {}
+        },
+        "resources": {
+          "en/DemoTradingApp.resources.dll": {
+            "locale": "en"
+          }
         }
       },
       "Azure.Core/1.38.0": {
@@ -68,23 +73,23 @@
           }
         }
       },
-      "Krypton.Toolkit/95.25.4.111": {
+      "Krypton.Toolkit/95.25.6.174": {
         "runtime": {
           "lib/net8.0-windows7.0/Krypton.Toolkit.dll": {
-            "assemblyVersion": "95.25.4.111",
-            "fileVersion": "95.25.4.111"
+            "assemblyVersion": "95.25.6.174",
+            "fileVersion": "95.25.6.174"
           }
         }
       },
-      "MailKit/4.12.1": {
+      "MailKit/4.13.0": {
         "dependencies": {
-          "MimeKit": "4.12.0",
+          "MimeKit": "4.13.0",
           "System.Formats.Asn1": "8.0.1"
         },
         "runtime": {
           "lib/net8.0/MailKit.dll": {
-            "assemblyVersion": "4.12.0.0",
-            "fileVersion": "4.12.1.0"
+            "assemblyVersion": "4.13.0.0",
+            "fileVersion": "4.13.0.0"
           }
         }
       },
@@ -358,15 +363,15 @@
           }
         }
       },
-      "MimeKit/4.12.0": {
+      "MimeKit/4.13.0": {
         "dependencies": {
           "BouncyCastle.Cryptography": "2.5.1",
           "System.Security.Cryptography.Pkcs": "8.0.1"
         },
         "runtime": {
           "lib/net8.0/MimeKit.dll": {
-            "assemblyVersion": "4.12.0.0",
-            "fileVersion": "4.12.0.0"
+            "assemblyVersion": "4.13.0.0",
+            "fileVersion": "4.13.0.0"
           }
         }
       },
@@ -499,19 +504,19 @@
       "path": "bouncycastle.cryptography/2.5.1",
       "hashPath": "bouncycastle.cryptography.2.5.1.nupkg.sha512"
     },
-    "Krypton.Toolkit/95.25.4.111": {
+    "Krypton.Toolkit/95.25.6.174": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-f+3IaPFmuJGVDwGks1UAWtUaVy2yuBG483kjew7FsZ7DeXxdC9NO+h438WvLifmrIC7w5AlHlOVf0MynVONyMQ==",
-      "path": "krypton.toolkit/95.25.4.111",
-      "hashPath": "krypton.toolkit.95.25.4.111.nupkg.sha512"
+      "sha512": "sha512-eTMEp/UGtcLZzGA9Nl202WUM6SpkdXnQIJLXiMRKwthuuVSvH/vLQFy2J7PVrwU53rKOI69KQ8LGjZIUkrXJvg==",
+      "path": "krypton.toolkit/95.25.6.174",
+      "hashPath": "krypton.toolkit.95.25.6.174.nupkg.sha512"
     },
-    "MailKit/4.12.1": {
+    "MailKit/4.13.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rIqJm92qtHvk1hDchsJ95Hy7n46A7imE24ol++ikXBsjf3Bi1qDBu4H91FfY6LrYXJaxRlc2gIIpC8AOJrCbqg==",
-      "path": "mailkit/4.12.1",
-      "hashPath": "mailkit.4.12.1.nupkg.sha512"
+      "sha512": "sha512-GsepEHKkaQvbAuBizlhz93yc0ihJWzVCfoerfnpCeqiKLeS6gsTKInYy3/U2wqgkGE62TKs5OKS1a90pyc+j4g==",
+      "path": "mailkit/4.13.0",
+      "hashPath": "mailkit.4.13.0.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
@@ -646,12 +651,12 @@
       "path": "microsoft.sqlserver.server/1.0.0",
       "hashPath": "microsoft.sqlserver.server.1.0.0.nupkg.sha512"
     },
-    "MimeKit/4.12.0": {
+    "MimeKit/4.13.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PFUHfs6BZxKYM/QPJksAwXphbJf0SEfdSfsoQ6p6yvFRaJPofFJMBiotWhFRrdSUzfp6C6K49EjBIqIwZ2TJqA==",
-      "path": "mimekit/4.12.0",
-      "hashPath": "mimekit.4.12.0.nupkg.sha512"
+      "sha512": "sha512-oa4JuhAzJydHnPCc/XWeyBUGd3uiVyWW0NXqOVgkXEHjbHlPVBssklK3mpw9sokjzAaBGdj0bceFsr+NXvAukA==",
+      "path": "mimekit/4.13.0",
+      "hashPath": "mimekit.4.13.0.nupkg.sha512"
     },
     "System.ClientModel/1.0.0": {
       "type": "package",

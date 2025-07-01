@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q0nz5ekhTKg=",
+  "dgSpecHash": "Vk2zIuQGUaE=",
   "success": true,
   "projectFilePath": "C:\\Users\\burak\\Desktop\\C#\\DemoTradingApp\\DemoTradingApp\\DemoTradingApp.csproj",
   "expectedPackageFiles": [
@@ -8,8 +8,8 @@
     "C:\\Users\\burak\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
-    "C:\\Users\\burak\\.nuget\\packages\\krypton.toolkit\\95.25.4.111\\krypton.toolkit.95.25.4.111.nupkg.sha512",
-    "C:\\Users\\burak\\.nuget\\packages\\mailkit\\4.12.1\\mailkit.4.12.1.nupkg.sha512",
+    "C:\\Users\\burak\\.nuget\\packages\\krypton.toolkit\\95.25.6.174\\krypton.toolkit.95.25.6.174.nupkg.sha512",
+    "C:\\Users\\burak\\.nuget\\packages\\mailkit\\4.13.0\\mailkit.4.13.0.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\microsoft.bcl.cryptography\\8.0.0\\microsoft.bcl.cryptography.8.0.0.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\microsoft.data.sqlclient\\6.0.2\\microsoft.data.sqlclient.6.0.2.nupkg.sha512",
@@ -29,7 +29,7 @@
     "C:\\Users\\burak\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\7.5.0\\microsoft.identitymodel.protocols.openidconnect.7.5.0.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.5.0\\microsoft.identitymodel.tokens.7.5.0.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
-    "C:\\Users\\burak\\.nuget\\packages\\mimekit\\4.12.0\\mimekit.4.12.0.nupkg.sha512",
+    "C:\\Users\\burak\\.nuget\\packages\\mimekit\\4.13.0\\mimekit.4.13.0.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\system.clientmodel\\1.0.0\\system.clientmodel.1.0.0.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\system.configuration.configurationmanager\\8.0.1\\system.configuration.configurationmanager.8.0.1.nupkg.sha512",
     "C:\\Users\\burak\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",

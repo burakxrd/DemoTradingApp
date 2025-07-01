@@ -16,51 +16,23 @@ namespace DemoTradingApp
         private PriceInfo? _exchangeRates;
         private decimal _totalValueInUsd = 0;
         private Dictionary<string, PriceInfo>? _marketPricesData;
-
         public DashboardForm(User user)
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             _currentUser = user;
         }
-
         private async void DashboardForm_Load(object? sender, EventArgs e)
         {
-            this.kryptonManager1.GlobalPaletteMode = PaletteMode.SparkleBlue;
-            lblWelcome.Text = $"Hoş geldiniz, {_currentUser.Username}!";
-
-            // Kaldırılan panellerin Visible özellikleri artık burada yönetilmiyor.
-            pnlMainDashboard.Visible = true;
-
+            this.kryptonManager1.GlobalPaletteMode = Krypton.Toolkit.PaletteMode.SparkleBlue;
+            lblWelcome.Text = string.Format(Properties.Resources.WelcomeMessage, _currentUser.Username);
             cmbDisplayCurrency.Items.Add("USD");
             cmbDisplayCurrency.Items.Add("EUR");
             cmbDisplayCurrency.Items.Add("TRY");
-
             await LoadAllData();
-
-            // Veri yüklendikten sonra seçim yapmak daha güvenli
             if (cmbDisplayCurrency.Items.Count > 0)
                 cmbDisplayCurrency.SelectedItem = "TRY";
         }
-
-        private async Task LoadExchangeRatesAsync()
-        {
-            var newExchangeRates = await ApiService.GetExchangeRatesAsync();
-            if (newExchangeRates != null)
-            {
-                _exchangeRates = newExchangeRates;
-            }
-            else
-            {
-                Console.WriteLine("API'den döviz kuru verileri alınamadı, mevcut veriler kullanılıyor.");
-                if (_exchangeRates == null)
-                {
-                    KryptonMessageBox.Show("Döviz kurları alınamadı. Varsayılan kurlar kullanılacak.");
-                    _exchangeRates = new PriceInfo { Usd = 1, Eur = 0.9m, Try = 32.0m };
-                }
-            }
-        }
-
         public async Task LoadAllData()
         {
             await LoadExchangeRatesAsync();
@@ -68,48 +40,29 @@ namespace DemoTradingApp
             LoadUserAssets();
             LoadRecentTrades();
         }
-
-        private void StyleDataGridView(KryptonDataGridView dgv)
+        private string FormatPnl(decimal pnlUsd)
         {
-            if (dgv.ColumnCount == 0 || dgv.Width < 10) return;
+            string selectedCurrency = GetSelectedCurrency();
+            decimal pnlConverted = 0;
 
-            dgv.RowHeadersVisible = false;
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            if (dgv == dgvAssets && dgv.Columns.Contains("K/Z"))
+            if (_exchangeRates != null)
             {
-                dgv.Columns["Cüzdan"].FillWeight = 90;
-                dgv.Columns["Varlık"].FillWeight = 80;
-                dgv.Columns["Miktar"].FillWeight = 100;
-                dgv.Columns["Birim Fiyat"].FillWeight = 100;
-                dgv.Columns["Toplam Değer"].FillWeight = 110;
-                dgv.Columns["K/Z"].FillWeight = 90;
-            }
-
-            if (dgv.Columns.Contains("Miktar")) dgv.Columns["Miktar"].DefaultCellStyle.Format = "N6";
-            if (dgv.Columns.Contains("Tarih")) dgv.Columns["Tarih"].DefaultCellStyle.Format = "g";
-
-            if (dgv == dgvAssets && dgv.Columns.Contains("K/Z"))
-            {
-                foreach (DataGridViewRow row in dgv.Rows)
+                switch (selectedCurrency.ToUpper())
                 {
-                    if (row.Cells["K/Z"].Value?.ToString()?.StartsWith("+") ?? false)
-                    {
-                        row.Cells["K/Z"].Style.ForeColor = Color.LawnGreen;
-                    }
-                    else if (row.Cells["K/Z"].Value?.ToString()?.StartsWith("-") ?? false)
-                    {
-                        row.Cells["K/Z"].Style.ForeColor = Color.Tomato;
-                    }
+                    case "EUR": pnlConverted = pnlUsd * _exchangeRates.Eur; break;
+                    case "TRY": pnlConverted = pnlUsd * _exchangeRates.Try; break;
+                    default: pnlConverted = pnlUsd; break;
                 }
             }
-        }
 
-        public string GetSelectedCurrency()
-        {
-            return cmbDisplayCurrency.SelectedItem?.ToString() ?? "USD";
-        }
+            CultureInfo culture = FormattingHelper.GetCultureInfoFor(selectedCurrency);
 
+            if (pnlConverted > 0)
+            {
+                return "+" + pnlConverted.ToString("C2", culture);
+            }
+            return pnlConverted.ToString("C2", culture);
+        }
         private void LoadUserAssets()
         {
             if (_marketPricesData == null) return;
@@ -118,20 +71,20 @@ namespace DemoTradingApp
                 DataTable assetsFromDb = DatabaseHelper.GetUserAssetsWithValues(_currentUser.UserId);
 
                 var displayTable = new DataTable();
-                displayTable.Columns.Add("Cüzdan", typeof(string));
-                displayTable.Columns.Add("Varlık", typeof(string));
-                displayTable.Columns.Add("Miktar", typeof(decimal));
-                displayTable.Columns.Add("Birim Fiyat", typeof(decimal));
-                displayTable.Columns.Add("Toplam Değer", typeof(decimal));
-                displayTable.Columns.Add("K/Z", typeof(string));
+                displayTable.Columns.Add(Properties.Resources.Wallet, typeof(string));
+                displayTable.Columns.Add(Properties.Resources.Asset, typeof(string));
+                displayTable.Columns.Add(Properties.Resources.Amount, typeof(decimal));
+                displayTable.Columns.Add(Properties.Resources.UnitPrice, typeof(decimal));
+                displayTable.Columns.Add(Properties.Resources.TotalValue, typeof(decimal));
+                displayTable.Columns.Add(Properties.Resources.PnL, typeof(string));
 
                 _totalValueInUsd = 0;
 
                 foreach (DataRow row in assetsFromDb.Rows)
                 {
-                    string assetName = row["Varlık"].ToString()!;
+                    string assetName = row["Asset"].ToString()!;
                     string assetNameLower = assetName.ToLower();
-                    decimal amount = Convert.ToDecimal(row["Miktar"]);
+                    decimal amount = Convert.ToDecimal(row["Amount"]);
 
                     decimal livePriceUsd = 0;
                     if (_marketPricesData.ContainsKey(assetNameLower))
@@ -143,15 +96,7 @@ namespace DemoTradingApp
                         livePriceUsd = ConvertToUsd(1, assetName);
                     }
 
-                    decimal totalValueUsd;
-                    if (new[] { "TRY", "EUR" }.Contains(assetName.ToUpper()))
-                    {
-                        totalValueUsd = ConvertToUsd(amount, assetName);
-                    }
-                    else
-                    {
-                        totalValueUsd = amount * livePriceUsd;
-                    }
+                    decimal totalValueUsd = amount * livePriceUsd;
                     _totalValueInUsd += totalValueUsd;
 
                     string selectedCurrency = GetSelectedCurrency();
@@ -162,55 +107,92 @@ namespace DemoTradingApp
                     var cryptoList = new[] { "BITCOIN", "ETHEREUM", "SOLANA", "TETHER" };
                     if (cryptoList.Contains(assetName.ToUpper()))
                     {
-                        decimal netCostUsd = Convert.ToDecimal(row["NetUSDMaliyet"]);
-                        decimal pnlUsd = totalValueUsd - netCostUsd;
-                        pnlString = FormatPnl(pnlUsd);
+                        decimal netCostUsd = Convert.ToDecimal(row["NetUSDCost"]);
+                        if (netCostUsd > 0)
+                        {
+                            decimal pnlUsd = totalValueUsd - netCostUsd;
+                            pnlString = FormatPnl(pnlUsd);
+                        }
                     }
 
-                    displayTable.Rows.Add(row["Cüzdan"], assetName, amount, displayPrice, displayTotalValue, pnlString);
+                    displayTable.Rows.Add(row["Wallet"], assetName, amount, displayPrice, displayTotalValue, pnlString);
                 }
 
                 dgvAssets.DataSource = displayTable;
 
-                if (dgvAssets.Columns.Contains("Birim Fiyat")) FormatPriceColumn(dgvAssets.Columns["Birim Fiyat"]);
-                if (dgvAssets.Columns.Contains("Toplam Değer")) FormatPriceColumn(dgvAssets.Columns["Toplam Değer"]);
+                if (dgvAssets.Columns.Contains(Properties.Resources.UnitPrice)) FormatPriceColumn(dgvAssets.Columns[Properties.Resources.UnitPrice]);
+                if (dgvAssets.Columns.Contains(Properties.Resources.TotalValue)) FormatPriceColumn(dgvAssets.Columns[Properties.Resources.TotalValue]);
 
                 StyleDataGridView(dgvAssets);
                 UpdateTotalBalanceLabel();
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Varlıklar yüklenirken bir hata oluştu: " + ex.Message);
+                KryptonMessageBox.Show(string.Format(Properties.Resources.AssetsLoadError, ex.Message));
+            }
+        }
+        private void StyleDataGridView(KryptonDataGridView dgv)
+        {
+            if (dgv.ColumnCount == 0 || dgv.Width < 10) return;
+            dgv.RowHeadersVisible = false;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            if (dgv == dgvAssets && dgv.Columns.Contains(Properties.Resources.PnL))
+            {
+                dgv.Columns[Properties.Resources.Wallet].FillWeight = 90;
+                dgv.Columns[Properties.Resources.Asset].FillWeight = 80;
+                dgv.Columns[Properties.Resources.Amount].FillWeight = 100;
+                dgv.Columns[Properties.Resources.UnitPrice].FillWeight = 100;
+                dgv.Columns[Properties.Resources.TotalValue].FillWeight = 110;
+                dgv.Columns[Properties.Resources.PnL].FillWeight = 90;
+            }
+
+            if (dgv.Columns.Contains(Properties.Resources.Amount)) dgv.Columns[Properties.Resources.Amount].DefaultCellStyle.Format = "N6";
+            if (dgv.Columns.Contains(Properties.Resources.Date)) dgv.Columns[Properties.Resources.Date].DefaultCellStyle.Format = "g";
+
+            if (dgv == dgvAssets && dgv.Columns.Contains(Properties.Resources.PnL))
+            {
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    if (row.Cells[Properties.Resources.PnL].Value?.ToString()?.StartsWith("+") ?? false)
+                        row.Cells[Properties.Resources.PnL].Style.ForeColor = Color.LawnGreen;
+                    else if (row.Cells[Properties.Resources.PnL].Value?.ToString()?.StartsWith("-") ?? false)
+                        row.Cells[Properties.Resources.PnL].Style.ForeColor = Color.Tomato;
+                    else
+                        row.Cells[Properties.Resources.PnL].Style.ForeColor = dgv.RowsDefaultCellStyle.ForeColor;
+                }
             }
         }
 
-        private string FormatPnl(decimal pnlUsd)
+        private async Task LoadExchangeRatesAsync()
         {
-            string selectedCurrency = GetSelectedCurrency();
-            decimal pnlConverted = 0;
-
-            if (_exchangeRates != null)
+            var newExchangeRates = await ApiService.GetExchangeRatesAsync();
+            if (newExchangeRates != null)
             {
-                switch (selectedCurrency)
+                _exchangeRates = newExchangeRates;
+            }
+            else
+            {
+                Console.WriteLine(Properties.Resources.ExchangeRatesApiError);
+                if (_exchangeRates == null)
                 {
-                    case "EUR": pnlConverted = pnlUsd * _exchangeRates.Eur; break;
-                    case "TRY": pnlConverted = pnlUsd * _exchangeRates.Try; break;
-                    default: pnlConverted = pnlUsd; break;
+                    KryptonMessageBox.Show(Properties.Resources.ExchangeRatesNotAvailable);
+                    _exchangeRates = new PriceInfo { Usd = 1, Eur = 0.9m, Try = 32.0m };
                 }
             }
+        }
 
-            CultureInfo culture = FormattingHelper.GetCultureInfoFor(selectedCurrency);
-            return string.Format(culture, "{0:C2}", pnlConverted);
+        public string GetSelectedCurrency()
+        {
+            return cmbDisplayCurrency.SelectedItem?.ToString() ?? "USD";
         }
 
         private void UpdateTotalBalanceLabel()
         {
             if (_exchangeRates == null) return;
-
             string selectedCurrency = GetSelectedCurrency();
             decimal convertedValue = ConvertFromUsd(_totalValueInUsd, selectedCurrency);
             CultureInfo culture = FormattingHelper.GetCultureInfoFor(selectedCurrency);
-
             lblBalance.Text = string.Format(culture, "{0:C2}", convertedValue);
         }
 
@@ -226,14 +208,13 @@ namespace DemoTradingApp
             {
                 var coinList = new List<string> { "bitcoin", "ethereum", "solana", "tether" };
                 var newMarketPricesData = await ApiService.GetCryptoPricesAsync(coinList);
-
                 if (newMarketPricesData != null && newMarketPricesData.Count > 0)
                 {
                     _marketPricesData = newMarketPricesData;
                 }
                 else
                 {
-                    Console.WriteLine("API'den yeni piyasa verisi alınamadı.");
+                    Console.WriteLine(Properties.Resources.MarketDataApiError);
                     if (_marketPricesData == null)
                     {
                         _marketPricesData = new Dictionary<string, PriceInfo>();
@@ -243,7 +224,7 @@ namespace DemoTradingApp
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Piyasa fiyatları yüklenirken bir hata oluştu: " + ex.Message, "Hata");
+                KryptonMessageBox.Show(string.Format(Properties.Resources.MarketPricesLoadError, ex.Message), Properties.Resources.Error);
             }
         }
 
@@ -253,10 +234,9 @@ namespace DemoTradingApp
             try
             {
                 string selectedCurrency = GetSelectedCurrency();
-
                 var displayTable = new DataTable();
-                displayTable.Columns.Add("Piyasa", typeof(string));
-                displayTable.Columns.Add($"Fiyat ({selectedCurrency})", typeof(decimal));
+                displayTable.Columns.Add(Properties.Resources.Market, typeof(string));
+                displayTable.Columns.Add(string.Format(Properties.Resources.PriceFormat, selectedCurrency), typeof(decimal));
 
                 foreach (var coin in _marketPricesData)
                 {
@@ -276,7 +256,7 @@ namespace DemoTradingApp
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Piyasa tablosu güncellenirken bir hata oluştu: " + ex.Message);
+                KryptonMessageBox.Show(string.Format(Properties.Resources.MarketTableUpdateError, ex.Message));
             }
         }
 
@@ -289,13 +269,9 @@ namespace DemoTradingApp
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Son işlemler yüklenirken bir hata oluştu: " + ex.Message, "Hata");
+                KryptonMessageBox.Show(string.Format(Properties.Resources.RecentTradesLoadError, ex.Message), Properties.Resources.Error);
             }
         }
-
-        // ShowPanelByName ve panel'lere ait diğer metotlar bu bölümden kaldırıldı.
-
-        #region Form Çağırma ve Yardımcı Metotlar
 
         private void FormatPriceColumn(DataGridViewColumn priceColumn)
         {
@@ -307,25 +283,25 @@ namespace DemoTradingApp
         private decimal ConvertToUsd(decimal amount, string currency)
         {
             if (_exchangeRates == null) return 0;
-            switch (currency.ToUpper())
+            return currency.ToUpper() switch
             {
-                case "USD": return amount;
-                case "EUR": return _exchangeRates.Eur == 0 ? 0 : amount / _exchangeRates.Eur;
-                case "TRY": return _exchangeRates.Try == 0 ? 0 : amount / _exchangeRates.Try;
-                default: return 0;
-            }
+                "USD" => amount,
+                "EUR" => _exchangeRates.Eur == 0 ? 0 : amount / _exchangeRates.Eur,
+                "TRY" => _exchangeRates.Try == 0 ? 0 : amount / _exchangeRates.Try,
+                _ => 0,
+            };
         }
 
         private decimal ConvertFromUsd(decimal amountInUsd, string targetCurrency)
         {
             if (_exchangeRates == null) return 0;
-            switch (targetCurrency.ToUpper())
+            return targetCurrency.ToUpper() switch
             {
-                case "USD": return amountInUsd;
-                case "EUR": return amountInUsd * _exchangeRates.Eur;
-                case "TRY": return amountInUsd * _exchangeRates.Try;
-                default: return 0;
-            }
+                "USD" => amountInUsd,
+                "EUR" => amountInUsd * _exchangeRates.Eur,
+                "TRY" => amountInUsd * _exchangeRates.Try,
+                _ => 0,
+            };
         }
 
         public void ShowTradeForm()
@@ -333,12 +309,11 @@ namespace DemoTradingApp
             DataTable originalAssets = DatabaseHelper.GetUserAssetsWithValues(_currentUser.UserId);
             if (originalAssets == null || _marketPricesData == null || _exchangeRates == null)
             {
-                KryptonMessageBox.Show("Gerekli veriler yüklenemediği için trade ekranı açılamıyor.");
+                KryptonMessageBox.Show(Properties.Resources.TradeFormCannotOpen);
                 return;
             }
-
             TradesForm tradeForm = new TradesForm(this, _currentUser, originalAssets, _marketPricesData, _exchangeRates);
-            tradeForm.FormClosed += ChildForm_Closed; // Ortak olaya bağlıyoruz
+            tradeForm.FormClosed += ChildForm_Closed;
             this.Hide();
             tradeForm.Show();
         }
@@ -347,51 +322,43 @@ namespace DemoTradingApp
         {
             DataTable assets = DatabaseHelper.GetUserAssetsWithValues(_currentUser.UserId);
             ExpensiveMarketForm marketForm = new ExpensiveMarketForm(this, _currentUser, assets);
-
-            // Form kapatıldığında ChildForm_Closed metodunu tetikle
             marketForm.FormClosed += ChildForm_Closed;
             this.Hide();
             marketForm.Show();
         }
 
+        public void Logout() => Application.Restart();
 
-        public void Logout()
-        {
-            Application.Restart();
-        }
         public void ShowPossessionsForm()
         {
             MyPossessionsForm possessionsForm = new MyPossessionsForm(_currentUser.UserId);
-
-            // Form kapatıldığında ChildForm_Closed metodunu tetikle
             possessionsForm.FormClosed += ChildForm_Closed;
             this.Hide();
             possessionsForm.Show();
         }
+
         private async void ChildForm_Closed(object? sender, FormClosedEventArgs e)
         {
-            // Gizlenmiş olan ana formu (Dashboard) tekrar görünür yap.
             this.Show();
-            // Form geri geldiğinde güncel verileri görmek için her şeyi yeniden yükle.
             await this.LoadAllData();
         }
+
         public void ShowAddWalletForm()
         {
             AddWalletForm addWalletForm = new AddWalletForm(_currentUser, this);
-            addWalletForm.FormClosed += ChildForm_Closed; // Ortak olaya bağlıyoruz
+            addWalletForm.FormClosed += ChildForm_Closed;
             this.Hide();
             addWalletForm.Show();
         }
+
         public void ShowAddBalanceForm()
         {
             AddBalanceForm addBalanceForm = new AddBalanceForm(_currentUser, this);
-            addBalanceForm.FormClosed += ChildForm_Closed; // Ortak olaya bağlıyoruz
+            addBalanceForm.FormClosed += ChildForm_Closed;
             this.Hide();
             addBalanceForm.Show();
         }
-        #endregion
 
-        #region Form Olayları (Events)
         private void btnMenu_Click(object? sender, EventArgs e)
         {
             MenuForm menu = new MenuForm(this);
@@ -407,19 +374,23 @@ namespace DemoTradingApp
             StyleDataGridView(dgvTrades);
         }
 
-        private async void pnlUpdateTimer_Tick(object? sender, EventArgs e)
-        {
-            await LoadAllData();
-        }
+        private async void pnlUpdateTimer_Tick(object? sender, EventArgs e) => await LoadAllData();
 
-        // Bu metot, form üzerindeki KryptonContextMenu için bırakıldı, ancak işlevselliği artık MenuForm'da.
-        // İsterseniz silebilirsiniz veya ana panele sağ tık menüsü eklemek için kullanabilirsiniz.
         private void cmiShowDashboard_Click(object? sender, EventArgs e)
         {
             pnlMainDashboard.Visible = true;
             pnlMainDashboard.BringToFront();
         }
 
-        #endregion
+        private async void btnRefresh_Click(object sender, EventArgs e)
+        {
+            await LoadAllData();
+            KryptonMessageBox.Show(
+                Properties.Resources.MarketDataUpdated,
+                Properties.Resources.Information,
+                KryptonMessageBoxButtons.OK,
+                KryptonMessageBoxIcon.Information
+            );
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Krypton.Toolkit;
-using Microsoft.Data.SqlClient; // Transaction için gerekli
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace DemoTradingApp
 {
+    /// <summary>
+    /// Form for purchasing luxury items in the expensive market.
+    /// </summary>
     public partial class ExpensiveMarketForm : KryptonForm
     {
         private class MarketProduct
         {
-            public string Name { get; set; } = string.Empty; // Null uyarılarını gidermek için başlangıç değeri atandı
+            public string Name { get; set; } = string.Empty;
             public decimal Price { get; set; }
             public string Currency { get; set; } = string.Empty;
             public string ImagePath { get; set; } = string.Empty;
         }
-        // Gerekli private alanlar
         private readonly DashboardForm _owner;
         private readonly User _currentUser;
         private readonly DataTable _userAssets;
         private List<CartItem> _shoppingCart = new List<CartItem>();
-        // Sepet öğesini temsil eden basit bir sınıf
         private class CartItem
         {
-            // Null uyarılarını gidermek için başlangıç değerleri atandı
             public string ItemName { get; set; } = string.Empty;
             public decimal Price { get; set; }
             public string CurrencyName { get; set; } = string.Empty;
@@ -35,7 +35,12 @@ namespace DemoTradingApp
             public string ImagePath { get; set; } = string.Empty;
             public int WalletId { get; set; }
         }
-        // Constructor
+        /// <summary>
+        /// Initializes a new instance of the ExpensiveMarketForm class.
+        /// </summary>
+        /// <param name="owner">The parent dashboard form</param>
+        /// <param name="user">The current user</param>
+        /// <param name="userAssets">User's asset data</param>
         public ExpensiveMarketForm(DashboardForm owner, User user, DataTable userAssets)
         {
             InitializeComponent();
@@ -47,35 +52,28 @@ namespace DemoTradingApp
         private void ExpensiveMarketForm_Load(object sender, EventArgs e)
         {
             pnlCart.Visible = false;
-            // Form yüklendiğinde ürünleri programatik olarak oluştur
             PopulateMarketItems();
         }
         private void PopulateMarketItems()
         {
-            // ===== BAŞLANGIÇ: DÜZELTME =====
-            // Paneli temizlemeden önce içindeki tüm eski kontrolleri düzgünce yok et
             while (flpMarketItems.Controls.Count > 0)
             {
                 flpMarketItems.Controls[0].Dispose();
             }
-            flpMarketItems.Controls.Clear(); // Koleksiyonu temizle
-                                             // ===== BİTİŞ: DÜZELTME =====
-
-            // ===== Ürünleri ve Fiyatları Buradan Yönetin! =====
+            flpMarketItems.Controls.Clear();
             var products = new List<MarketProduct>
-    {
-        new MarketProduct { Name = "Lüks Saat", Price = 3131313131, Currency = "TRY" },
-        new MarketProduct { Name = "Mazda MX-5", Price = 250000, Currency = "USD" },
-        new MarketProduct { Name = "Özel Jet", Price = 5000000, Currency = "USD" },
-        new MarketProduct { Name = "Titanik", Price = 2, Currency = "Bitcoin" },
-        new MarketProduct { Name = "Cumhurbaşkanı Külliyesi", Price = 128000000000, Currency = "USD" },
+    {           // Your Products ( this is just a sample, you can add more products on image path (bin/debug/net8.0-windows/Images) folder )
+                new MarketProduct { Name = "Luxury Watch", Price = 3131313131, Currency = "TRY" },
+                new MarketProduct { Name = "Mazda MX-5", Price = 250000, Currency = "USD" },
+                new MarketProduct { Name = "Private Jet", Price = 5000000, Currency = "USD" },
+                new MarketProduct { Name = "Titanic", Price = 2, Currency = "Bitcoin" },
+                //new MarketProduct { Name = "Presidential Complex", Price = 128000000000, Currency = "USD" },
     };
 
-            flpMarketItems.Controls.Clear(); // Önce paneli temizle
+            flpMarketItems.Controls.Clear();
 
             foreach (var product in products)
             {
-                // Her ürün için bir GroupBox oluştur
                 var group = new KryptonGroupBox
                 {
                     AutoSize = true,
@@ -83,11 +81,10 @@ namespace DemoTradingApp
                     Margin = new Padding(10),
                     MinimumSize = new Size(180, 0),
                     MaximumSize = new Size(180, 0),
-                    Values = { Heading = "Ürün" }
+                    Values = { Heading = Properties.Resources.Product }
                 };
 
                 string imagePath = System.IO.Path.Combine("Images", $"{product.Name}.png");
-                // PictureBox oluştur
                 var pic = new PictureBox
                 {
                     BackColor = System.Drawing.Color.Gainsboro,
@@ -97,19 +94,17 @@ namespace DemoTradingApp
                     Dock = DockStyle.Top
                 };
 
-                // İsim Label'ı oluştur (metni manuel kır)
-                string wrappedText = WrapText(product.Name, 15); // 15 karakterde bir satır kır
+                string wrappedText = WrapText(product.Name, 15);
                 var nameLabel = new KryptonLabel
                 {
                     AutoSize = true,
-                    MaximumSize = new Size(166, 0), // Genişlik 166 piksel ile sınırlı
+                    MaximumSize = new Size(166, 0),
                     StateCommon = { ShortText = { Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold) } },
-                    Values = { Text = wrappedText }, // Kırılmış metni burada kullan
+                    Values = { Text = wrappedText },
                     Dock = DockStyle.Bottom
                 };
-                nameLabel.Padding = new Padding(0, 5, 0, 5); // Üst ve alt boşluk
+                nameLabel.Padding = new Padding(0, 5, 0, 5);
 
-                // Fiyat Label'ı oluştur
                 var priceLabel = new KryptonLabel
                 {
                     AutoSize = true,
@@ -117,31 +112,24 @@ namespace DemoTradingApp
                     Dock = DockStyle.Bottom
                 };
 
-                // Buton oluştur
                 var button = new KryptonButton
                 {
                     Size = new System.Drawing.Size(166, 25),
-                    Values = { Text = "Sepete Ekle" },
+                    Values = { Text = Properties.Resources.AddToCart },
                     Tag = $"{product.Name};{product.Price};{product.Currency};{imagePath}",
                     Dock = DockStyle.Bottom
                 };
                 button.Click += AddToCart_Click;
 
-                // Oluşturulan kontrolleri GroupBox'ın paneline ekle (doğru sırayla)
-                group.Panel.Controls.Add(pic);      // En üstte resim
-                group.Panel.Controls.Add(nameLabel); // Resmin altında isim
-                group.Panel.Controls.Add(priceLabel); // İsimin altında fiyat
-                group.Panel.Controls.Add(button);    // En altta buton
+                group.Panel.Controls.Add(pic);
+                group.Panel.Controls.Add(nameLabel);
+                group.Panel.Controls.Add(priceLabel);
+                group.Panel.Controls.Add(button);
 
-                // GroupBox'ın yüksekliğini dinamik olarak ayarla (otomatik olduğu için manuel ayara gerek yok)
-                // AutoSize zaten yükseklik ayarını hallediyor
-
-                // Hazır olan GroupBox'ı FlowLayoutPanel'e ekle
                 flpMarketItems.Controls.Add(group);
             }
         }
 
-        // Metni belirli bir karakter sayısında kıran yardımcı metod
         private string WrapText(string text, int maxLength)
         {
             if (string.IsNullOrEmpty(text) || text.Length <= maxLength)
@@ -170,8 +158,7 @@ namespace DemoTradingApp
                 lines.Add(currentLine.ToString());
 
             return string.Join("\n", lines);
-        }
-        // Tüm "Sepete Ekle" butonları için ortak olay yöneticisi
+        }   
         private void AddToCart_Click(object? sender, EventArgs e)
         {
             var button = sender as KryptonButton;
@@ -185,13 +172,13 @@ namespace DemoTradingApp
             string currencyName = tagInfo[2];
             string imagePath = tagInfo[3];
 
-            DataRow? assetRow = _userAssets.AsEnumerable().FirstOrDefault(r => r.Field<string>("Varlık")?.Trim().Equals(currencyName, StringComparison.OrdinalIgnoreCase) == true);
+            DataRow? assetRow = _userAssets.AsEnumerable().FirstOrDefault(r => r.Field<string>("Asset")?.Trim().Equals(currencyName, StringComparison.OrdinalIgnoreCase) == true);
 
             if (assetRow != null)
             {
                 var selectedAsset = new
                 {
-                    AssetName = assetRow.Field<string>("Varlık") ?? "",
+                    AssetName = assetRow.Field<string>("Asset") ?? "",
                     AssetTypeId = assetRow.Field<int>("asset_type_id"),
                     WalletId = assetRow.Field<int>("wallet_id")
                 };
@@ -206,9 +193,8 @@ namespace DemoTradingApp
                     ImagePath = imagePath
                 });
 
-                KryptonMessageBox.Show($"{itemName} sepete eklendi!");
+                KryptonMessageBox.Show(string.Format(Properties.Resources.ItemAddedToCart, itemName));
 
-                // ===== YENİ: Ürün eklenince sepet görünürse anında güncelle =====
                 if (pnlCart.Visible)
                 {
                     UpdateCartDisplay();
@@ -216,25 +202,22 @@ namespace DemoTradingApp
             }
             else
             {
-                KryptonMessageBox.Show($"Bu ürünü alabilmek için cüzdanınızda '{currencyName}' bulunmuyor.", "Hata");
+                KryptonMessageBox.Show(string.Format(Properties.Resources.NoCurrencyForPurchase, currencyName), Properties.Resources.ErrorTitle);
             }
         }
         private void UpdateCartDisplay()
         {
-            // ===== BAŞLANGIÇ: DÜZELTME =====
-            // Paneli temizlemeden önce içindeki tüm eski kontrolleri düzgünce yok et
             while (flpCartItems.Controls.Count > 0)
             {
                 flpCartItems.Controls[0].Dispose();
             }
             flpCartItems.Controls.Clear();
-            // ===== BİTİŞ: DÜZELTME =====
             if (_shoppingCart.Any())
             {
                 var totals = _shoppingCart.GroupBy(item => item.CurrencyName)
                                           .Select(group => new { Currency = group.Key, Total = group.Sum(item => item.Price) })
                                           .ToList();
-                lblCartTotal.Text = "Toplam: " + string.Join(", ", totals.Select(t => $"{t.Total:N0} {t.Currency}"));
+                lblCartTotal.Text = Properties.Resources.TotalPrefix + string.Join(", ", totals.Select(t => $"{t.Total:N0} {t.Currency}"));
 
                 foreach (var item in _shoppingCart)
                 {
@@ -246,7 +229,7 @@ namespace DemoTradingApp
 
                     var removeButton = new KryptonButton
                     {
-                        Text = "X",
+                        Text = Properties.Resources.RemoveButton,
                         Size = new Size(25, 25),
                         Dock = DockStyle.Right,
                         Tag = item
@@ -267,8 +250,8 @@ namespace DemoTradingApp
             }
             else
             {
-                lblCartTotal.Text = "Toplam: 0";
-                flpCartItems.Controls.Add(new KryptonLabel { Text = "Sepetiniz şu anda boş.", AutoSize = true });
+                lblCartTotal.Text = Properties.Resources.TotalZero;
+                flpCartItems.Controls.Add(new KryptonLabel { Text = Properties.Resources.CartEmpty, AutoSize = true });
             }
         }
 
@@ -278,20 +261,18 @@ namespace DemoTradingApp
             if ((sender as KryptonButton)?.Tag is CartItem itemToRemove)
             {
                 _shoppingCart.Remove(itemToRemove);
-                // Sepet görünür olduğu için sadece güncelle
                 UpdateCartDisplay();
             }
         }
         private void btnShowCart_Click(object? sender, EventArgs e)
         {
-            UpdateCartDisplay(); // Sepet içeriğini doldur/güncelle
+            UpdateCartDisplay();
 
-            // === YENİ: Ödeme Yöntemi ComboBox'ını Doldurma ===
             try
             {
                 var wallets = _userAssets.AsEnumerable()
                     .Select(row => new {
-                        WalletName = row.Field<string>("Cüzdan"),
+                        WalletName = row.Field<string>("Wallet"),
                         WalletId = row.Field<int>("wallet_id")
                     })
                     .Distinct()
@@ -301,25 +282,23 @@ namespace DemoTradingApp
                 cmbPaymentMethod.DisplayMember = "WalletName";
                 cmbPaymentMethod.ValueMember = "WalletId";
                 cmbPaymentMethod.SelectedIndex = -1;
-                cmbPaymentMethod.Text = "Lütfen bir cüzdan seçin...";
+                cmbPaymentMethod.Text = Properties.Resources.PleaseSelectWallet;
             }
             catch (Exception ex)
             {
-                KryptonMessageBox.Show("Ödeme yöntemleri yüklenirken hata: " + ex.Message);
+                KryptonMessageBox.Show(Properties.Resources.PaymentMethodsLoadError + ex.Message);
             }
-            // ===============================================
 
             pnlCart.Visible = true;
-            btnShowCart.Text = "Sepeti Gizle";
+            btnShowCart.Text = Properties.Resources.ShowCart;
             btnShowCart.Click -= btnShowCart_Click;
             btnShowCart.Click += btnHideCart_Click;
         }
         private void btnHideCart_Click(object? sender, EventArgs e)
         {
             pnlCart.Visible = false;
-            btnShowCart.Text = "Sepeti Göster"; // Buton metnini eski haline getir
+            btnShowCart.Text = Properties.Resources.ShowCart;
 
-            // Olayları eski haline getir: Artık bu buton sepeti gösterecek
             btnShowCart.Click -= btnHideCart_Click;
             btnShowCart.Click += btnShowCart_Click;
         }
@@ -328,19 +307,18 @@ namespace DemoTradingApp
         {
             if (!_shoppingCart.Any())
             {
-                KryptonMessageBox.Show("Satın almak için sepetinizde ürün bulunmuyor.", "Boş Sepet", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
+                KryptonMessageBox.Show(Properties.Resources.NoItemsInCart, Properties.Resources.EmptyCart, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
                 return;
             }
 
             if (cmbPaymentMethod.SelectedValue == null)
             {
-                KryptonMessageBox.Show("Lütfen bir ödeme yöntemi (cüzdan) seçin.", "Eksik Bilgi", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
+                KryptonMessageBox.Show(Properties.Resources.PleaseSelectPaymentMethod, Properties.Resources.MissingInformation, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Warning);
                 return;
             }
 
             int selectedWalletId = (int)cmbPaymentMethod.SelectedValue;
 
-            // === YENİ: Kapsamlı Bakiye Kontrolü ===
             bool allFundsAvailable = true;
             var requiredFunds = _shoppingCart
                 .GroupBy(item => new { item.CurrencyAssetId, item.CurrencyName })
@@ -350,7 +328,7 @@ namespace DemoTradingApp
                     TotalRequired = g.Sum(i => i.Price)
                 });
 
-            StringBuilder missingFundsMessage = new StringBuilder("Seçili cüzdanda yetersiz bakiye:\n");
+            StringBuilder missingFundsMessage = new StringBuilder(Properties.Resources.InsufficientBalanceInWallet + "\n");
 
             foreach (var fund in requiredFunds)
             {
@@ -361,23 +339,21 @@ namespace DemoTradingApp
                 if (assetRow == null)
                 {
                     allFundsAvailable = false;
-                    missingFundsMessage.AppendLine($" - Cüzdanınızda hiç {fund.Currency} bulunmuyor.");
+                    missingFundsMessage.AppendLine(string.Format(Properties.Resources.NoCurrencyInWallet, fund.Currency));
                 }
-                else if (assetRow.Field<decimal>("Miktar") < fund.TotalRequired)
+                else if (assetRow.Field<decimal>("Amount") < fund.TotalRequired)
                 {
                     allFundsAvailable = false;
-                    missingFundsMessage.AppendLine($" - {fund.TotalRequired:N2} {fund.Currency} gerekli, ancak {assetRow.Field<decimal>("Miktar"):N2} mevcut.");
+                    missingFundsMessage.AppendLine($" - {fund.TotalRequired:N2} {fund.Currency} " + string.Format(Properties.Resources.RequiredButAvailable, assetRow.Field<decimal>("Amount").ToString("N2")));
                 }
             }
 
             if (!allFundsAvailable)
             {
-                KryptonMessageBox.Show(missingFundsMessage.ToString(), "Yetersiz Bakiye", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                KryptonMessageBox.Show(missingFundsMessage.ToString(), Properties.Resources.InsufficientBalanceTitle, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
                 return;
             }
-            // =====================================
 
-            // Bakiye yeterliyse, satın alma işlemine devam et...
             using (var connection = new SqlConnection(DatabaseHelper.ConnectionString))
             {
                 await connection.OpenAsync();
@@ -388,13 +364,13 @@ namespace DemoTradingApp
                         foreach (var item in _shoppingCart)
                         {
                             bool success = DatabaseHelper.DeductBalance(connection, transaction, selectedWalletId, item.CurrencyAssetId, item.Price);
-                            if (!success) throw new Exception($"{item.CurrencyName} bakiyesi düşülürken bir sorun oluştu.");
+                            if (!success) throw new Exception($"{item.CurrencyName} " + Properties.Resources.BalanceDeductionError);
 
                             DatabaseHelper.RecordPurchase(connection, transaction, _currentUser.UserId, item.ItemName, 1, item.Price, item.CurrencyAssetId, item.ImagePath);
                         }
 
                         transaction.Commit();
-                        KryptonMessageBox.Show("Satın alma işlemi başarıyla tamamlandı!", "Başarılı", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
+                        KryptonMessageBox.Show(Properties.Resources.PurchaseCompletedSuccessfully, Properties.Resources.SuccessTitle, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Information);
 
                         _shoppingCart.Clear();
                         pnlCart.Visible = false;
@@ -405,7 +381,7 @@ namespace DemoTradingApp
                     catch (Exception ex)
                     {
                         transaction.Rollback();
-                        KryptonMessageBox.Show("Satın alma sırasında bir hata oluştu: " + ex.Message, "İşlem Başarısız", KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
+                        KryptonMessageBox.Show(Properties.Resources.PurchaseError + ex.Message, Properties.Resources.TransactionFailed, KryptonMessageBoxButtons.OK, KryptonMessageBoxIcon.Error);
                     }
                 }
             }

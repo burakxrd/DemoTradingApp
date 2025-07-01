@@ -1,101 +1,788 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-	<!-- 
-		Microsoft ResX Schema
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
 
-		Version 1.3
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="WalletLoadError" xml:space="preserve">
+    <value>Cüzdanlar yüklenirken bir hata oluştu: </value>
+  </data>
+  <data name="DatabaseError" xml:space="preserve">
+    <value>Veritabanı Hatası</value>
+  </data>
+  <data name="AssetLoadError" xml:space="preserve">
+    <value>Mevcut varlıklar yüklenirken bir hata oluştu: </value>
+  </data>
+  <data name="BalanceAddedSuccess" xml:space="preserve">
+    <value>Bakiye başarıyla eklendi.</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Başarılı</value>
+  </data>
+  <data name="BalanceAddError" xml:space="preserve">
+    <value>Bakiye eklenirken bir hata oluştu: </value>
+  </data>
+  <data name="SelectAssetToRemove" xml:space="preserve">
+    <value>Lütfen bakiye çıkarılacak bir varlık seçin.</value>
+  </data>
+  <data name="MissingInfo" xml:space="preserve">
+    <value>Eksik Bilgi</value>
+  </data>
+  <data name="EnterAmountGreaterThanZero" xml:space="preserve">
+    <value>Lütfen 0'dan büyük bir miktar girin.</value>
+  </data>
+  <data name="InvalidAmount" xml:space="preserve">
+    <value>Geçersiz Miktar</value>
+  </data>
+  <data name="AmountExceedsBalance" xml:space="preserve">
+    <value>Çekmek istediğiniz miktar, mevcut bakiyeden fazla olamaz.</value>
+  </data>
+  <data name="InsufficientBalance" xml:space="preserve">
+    <value>Yetersiz Bakiye</value>
+  </data>
+  <data name="RemoveConfirmationTitle" xml:space="preserve">
+    <value>Çıkarma Onayı</value>
+  </data>
+  <data name="BalanceRemovedSuccess" xml:space="preserve">
+    <value>Bakiye başarıyla çıkarıldı.</value>
+  </data>
+  <data name="BalanceRemoveFailed" xml:space="preserve">
+    <value>Bakiye çıkarma işlemi başarısız oldu. Yetersiz bakiye olabilir.</value>
+  </data>
+  <data name="OperationError" xml:space="preserve">
+    <value>İşlem Hatası</value>
+  </data>
+  <data name="BalanceRemoveError" xml:space="preserve">
+    <value>Bakiye çıkarılırken bir hata oluştu: </value>
+  </data>
+  <data name="RemoveConfirmationMessage" xml:space="preserve">
+    <value>{0} hesabından {1} birim bakiye çıkarmak istediğinizden emin misiniz?</value>
+  </data>
+  <data name="SelectWallet" xml:space="preserve">
+    <value>Lütfen bir cüzdan seçin.</value>
+  </data>
+  <data name="SelectCurrency" xml:space="preserve">
+    <value>Lütfen bir para birimi seçin.</value>
+  </data>
+  <data name="SpendingMoney" xml:space="preserve">
+    <value>Harcanacak Para:</value>
+  </data>
+  <data name="AssetToBuy" xml:space="preserve">
+    <value>Alınacak Varlık:</value>
+  </data>
+  <data name="BuyAsset" xml:space="preserve">
+    <value>Varlık Al</value>
+  </data>
+  <data name="AmountToSpend" xml:space="preserve">
+    <value>Harcanacak Miktar:</value>
+  </data>
+  <data name="NoSpendingBalance" xml:space="preserve">
+    <value>Harcanacak bakiye bulunmuyor.</value>
+  </data>
+  <data name="AssetToSell" xml:space="preserve">
+    <value>Satılacak Varlık:</value>
+  </data>
+  <data name="MoneyToReceive" xml:space="preserve">
+    <value>Alınacak Para:</value>
+  </data>
+  <data name="SellAsset" xml:space="preserve">
+    <value>Varlık Sat</value>
+  </data>
+  <data name="AmountToSell" xml:space="preserve">
+    <value>Satılacak Miktar:</value>
+  </data>
+  <data name="NoAssetsToSell" xml:space="preserve">
+    <value>Satılacak herhangi bir varlığınız bulunmuyor.</value>
+  </data>
+  <data name="LivePrice" xml:space="preserve">
+    <value>Anlık Fiyat: -</value>
+  </data>
+  <data name="EstimatedResult" xml:space="preserve">
+    <value>Tahmini Sonuç: -</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Bakiye: -</value>
+  </data>
+  <data name="BalanceFormat" xml:space="preserve">
+    <value>Bakiye: 0,00 USD</value>
+  </data>
+  <data name="EstimatedToReceive" xml:space="preserve">
+    <value>Tahmini Alınacak: ~{0} {1}</value>
+  </data>
+  <data name="NoPriceInfo" xml:space="preserve">
+    <value>Fiyat Bilgisi Yok</value>
+  </data>
+  <data name="EstimatedToGet" xml:space="preserve">
+    <value>Tahmini Ele Geçecek: ~{0} {1}</value>
+  </data>
+  <data name="NoPairPrice" xml:space="preserve">
+    <value>Parite Fiyatı Yok</value>
+  </data>
+  <data name="FillAllFieldsCorrectly" xml:space="preserve">
+    <value>Lütfen tüm alanları doğru bir şekilde doldurun.</value>
+  </data>
+  <data name="InsufficientBalanceExclamation" xml:space="preserve">
+    <value>Yetersiz bakiye!</value>
+  </data>
+  <data name="PriceNotFoundForAsset" xml:space="preserve">
+    <value>Alınacak varlık olan '{0}' için anlık fiyat bilgisi bulunamadı.</value>
+  </data>
+  <data name="PriceError" xml:space="preserve">
+    <value>Fiyat Hatası</value>
+  </data>
+  <data name="CalculationError" xml:space="preserve">
+    <value>İşlem için gereken veriler hesaplanırken bir hata oluştu:\n{0}</value>
+  </data>
+  <data name="AssetNotDefinedInDatabase" xml:space="preserve">
+    <value>Alınacak varlık olan '{0}' veritabanında tanımlı değil.</value>
+  </data>
+  <data name="AssetUndefined" xml:space="preserve">
+    <value>Varlık Tanımsız</value>
+  </data>
+  <data name="InvalidPrice" xml:space="preserve">
+    <value>İşleme konu olan varlığın fiyatı sıfır veya geçersiz. (Fiyat: {0})</value>
+  </data>
+  <data name="InvalidPriceTitle" xml:space="preserve">
+    <value>Geçersiz Fiyat</value>
+  </data>
+  <data name="CalculatedAmountError" xml:space="preserve">
+    <value>Hesaplama sonucu alınacak miktar sıfır veya daha az. Lütfen girdiğiniz tutarı kontrol edin.\nHesaplanan Miktar: {0}</value>
+  </data>
+  <data name="TradeConfirmationMessage" xml:space="preserve">
+    <value>{0} {1} vererek\n~{2} {3} alacaksınız.\n\nİşlemi onaylıyor musunuz?</value>
+  </data>
+  <data name="TradeConfirmationTitle" xml:space="preserve">
+    <value>İşlem Onayı</value>
+  </data>
+  <data name="TradeCompletedSuccessfully" xml:space="preserve">
+    <value>İşlem başarıyla gerçekleştirildi.</value>
+  </data>
+  <data name="TradeError" xml:space="preserve">
+    <value>Trade işlemi sırasında bir hata oluştu: {0}</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Hoş geldiniz, {0}!</value>
+  </data>
+  <data name="ExchangeRatesApiError" xml:space="preserve">
+    <value>API'den döviz kuru verileri alınamadı, mevcut veriler kullanılıyor.</value>
+  </data>
+  <data name="ExchangeRatesNotAvailable" xml:space="preserve">
+    <value>Döviz kurları alınamadı. Varsayılan kurlar kullanılacak.</value>
+  </data>
+  <data name="Wallet" xml:space="preserve">
+    <value>Cüzdan</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Varlık</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Miktar:</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>Birim Fiyat</value>
+  </data>
+  <data name="TotalValue" xml:space="preserve">
+    <value>Toplam Değer</value>
+  </data>
+  <data name="PnL" xml:space="preserve">
+    <value>K/Z</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Tarih</value>
+  </data>
+  <data name="AssetsLoadError" xml:space="preserve">
+    <value>Varlıklar yüklenirken bir hata oluştu: {0}</value>
+  </data>
+  <data name="MarketDataApiError" xml:space="preserve">
+    <value>API'den yeni piyasa verisi alınamadı.</value>
+  </data>
+  <data name="MarketPricesLoadError" xml:space="preserve">
+    <value>Piyasa fiyatları yüklenirken bir hata oluştu: {0}</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="Market" xml:space="preserve">
+    <value>Piyasa</value>
+  </data>
+  <data name="PriceFormat" xml:space="preserve">
+    <value>Fiyat ({0})</value>
+  </data>
+  <data name="MarketTableUpdateError" xml:space="preserve">
+    <value>Piyasa tablosu güncellenirken bir hata oluştu: {0}</value>
+  </data>
+  <data name="RecentTradesLoadError" xml:space="preserve">
+    <value>Son işlemler yüklenirken bir hata oluştu: {0}</value>
+  </data>
+  <data name="TradeFormCannotOpen" xml:space="preserve">
+    <value>Gerekli veriler yüklenemediği için trade ekranı açılamıyor.</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Kayıt Ol</value>
+  </data>
+  <data name="UserLogin" xml:space="preserve">
+    <value>Kullanıcı Girişi</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Şifremi Unuttum</value>
+  </data>
+  <data name="UsernamePasswordRequired" xml:space="preserve">
+    <value>Kullanıcı adı ve şifre boş bırakılamaz.</value>
+  </data>
+  <data name="InvalidUsernamePassword" xml:space="preserve">
+    <value>Kullanıcı adı veya şifre hatalı.</value>
+  </data>
+  <data name="DatabaseErrorWithMessage" xml:space="preserve">
+    <value>Veritabanı hatası: {0}</value>
+  </data>
+  <data name="CriticalError" xml:space="preserve">
+    <value>Kritik Hata</value>
+  </data>
+  <data name="AllFieldsRequired" xml:space="preserve">
+    <value>Tüm alanlar doldurulmalıdır.</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>Girdiğiniz şifreler uyuşmuyor.</value>
+  </data>
+  <data name="PasswordError" xml:space="preserve">
+    <value>Şifre Hatası</value>
+  </data>
+  <data name="RegistrationSuccessful" xml:space="preserve">
+    <value>Kayıt başarılı! Lütfen giriş yapınız.</value>
+  </data>
+  <data name="UsernameEmailAlreadyExists" xml:space="preserve">
+    <value>Bu kullanıcı adı veya e-posta adresi zaten kullanılıyor.</value>
+  </data>
+  <data name="RegistrationError" xml:space="preserve">
+    <value>Kayıt Hatası</value>
+  </data>
+  <data name="RegistrationDatabaseError" xml:space="preserve">
+    <value>Kayıt sırasında bir veritabanı hatası oluştu: {0}</value>
+  </data>
+  <data name="PleaseEnterEmail" xml:space="preserve">
+    <value>Lütfen e-posta adresinizi girin.</value>
+  </data>
+  <data name="EmailNotRegistered" xml:space="preserve">
+    <value>Bu e-posta adresi sistemde kayıtlı değil.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Geçersiz E-posta</value>
+  </data>
+  <data name="DatabaseCheckError" xml:space="preserve">
+    <value>Veritabanı kontrolü sırasında bir hata oluştu: {0}</value>
+  </data>
+  <data name="PasswordResetCode" xml:space="preserve">
+    <value>Şifre Sıfırlama Kodu</value>
+  </data>
+  <data name="PasswordResetCodeMessage" xml:space="preserve">
+    <value>Şifrenizi sıfırlamak için doğrulama kodunuz: {0}</value>
+  </data>
+  <data name="VerificationCodeSent" xml:space="preserve">
+    <value>Doğrulama kodu e-posta adresinize gönderildi.</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Bilgi</value>
+  </data>
+  <data name="EmailSendError" xml:space="preserve">
+    <value>E-posta gönderilirken bir hata oluştu: {0}</value>
+  </data>
+  <data name="InvalidVerificationCode" xml:space="preserve">
+    <value>Doğrulama kodu hatalı!</value>
+  </data>
+  <data name="VerificationError" xml:space="preserve">
+    <value>Doğrulama Hatası</value>
+  </data>
+  <data name="NewPasswordMismatch" xml:space="preserve">
+    <value>Yeni şifreler uyuşmuyor veya boş bırakılamaz.</value>
+  </data>
+  <data name="PasswordUpdatedSuccessfully" xml:space="preserve">
+    <value>Şifreniz başarıyla güncellendi. Lütfen yeni şifrenizle giriş yapın.</value>
+  </data>
+  <data name="PasswordUpdateError" xml:space="preserve">
+    <value>Şifre güncellenirken bir hata oluştu.</value>
+  </data>
+  <data name="EmailForResetNotFound" xml:space="preserve">
+    <value>Şifresi sıfırlanacak e-posta adresi bulunamadı. Lütfen işlemi yeniden başlatın.</value>
+  </data>
+  <data name="WalletTypeLoadError" xml:space="preserve">
+    <value>Cüzdan türleri yüklenirken bir hata oluştu: </value>
+  </data>
+  <data name="ExistingWalletsLoadError" xml:space="preserve">
+    <value>Mevcut cüzdanlar yüklenirken bir hata oluştu: </value>
+  </data>
+  <data name="WalletNameRequired" xml:space="preserve">
+    <value>Cüzdan adı boş bırakılamaz.</value>
+  </data>
+  <data name="SelectWalletType" xml:space="preserve">
+    <value>Lütfen bir cüzdan türü seçin.</value>
+  </data>
+  <data name="WalletCreatedSuccess" xml:space="preserve">
+    <value>Cüzdan başarıyla oluşturuldu.</value>
+  </data>
+  <data name="WalletCreateError" xml:space="preserve">
+    <value>Cüzdan oluşturulurken bir hata oluştu.</value>
+  </data>
+  <data name="CriticalDatabaseError" xml:space="preserve">
+    <value>Kritik veritabanı hatası: </value>
+  </data>
+  <data name="SelectWalletToDelete" xml:space="preserve">
+    <value>Lütfen silmek için bir cüzdan seçin.</value>
+  </data>
+  <data name="DeleteWalletConfirmation" xml:space="preserve">
+    <value>'{0}' adlı cüzdanı silmek istediğinizden emin misiniz?
 
-		The primary goals of this format is to allow a simple XML format 
-		that is mostly human readable. The generation and parsing of the 
-		various data types are done through the TypeConverter classes 
-		associated with the data types.
-
-		Example:
-
-		... ado.net/XML headers & schema ...
-		<resheader name="resmimetype">text/microsoft-resx</resheader>
-		<resheader name="version">1.3</resheader>
-		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-		<data name="Name1">this is my long string</data>
-		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-			[base64 mime encoded serialized .NET Framework object]
-		</data>
-		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-			[base64 mime encoded string representing a byte array form of the .NET Framework object]
-		</data>
-
-		There are any number of "resheader" rows that contain simple 
-		name/value pairs.
-
-		Each data row contains a name, and value. The row also contains a 
-		type or mimetype. Type corresponds to a .NET class that support 
-		text/value conversion through the TypeConverter architecture. 
-		Classes that don't support this are serialized and stored with the 
-		mimetype set.
-
-		The mimetype is used for serialized objects, and tells the 
-		ResXResourceReader how to depersist the object. This is currently not 
-		extensible. For a given mimetype the value must be set accordingly:
-
-		Note - application/x-microsoft.net.object.binary.base64 is the format 
-		that the ResXResourceWriter will generate, however the reader can 
-		read any of the formats listed below.
-
-		mimetype: application/x-microsoft.net.object.binary.base64
-		value   : The object must be serialized with 
-			: System.Serialization.Formatters.Binary.BinaryFormatter
-			: and then encoded with base64 encoding.
-
-		mimetype: application/x-microsoft.net.object.soap.base64
-		value   : The object must be serialized with 
-			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-			: and then encoded with base64 encoding.
-
-		mimetype: application/x-microsoft.net.object.bytearray.base64
-		value   : The object must be serialized into a byte array 
-			: using a System.ComponentModel.TypeConverter
-			: and then encoded with base64 encoding.
-	-->
-	
-	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-		<xsd:element name="root" msdata:IsDataSet="true">
-			<xsd:complexType>
-				<xsd:choice maxOccurs="unbounded">
-					<xsd:element name="data">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
-							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-						</xsd:complexType>
-					</xsd:element>
-					<xsd:element name="resheader">
-						<xsd:complexType>
-							<xsd:sequence>
-								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-							</xsd:sequence>
-							<xsd:attribute name="name" type="xsd:string" use="required" />
-						</xsd:complexType>
-					</xsd:element>
-				</xsd:choice>
-			</xsd:complexType>
-		</xsd:element>
-	</xsd:schema>
-	<resheader name="resmimetype">
-		<value>text/microsoft-resx</value>
-	</resheader>
-	<resheader name="version">
-		<value>1.3</value>
-	</resheader>
-	<resheader name="reader">
-		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
-	<resheader name="writer">
-		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-	</resheader>
+BU İŞLEM GERİ ALINAMAZ VE CÜZDAN İÇİNDEKİ TÜM VARLIKLAR SİLİNİR!</value>
+  </data>
+  <data name="DeleteConfirmationTitle" xml:space="preserve">
+    <value>Silme Onayı</value>
+  </data>
+  <data name="WalletDeletedSuccess" xml:space="preserve">
+    <value>Cüzdan başarıyla silindi.</value>
+  </data>
+  <data name="WalletDeleteError" xml:space="preserve">
+    <value>Cüzdan silinirken bir hata oluştu.</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Ürün</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Sepete Ekle</value>
+  </data>
+  <data name="LuxuryWatch" xml:space="preserve">
+    <value>Lüks Saat</value>
+  </data>
+  <data name="MazdaMX5" xml:space="preserve">
+    <value>Mazda MX-5</value>
+  </data>
+  <data name="PrivateJet" xml:space="preserve">
+    <value>Özel Jet</value>
+  </data>
+  <data name="Titanic" xml:space="preserve">
+    <value>Titanik</value>
+  </data>
+  <data name="PresidentialComplex" xml:space="preserve">
+    <value>Cumhurbaşkanı Külliyesi</value>
+  </data>
+  <data name="TotalPrefix" xml:space="preserve">
+    <value>Toplam: </value>
+  </data>
+  <data name="RemoveButton" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="TotalZero" xml:space="preserve">
+    <value>Toplam: 0</value>
+  </data>
+  <data name="CartEmpty" xml:space="preserve">
+    <value>Sepetiniz şu anda boş.</value>
+  </data>
+  <data name="PleaseSelectWallet" xml:space="preserve">
+    <value>Lütfen bir cüzdan seçin...</value>
+  </data>
+  <data name="PaymentMethodsLoadError" xml:space="preserve">
+    <value>Ödeme yöntemleri yüklenirken hata: </value>
+  </data>
+  <data name="HideCart" xml:space="preserve">
+    <value>Sepeti Gizle</value>
+  </data>
+  <data name="ShowCart" xml:space="preserve">
+    <value>Sepeti Göster</value>
+  </data>
+  <data name="NoItemsInCart" xml:space="preserve">
+    <value>Satın almak için sepetinizde ürün bulunmuyor.</value>
+  </data>
+  <data name="EmptyCart" xml:space="preserve">
+    <value>Boş Sepet</value>
+  </data>
+  <data name="PleaseSelectPaymentMethod" xml:space="preserve">
+    <value>Lütfen bir ödeme yöntemi (cüzdan) seçin.</value>
+  </data>
+  <data name="MissingInformation" xml:space="preserve">
+    <value>Eksik Bilgi</value>
+  </data>
+  <data name="InsufficientBalanceInWallet" xml:space="preserve">
+    <value>Seçili cüzdanda yetersiz bakiye:</value>
+  </data>
+  <data name="NoCurrencyInWallet" xml:space="preserve">
+    <value>Cüzdanınızda hiç {0} bulunmuyor.</value>
+  </data>
+  <data name="RequiredButAvailable" xml:space="preserve">
+    <value>gerekli, ancak {0} mevcut.</value>
+  </data>
+  <data name="InsufficientBalanceTitle" xml:space="preserve">
+    <value>Yetersiz Bakiye</value>
+  </data>
+  <data name="BalanceDeductionError" xml:space="preserve">
+    <value>bakiyesi düşülürken bir sorun oluştu.</value>
+  </data>
+  <data name="PurchaseCompletedSuccessfully" xml:space="preserve">
+    <value>Satın alma işlemi başarıyla tamamlandı!</value>
+  </data>
+  <data name="SuccessTitle" xml:space="preserve">
+    <value>Başarılı</value>
+  </data>
+  <data name="PurchaseError" xml:space="preserve">
+    <value>Satın alma sırasında bir hata oluştu: </value>
+  </data>
+  <data name="TransactionFailed" xml:space="preserve">
+    <value>İşlem Başarısız</value>
+  </data>
+  <data name="NoCurrencyForPurchase" xml:space="preserve">
+    <value>Bu ürünü alabilmek için cüzdanınızda '{0}' bulunmuyor.</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="ItemAddedToCart" xml:space="preserve">
+    <value>{0} sepete eklendi!</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="DeleteAssetConfirmation" xml:space="preserve">
+    <value>Bu varlığı kalıcı olarak silmek istediğinizden emin misiniz?</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Silme Onayı</value>
+  </data>
+  <data name="AssetDeletedSuccess" xml:space="preserve">
+    <value>Varlık başarıyla silindi.</value>
+  </data>
+  <data name="AssetDeleteError" xml:space="preserve">
+    <value>Varlık silinirken bir hata oluştu.</value>
+  </data>
+  <data name="StatusMessage" xml:space="preserve">
+    <value>Durum Mesajı</value>
+  </data>
+  <data name="TransactionType" xml:space="preserve">
+    <value>İşlem Türü</value>
+  </data>
+  <data name="Sell" xml:space="preserve">
+    <value>Sat</value>
+  </data>
+  <data name="Buy" xml:space="preserve">
+    <value>Al</value>
+  </data>
+  <data name="ConfirmTransaction" xml:space="preserve">
+    <value>İşlemi Onayla</value>
+  </data>
+  <data name="EstimatedResultFormat" xml:space="preserve">
+    <value>~0,000000 XYZ alacaksınız</value>
+  </data>
+  <data name="LivePriceFormat" xml:space="preserve">
+    <value>Anlık Fiyat: $0.00</value>
+  </data>
+  <data name="CryptoStock" xml:space="preserve">
+    <value>Kripto / Hisse:</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Para Birimi:</value>
+  </data>
+  <data name="BuySellScreen" xml:space="preserve">
+    <value>Alım / Satım Ekranı</value>
+  </data>
+  <data name="TradeTransaction" xml:space="preserve">
+    <value>Trade İşlemi</value>
+  </data>
+  <data name="ApiRequestError" xml:space="preserve">
+    <value>API isteği hatası, veritabanından okunuyor: {0}</value>
+  </data>
+  <data name="ExchangeRateError" xml:space="preserve">
+    <value>Kur bilgisi alınırken hata, veritabanından okunuyor: {0}</value>
+  </data>
+  <data name="NetUSDCost" xml:space="preserve">
+    <value>Net USD Maliyet</value>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>İşlem</value>
+  </data>
+  <data name="CounterAsset" xml:space="preserve">
+    <value>Karşı Varlık</value>
+  </data>
+  <data name="CounterAmount" xml:space="preserve">
+    <value>Karşı Miktar</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Ürün Adı</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Adet</value>
+  </data>
+  <data name="PurchasePrice" xml:space="preserve">
+    <value>Alış Fiyatı</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Fiyat</value>
+  </data>
+  <data name="RemoveBalance" xml:space="preserve">
+    <value>Bakiye Çıkar</value>
+  </data>
+  <data name="ConfirmRemoveBalance" xml:space="preserve">
+    <value>Bakiyeyi Çıkar</value>
+  </data>
+  <data name="AmountToRemove" xml:space="preserve">
+    <value>Çıkarılacak Miktar:</value>
+  </data>
+  <data name="AssetToRemove" xml:space="preserve">
+    <value>Çıkarılacak Cüzdan - Varlık:</value>
+  </data>
+  <data name="AddBalance" xml:space="preserve">
+    <value>Bakiye Ekle</value>
+  </data>
+  <data name="ConfirmAddBalance" xml:space="preserve">
+    <value>Bakiyeyi Ekle</value>
+  </data>
+  <data name="WalletLabel" xml:space="preserve">
+    <value>Cüzdan:</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="BalanceManagement" xml:space="preserve">
+    <value>Bakiye Yönetimi</value>
+  </data>
+  <data name="DeleteExistingWallet" xml:space="preserve">
+    <value>Mevcut Cüzdanı Sil</value>
+  </data>
+  <data name="DeleteSelectedWallet" xml:space="preserve">
+    <value>Seçili Cüzdanı Sil</value>
+  </data>
+  <data name="CreateNewWallet" xml:space="preserve">
+    <value>Yeni Cüzdan Oluştur</value>
+  </data>
+  <data name="CreateWallet" xml:space="preserve">
+    <value>Cüzdan Oluştur</value>
+  </data>
+  <data name="WalletType" xml:space="preserve">
+    <value>Cüzdan Türü:</value>
+  </data>
+  <data name="WalletName" xml:space="preserve">
+    <value>Cüzdan Adı:</value>
+  </data>
+  <data name="WalletManagement" xml:space="preserve">
+    <value>Cüzdan Yönetimi</value>
+  </data>
+  <data name="MainPanel" xml:space="preserve">
+    <value>Ana Panel</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Ödeme Yöntemi</value>
+  </data>
+  <data name="ConfirmPurchase" xml:space="preserve">
+    <value>Alışverişi Tamamla</value>
+  </data>
+  <data name="ShoppingCart" xml:space="preserve">
+    <value>Alışveriş Sepeti</value>
+  </data>
+  <data name="LuxuryMarket" xml:space="preserve">
+    <value>Lüks Market</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Çıkış Yap</value>
+  </data>
+  <data name="MyPossessionsButton" xml:space="preserve">
+    <value>Mal Varlıklarım</value>
+  </data>
+  <data name="MarketButton" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="TradeButton" xml:space="preserve">
+    <value>Al / Sat</value>
+  </data>
+  <data name="BalanceButton" xml:space="preserve">
+    <value>Bakiye Ekle / Sil</value>
+  </data>
+  <data name="WalletButton" xml:space="preserve">
+    <value>Cüzdan Ekle / Sil</value>
+  </data>
+  <data name="MyPossessions" xml:space="preserve">
+    <value>Mal Varlıklarım</value>
+  </data>
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Ana Panel</value>
+  </data>
+  <data name="TotalAssetsValue" xml:space="preserve">
+    <value>Toplam Varlık Değeri</value>
+  </data>
+  <data name="MarketPrices" xml:space="preserve">
+    <value>Piyasa Fiyatları</value>
+  </data>
+  <data name="MyAssets" xml:space="preserve">
+    <value>Varlıklarım</value>
+  </data>
+  <data name="RecentTrades" xml:space="preserve">
+    <value>Son İşlemler</value>
+  </data>
+  <data name="BackToLoginLink" xml:space="preserve">
+    <value>&lt; Giriş Ekranı</value>
+  </data>
+  <data name="ConfirmPasswordLabel" xml:space="preserve">
+    <value>Şifre Tekrar</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>E-Posta</value>
+  </data>
+  <data name="ForgotPasswordLink" xml:space="preserve">
+    <value>Şifremi Unuttum</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Giriş Yap</value>
+  </data>
+  <data name="LoginLink" xml:space="preserve">
+    <value>Zaten bir hesabın var mı? Giriş Yap</value>
+  </data>
+  <data name="NewPasswordConfirmLabel" xml:space="preserve">
+    <value>Yeni Şifre Tekrar</value>
+  </data>
+  <data name="NewPasswordLabel" xml:space="preserve">
+    <value>Yeni Şifre</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Şifre</value>
+  </data>
+  <data name="RegisterButton" xml:space="preserve">
+    <value>Kayıt Ol</value>
+  </data>
+  <data name="RegisteredEmailLabel" xml:space="preserve">
+    <value>Kayıtlı E-Posta Adresiniz</value>
+  </data>
+  <data name="RegisterLink" xml:space="preserve">
+    <value>Hesabın yok mu? Kayıt Ol</value>
+  </data>
+  <data name="ResetPasswordButton" xml:space="preserve">
+    <value>Şifreyi Sıfırla</value>
+  </data>
+  <data name="SendVerificationCode" xml:space="preserve">
+    <value>Doğrulama Kodu Gönder</value>
+  </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>Şifreyi Göster</value>
+  </data>
+  <data name="UsernameLabel" xml:space="preserve">
+    <value>Kullanıcı Adı</value>
+  </data>
+  <data name="VerificationCodeLabel" xml:space="preserve">
+    <value>Doğrulama Kodu</value>
+  </data>
+  <data name="MarketDataUpdated" xml:space="preserve">
+    <value>Piyasa verileri güncellendi!</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Yenile</value>
+  </data>
+  <data name="PossessionInfoFormat" xml:space="preserve">
+    <value>{0} adet - {1:N0} {2}</value>
+  </data>
 </root>

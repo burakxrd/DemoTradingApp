@@ -59,5 +59,2005 @@ namespace DemoTradingApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Bakiye Ekle benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AddBalance {
+            get {
+                return ResourceManager.GetString("AddBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sepete Ekle benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AddToCart {
+            get {
+                return ResourceManager.GetString("AddToCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tüm alanlar doldurulmalıdır. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AllFieldsRequired {
+            get {
+                return ResourceManager.GetString("AllFieldsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Miktar: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Amount {
+            get {
+                return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Çekmek istediğiniz miktar, mevcut bakiyeden fazla olamaz. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AmountExceedsBalance {
+            get {
+                return ResourceManager.GetString("AmountExceedsBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Çıkarılacak Miktar: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AmountToRemove {
+            get {
+                return ResourceManager.GetString("AmountToRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Satılacak Miktar: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AmountToSell {
+            get {
+                return ResourceManager.GetString("AmountToSell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Harcanacak Miktar: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AmountToSpend {
+            get {
+                return ResourceManager.GetString("AmountToSpend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API isteği hatası, veritabanından okunuyor: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ApiRequestError {
+            get {
+                return ResourceManager.GetString("ApiRequestError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Varlık benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Asset {
+            get {
+                return ResourceManager.GetString("Asset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Varlık başarıyla silindi. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AssetDeletedSuccess {
+            get {
+                return ResourceManager.GetString("AssetDeletedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Varlık silinirken bir hata oluştu. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AssetDeleteError {
+            get {
+                return ResourceManager.GetString("AssetDeleteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Mevcut varlıklar yüklenirken bir hata oluştu:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AssetLoadError {
+            get {
+                return ResourceManager.GetString("AssetLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Alınacak varlık olan &apos;{0}&apos; veritabanında tanımlı değil. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AssetNotDefinedInDatabase {
+            get {
+                return ResourceManager.GetString("AssetNotDefinedInDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Varlıklar yüklenirken bir hata oluştu: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AssetsLoadError {
+            get {
+                return ResourceManager.GetString("AssetsLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Alınacak Varlık: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AssetToBuy {
+            get {
+                return ResourceManager.GetString("AssetToBuy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Çıkarılacak Cüzdan - Varlık: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AssetToRemove {
+            get {
+                return ResourceManager.GetString("AssetToRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Satılacak Varlık: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AssetToSell {
+            get {
+                return ResourceManager.GetString("AssetToSell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Varlık Tanımsız benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string AssetUndefined {
+            get {
+                return ResourceManager.GetString("AssetUndefined", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &lt; Giriş Ekranı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BackToLoginLink {
+            get {
+                return ResourceManager.GetString("BackToLoginLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye: - benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Balance {
+            get {
+                return ResourceManager.GetString("Balance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye başarıyla eklendi. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BalanceAddedSuccess {
+            get {
+                return ResourceManager.GetString("BalanceAddedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye eklenirken bir hata oluştu:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BalanceAddError {
+            get {
+                return ResourceManager.GetString("BalanceAddError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye Ekle / Sil benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BalanceButton {
+            get {
+                return ResourceManager.GetString("BalanceButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   bakiyesi düşülürken bir sorun oluştu. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BalanceDeductionError {
+            get {
+                return ResourceManager.GetString("BalanceDeductionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye: 0,00 USD benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BalanceFormat {
+            get {
+                return ResourceManager.GetString("BalanceFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye Yönetimi benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BalanceManagement {
+            get {
+                return ResourceManager.GetString("BalanceManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye başarıyla çıkarıldı. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BalanceRemovedSuccess {
+            get {
+                return ResourceManager.GetString("BalanceRemovedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye çıkarılırken bir hata oluştu:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BalanceRemoveError {
+            get {
+                return ResourceManager.GetString("BalanceRemoveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye çıkarma işlemi başarısız oldu. Yetersiz bakiye olabilir. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BalanceRemoveFailed {
+            get {
+                return ResourceManager.GetString("BalanceRemoveFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Al benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Buy {
+            get {
+                return ResourceManager.GetString("Buy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Varlık Al benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BuyAsset {
+            get {
+                return ResourceManager.GetString("BuyAsset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Alım / Satım Ekranı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string BuySellScreen {
+            get {
+                return ResourceManager.GetString("BuySellScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hesaplama sonucu alınacak miktar sıfır veya daha az. Lütfen girdiğiniz tutarı kontrol edin.\nHesaplanan Miktar: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CalculatedAmountError {
+            get {
+                return ResourceManager.GetString("CalculatedAmountError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   İşlem için gereken veriler hesaplanırken bir hata oluştu:\n{0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CalculationError {
+            get {
+                return ResourceManager.GetString("CalculationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sepetiniz şu anda boş. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CartEmpty {
+            get {
+                return ResourceManager.GetString("CartEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kapat benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiyeyi Ekle benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ConfirmAddBalance {
+            get {
+                return ResourceManager.GetString("ConfirmAddBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifre Tekrar benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ConfirmPasswordLabel {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Alışverişi Tamamla benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ConfirmPurchase {
+            get {
+                return ResourceManager.GetString("ConfirmPurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiyeyi Çıkar benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ConfirmRemoveBalance {
+            get {
+                return ResourceManager.GetString("ConfirmRemoveBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   İşlemi Onayla benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ConfirmTransaction {
+            get {
+                return ResourceManager.GetString("ConfirmTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Karşı Miktar benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CounterAmount {
+            get {
+                return ResourceManager.GetString("CounterAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Karşı Varlık benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CounterAsset {
+            get {
+                return ResourceManager.GetString("CounterAsset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yeni Cüzdan Oluştur benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CreateNewWallet {
+            get {
+                return ResourceManager.GetString("CreateNewWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan Oluştur benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CreateWallet {
+            get {
+                return ResourceManager.GetString("CreateWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kritik veritabanı hatası:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CriticalDatabaseError {
+            get {
+                return ResourceManager.GetString("CriticalDatabaseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kritik Hata benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CriticalError {
+            get {
+                return ResourceManager.GetString("CriticalError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kripto / Hisse: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string CryptoStock {
+            get {
+                return ResourceManager.GetString("CryptoStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Para Birimi: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ana Panel benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DashboardTitle {
+            get {
+                return ResourceManager.GetString("DashboardTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Veritabanı kontrolü sırasında bir hata oluştu: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DatabaseCheckError {
+            get {
+                return ResourceManager.GetString("DatabaseCheckError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Veritabanı Hatası benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DatabaseError {
+            get {
+                return ResourceManager.GetString("DatabaseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Veritabanı hatası: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DatabaseErrorWithMessage {
+            get {
+                return ResourceManager.GetString("DatabaseErrorWithMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tarih benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sil benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bu varlığı kalıcı olarak silmek istediğinizden emin misiniz? benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DeleteAssetConfirmation {
+            get {
+                return ResourceManager.GetString("DeleteAssetConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Silme Onayı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DeleteConfirmation {
+            get {
+                return ResourceManager.GetString("DeleteConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Silme Onayı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DeleteConfirmationTitle {
+            get {
+                return ResourceManager.GetString("DeleteConfirmationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Mevcut Cüzdanı Sil benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DeleteExistingWallet {
+            get {
+                return ResourceManager.GetString("DeleteExistingWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Seçili Cüzdanı Sil benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DeleteSelectedWallet {
+            get {
+                return ResourceManager.GetString("DeleteSelectedWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &apos;{0}&apos; adlı cüzdanı silmek istediğinizden emin misiniz?
+        ///
+        ///BU İŞLEM GERİ ALINAMAZ VE CÜZDAN İÇİNDEKİ TÜM VARLIKLAR SİLİNİR! benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string DeleteWalletConfirmation {
+            get {
+                return ResourceManager.GetString("DeleteWalletConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifresi sıfırlanacak e-posta adresi bulunamadı. Lütfen işlemi yeniden başlatın. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EmailForResetNotFound {
+            get {
+                return ResourceManager.GetString("EmailForResetNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   E-Posta benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EmailLabel {
+            get {
+                return ResourceManager.GetString("EmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bu e-posta adresi sistemde kayıtlı değil. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EmailNotRegistered {
+            get {
+                return ResourceManager.GetString("EmailNotRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   E-posta gönderilirken bir hata oluştu: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EmailSendError {
+            get {
+                return ResourceManager.GetString("EmailSendError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Boş Sepet benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EmptyCart {
+            get {
+                return ResourceManager.GetString("EmptyCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen 0&apos;dan büyük bir miktar girin. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EnterAmountGreaterThanZero {
+            get {
+                return ResourceManager.GetString("EnterAmountGreaterThanZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hata benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hata benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ErrorTitle {
+            get {
+                return ResourceManager.GetString("ErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tahmini Sonuç: - benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EstimatedResult {
+            get {
+                return ResourceManager.GetString("EstimatedResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ~0,000000 XYZ alacaksınız benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EstimatedResultFormat {
+            get {
+                return ResourceManager.GetString("EstimatedResultFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tahmini Ele Geçecek: ~{0} {1} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EstimatedToGet {
+            get {
+                return ResourceManager.GetString("EstimatedToGet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tahmini Alınacak: ~{0} {1} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string EstimatedToReceive {
+            get {
+                return ResourceManager.GetString("EstimatedToReceive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kur bilgisi alınırken hata, veritabanından okunuyor: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ExchangeRateError {
+            get {
+                return ResourceManager.GetString("ExchangeRateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API&apos;den döviz kuru verileri alınamadı, mevcut veriler kullanılıyor. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ExchangeRatesApiError {
+            get {
+                return ResourceManager.GetString("ExchangeRatesApiError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Döviz kurları alınamadı. Varsayılan kurlar kullanılacak. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ExchangeRatesNotAvailable {
+            get {
+                return ResourceManager.GetString("ExchangeRatesNotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Mevcut cüzdanlar yüklenirken bir hata oluştu:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ExistingWalletsLoadError {
+            get {
+                return ResourceManager.GetString("ExistingWalletsLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen tüm alanları doğru bir şekilde doldurun. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string FillAllFieldsCorrectly {
+            get {
+                return ResourceManager.GetString("FillAllFieldsCorrectly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifremi Unuttum benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ForgotPassword {
+            get {
+                return ResourceManager.GetString("ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifremi Unuttum benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ForgotPasswordLink {
+            get {
+                return ResourceManager.GetString("ForgotPasswordLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sepeti Gizle benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string HideCart {
+            get {
+                return ResourceManager.GetString("HideCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bilgi benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Information {
+            get {
+                return ResourceManager.GetString("Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yetersiz Bakiye benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InsufficientBalance {
+            get {
+                return ResourceManager.GetString("InsufficientBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yetersiz bakiye! benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InsufficientBalanceExclamation {
+            get {
+                return ResourceManager.GetString("InsufficientBalanceExclamation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Seçili cüzdanda yetersiz bakiye: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InsufficientBalanceInWallet {
+            get {
+                return ResourceManager.GetString("InsufficientBalanceInWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yetersiz Bakiye benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InsufficientBalanceTitle {
+            get {
+                return ResourceManager.GetString("InsufficientBalanceTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Geçersiz Miktar benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InvalidAmount {
+            get {
+                return ResourceManager.GetString("InvalidAmount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Geçersiz E-posta benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InvalidEmail {
+            get {
+                return ResourceManager.GetString("InvalidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   İşleme konu olan varlığın fiyatı sıfır veya geçersiz. (Fiyat: {0}) benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InvalidPrice {
+            get {
+                return ResourceManager.GetString("InvalidPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Geçersiz Fiyat benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InvalidPriceTitle {
+            get {
+                return ResourceManager.GetString("InvalidPriceTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kullanıcı adı veya şifre hatalı. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InvalidUsernamePassword {
+            get {
+                return ResourceManager.GetString("InvalidUsernamePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Doğrulama kodu hatalı! benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string InvalidVerificationCode {
+            get {
+                return ResourceManager.GetString("InvalidVerificationCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0} sepete eklendi! benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ItemAddedToCart {
+            get {
+                return ResourceManager.GetString("ItemAddedToCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Anlık Fiyat: - benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string LivePrice {
+            get {
+                return ResourceManager.GetString("LivePrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Anlık Fiyat: $0.00 benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string LivePriceFormat {
+            get {
+                return ResourceManager.GetString("LivePriceFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Giriş Yap benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string LoginButton {
+            get {
+                return ResourceManager.GetString("LoginButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Zaten bir hesabın var mı? Giriş Yap benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string LoginLink {
+            get {
+                return ResourceManager.GetString("LoginLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lüks Market benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string LuxuryMarket {
+            get {
+                return ResourceManager.GetString("LuxuryMarket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lüks Saat benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string LuxuryWatch {
+            get {
+                return ResourceManager.GetString("LuxuryWatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ana Panel benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MainPanel {
+            get {
+                return ResourceManager.GetString("MainPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Piyasa benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Market {
+            get {
+                return ResourceManager.GetString("Market", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Market benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MarketButton {
+            get {
+                return ResourceManager.GetString("MarketButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   API&apos;den yeni piyasa verisi alınamadı. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MarketDataApiError {
+            get {
+                return ResourceManager.GetString("MarketDataApiError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Piyasa verileri güncellendi! benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MarketDataUpdated {
+            get {
+                return ResourceManager.GetString("MarketDataUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Piyasa Fiyatları benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MarketPrices {
+            get {
+                return ResourceManager.GetString("MarketPrices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Piyasa fiyatları yüklenirken bir hata oluştu: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MarketPricesLoadError {
+            get {
+                return ResourceManager.GetString("MarketPricesLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Piyasa tablosu güncellenirken bir hata oluştu: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MarketTableUpdateError {
+            get {
+                return ResourceManager.GetString("MarketTableUpdateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Mazda MX-5 benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MazdaMX5 {
+            get {
+                return ResourceManager.GetString("MazdaMX5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Eksik Bilgi benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MissingInfo {
+            get {
+                return ResourceManager.GetString("MissingInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Eksik Bilgi benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MissingInformation {
+            get {
+                return ResourceManager.GetString("MissingInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Alınacak Para: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MoneyToReceive {
+            get {
+                return ResourceManager.GetString("MoneyToReceive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Varlıklarım benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MyAssets {
+            get {
+                return ResourceManager.GetString("MyAssets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Mal Varlıklarım benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MyPossessions {
+            get {
+                return ResourceManager.GetString("MyPossessions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Mal Varlıklarım benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string MyPossessionsButton {
+            get {
+                return ResourceManager.GetString("MyPossessionsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Net USD Maliyet benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NetUSDCost {
+            get {
+                return ResourceManager.GetString("NetUSDCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yeni Şifre Tekrar benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NewPasswordConfirmLabel {
+            get {
+                return ResourceManager.GetString("NewPasswordConfirmLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yeni Şifre benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NewPasswordLabel {
+            get {
+                return ResourceManager.GetString("NewPasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yeni şifreler uyuşmuyor veya boş bırakılamaz. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NewPasswordMismatch {
+            get {
+                return ResourceManager.GetString("NewPasswordMismatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Satılacak herhangi bir varlığınız bulunmuyor. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NoAssetsToSell {
+            get {
+                return ResourceManager.GetString("NoAssetsToSell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bu ürünü alabilmek için cüzdanınızda &apos;{0}&apos; bulunmuyor. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NoCurrencyForPurchase {
+            get {
+                return ResourceManager.GetString("NoCurrencyForPurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdanınızda hiç {0} bulunmuyor. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NoCurrencyInWallet {
+            get {
+                return ResourceManager.GetString("NoCurrencyInWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Satın almak için sepetinizde ürün bulunmuyor. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NoItemsInCart {
+            get {
+                return ResourceManager.GetString("NoItemsInCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Parite Fiyatı Yok benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NoPairPrice {
+            get {
+                return ResourceManager.GetString("NoPairPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Fiyat Bilgisi Yok benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NoPriceInfo {
+            get {
+                return ResourceManager.GetString("NoPriceInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Harcanacak bakiye bulunmuyor. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string NoSpendingBalance {
+            get {
+                return ResourceManager.GetString("NoSpendingBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   İşlem Hatası benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string OperationError {
+            get {
+                return ResourceManager.GetString("OperationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifre Hatası benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PasswordError {
+            get {
+                return ResourceManager.GetString("PasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifre benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PasswordLabel {
+            get {
+                return ResourceManager.GetString("PasswordLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Girdiğiniz şifreler uyuşmuyor. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PasswordMismatch {
+            get {
+                return ResourceManager.GetString("PasswordMismatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifre Sıfırlama Kodu benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PasswordResetCode {
+            get {
+                return ResourceManager.GetString("PasswordResetCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifrenizi sıfırlamak için doğrulama kodunuz: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PasswordResetCodeMessage {
+            get {
+                return ResourceManager.GetString("PasswordResetCodeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifreniz başarıyla güncellendi. Lütfen yeni şifrenizle giriş yapın. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PasswordUpdatedSuccessfully {
+            get {
+                return ResourceManager.GetString("PasswordUpdatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifre güncellenirken bir hata oluştu. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PasswordUpdateError {
+            get {
+                return ResourceManager.GetString("PasswordUpdateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ödeme Yöntemi benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PaymentMethod {
+            get {
+                return ResourceManager.GetString("PaymentMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ödeme yöntemleri yüklenirken hata:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PaymentMethodsLoadError {
+            get {
+                return ResourceManager.GetString("PaymentMethodsLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen e-posta adresinizi girin. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PleaseEnterEmail {
+            get {
+                return ResourceManager.GetString("PleaseEnterEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen bir ödeme yöntemi (cüzdan) seçin. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PleaseSelectPaymentMethod {
+            get {
+                return ResourceManager.GetString("PleaseSelectPaymentMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen bir cüzdan seçin... benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PleaseSelectWallet {
+            get {
+                return ResourceManager.GetString("PleaseSelectWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   K/Z benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PnL {
+            get {
+                return ResourceManager.GetString("PnL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0} adet - {1:N0} {2} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PossessionInfoFormat {
+            get {
+                return ResourceManager.GetString("PossessionInfoFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cumhurbaşkanı Külliyesi benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PresidentialComplex {
+            get {
+                return ResourceManager.GetString("PresidentialComplex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Fiyat benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Fiyat Hatası benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PriceError {
+            get {
+                return ResourceManager.GetString("PriceError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Fiyat ({0}) benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PriceFormat {
+            get {
+                return ResourceManager.GetString("PriceFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Alınacak varlık olan &apos;{0}&apos; için anlık fiyat bilgisi bulunamadı. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PriceNotFoundForAsset {
+            get {
+                return ResourceManager.GetString("PriceNotFoundForAsset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Özel Jet benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PrivateJet {
+            get {
+                return ResourceManager.GetString("PrivateJet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ürün benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Product {
+            get {
+                return ResourceManager.GetString("Product", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ürün Adı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ProductName {
+            get {
+                return ResourceManager.GetString("ProductName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Satın alma işlemi başarıyla tamamlandı! benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PurchaseCompletedSuccessfully {
+            get {
+                return ResourceManager.GetString("PurchaseCompletedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Satın alma sırasında bir hata oluştu:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PurchaseError {
+            get {
+                return ResourceManager.GetString("PurchaseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Alış Fiyatı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string PurchasePrice {
+            get {
+                return ResourceManager.GetString("PurchasePrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Adet benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Quantity {
+            get {
+                return ResourceManager.GetString("Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Son İşlemler benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RecentTrades {
+            get {
+                return ResourceManager.GetString("RecentTrades", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Son işlemler yüklenirken bir hata oluştu: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RecentTradesLoadError {
+            get {
+                return ResourceManager.GetString("RecentTradesLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Yenile benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Refresh {
+            get {
+                return ResourceManager.GetString("Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kayıt Ol benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kayıt Ol benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RegisterButton {
+            get {
+                return ResourceManager.GetString("RegisterButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kayıtlı E-Posta Adresiniz benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RegisteredEmailLabel {
+            get {
+                return ResourceManager.GetString("RegisteredEmailLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hesabın yok mu? Kayıt Ol benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RegisterLink {
+            get {
+                return ResourceManager.GetString("RegisterLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kayıt sırasında bir veritabanı hatası oluştu: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RegistrationDatabaseError {
+            get {
+                return ResourceManager.GetString("RegistrationDatabaseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kayıt Hatası benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RegistrationError {
+            get {
+                return ResourceManager.GetString("RegistrationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kayıt başarılı! Lütfen giriş yapınız. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RegistrationSuccessful {
+            get {
+                return ResourceManager.GetString("RegistrationSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bakiye Çıkar benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RemoveBalance {
+            get {
+                return ResourceManager.GetString("RemoveBalance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   X benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RemoveButton {
+            get {
+                return ResourceManager.GetString("RemoveButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0} hesabından {1} birim bakiye çıkarmak istediğinizden emin misiniz? benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RemoveConfirmationMessage {
+            get {
+                return ResourceManager.GetString("RemoveConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Çıkarma Onayı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RemoveConfirmationTitle {
+            get {
+                return ResourceManager.GetString("RemoveConfirmationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   gerekli, ancak {0} mevcut. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string RequiredButAvailable {
+            get {
+                return ResourceManager.GetString("RequiredButAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifreyi Sıfırla benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ResetPasswordButton {
+            get {
+                return ResourceManager.GetString("ResetPasswordButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen bakiye çıkarılacak bir varlık seçin. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SelectAssetToRemove {
+            get {
+                return ResourceManager.GetString("SelectAssetToRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen bir para birimi seçin. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SelectCurrency {
+            get {
+                return ResourceManager.GetString("SelectCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen bir cüzdan seçin. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SelectWallet {
+            get {
+                return ResourceManager.GetString("SelectWallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen silmek için bir cüzdan seçin. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SelectWalletToDelete {
+            get {
+                return ResourceManager.GetString("SelectWalletToDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Lütfen bir cüzdan türü seçin. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SelectWalletType {
+            get {
+                return ResourceManager.GetString("SelectWalletType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sat benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Sell {
+            get {
+                return ResourceManager.GetString("Sell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Varlık Sat benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SellAsset {
+            get {
+                return ResourceManager.GetString("SellAsset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Doğrulama Kodu Gönder benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SendVerificationCode {
+            get {
+                return ResourceManager.GetString("SendVerificationCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Alışveriş Sepeti benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ShoppingCart {
+            get {
+                return ResourceManager.GetString("ShoppingCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sepeti Göster benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ShowCart {
+            get {
+                return ResourceManager.GetString("ShowCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Şifreyi Göster benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string ShowPassword {
+            get {
+                return ResourceManager.GetString("ShowPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Çıkış Yap benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SignOut {
+            get {
+                return ResourceManager.GetString("SignOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Harcanacak Para: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SpendingMoney {
+            get {
+                return ResourceManager.GetString("SpendingMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Durum Mesajı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string StatusMessage {
+            get {
+                return ResourceManager.GetString("StatusMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Başarılı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Success {
+            get {
+                return ResourceManager.GetString("Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Başarılı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string SuccessTitle {
+            get {
+                return ResourceManager.GetString("SuccessTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Titanik benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Titanic {
+            get {
+                return ResourceManager.GetString("Titanic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Toplam Varlık Değeri benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TotalAssetsValue {
+            get {
+                return ResourceManager.GetString("TotalAssetsValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Toplam:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TotalPrefix {
+            get {
+                return ResourceManager.GetString("TotalPrefix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Toplam Değer benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TotalValue {
+            get {
+                return ResourceManager.GetString("TotalValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Toplam: 0 benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TotalZero {
+            get {
+                return ResourceManager.GetString("TotalZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Al / Sat benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TradeButton {
+            get {
+                return ResourceManager.GetString("TradeButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   İşlem başarıyla gerçekleştirildi. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TradeCompletedSuccessfully {
+            get {
+                return ResourceManager.GetString("TradeCompletedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0} {1} vererek\n~{2} {3} alacaksınız.\n\nİşlemi onaylıyor musunuz? benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TradeConfirmationMessage {
+            get {
+                return ResourceManager.GetString("TradeConfirmationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   İşlem Onayı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TradeConfirmationTitle {
+            get {
+                return ResourceManager.GetString("TradeConfirmationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Trade işlemi sırasında bir hata oluştu: {0} benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TradeError {
+            get {
+                return ResourceManager.GetString("TradeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Gerekli veriler yüklenemediği için trade ekranı açılamıyor. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TradeFormCannotOpen {
+            get {
+                return ResourceManager.GetString("TradeFormCannotOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Trade İşlemi benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TradeTransaction {
+            get {
+                return ResourceManager.GetString("TradeTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   İşlem benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Transaction {
+            get {
+                return ResourceManager.GetString("Transaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   İşlem Başarısız benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TransactionFailed {
+            get {
+                return ResourceManager.GetString("TransactionFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   İşlem Türü benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string TransactionType {
+            get {
+                return ResourceManager.GetString("TransactionType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Birim Fiyat benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UnitPrice {
+            get {
+                return ResourceManager.GetString("UnitPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kullanıcı Girişi benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UserLogin {
+            get {
+                return ResourceManager.GetString("UserLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Bu kullanıcı adı veya e-posta adresi zaten kullanılıyor. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UsernameEmailAlreadyExists {
+            get {
+                return ResourceManager.GetString("UsernameEmailAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kullanıcı Adı benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UsernameLabel {
+            get {
+                return ResourceManager.GetString("UsernameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Kullanıcı adı ve şifre boş bırakılamaz. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string UsernamePasswordRequired {
+            get {
+                return ResourceManager.GetString("UsernamePasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Doğrulama Kodu benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string VerificationCodeLabel {
+            get {
+                return ResourceManager.GetString("VerificationCodeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Doğrulama kodu e-posta adresinize gönderildi. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string VerificationCodeSent {
+            get {
+                return ResourceManager.GetString("VerificationCodeSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Doğrulama Hatası benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string VerificationError {
+            get {
+                return ResourceManager.GetString("VerificationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string Wallet {
+            get {
+                return ResourceManager.GetString("Wallet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan Ekle / Sil benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletButton {
+            get {
+                return ResourceManager.GetString("WalletButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan başarıyla oluşturuldu. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletCreatedSuccess {
+            get {
+                return ResourceManager.GetString("WalletCreatedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan oluşturulurken bir hata oluştu. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletCreateError {
+            get {
+                return ResourceManager.GetString("WalletCreateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan başarıyla silindi. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletDeletedSuccess {
+            get {
+                return ResourceManager.GetString("WalletDeletedSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan silinirken bir hata oluştu. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletDeleteError {
+            get {
+                return ResourceManager.GetString("WalletDeleteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletLabel {
+            get {
+                return ResourceManager.GetString("WalletLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdanlar yüklenirken bir hata oluştu:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletLoadError {
+            get {
+                return ResourceManager.GetString("WalletLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan Yönetimi benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletManagement {
+            get {
+                return ResourceManager.GetString("WalletManagement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan Adı: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletName {
+            get {
+                return ResourceManager.GetString("WalletName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan adı boş bırakılamaz. benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletNameRequired {
+            get {
+                return ResourceManager.GetString("WalletNameRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan Türü: benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletType {
+            get {
+                return ResourceManager.GetString("WalletType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cüzdan türleri yüklenirken bir hata oluştu:  benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WalletTypeLoadError {
+            get {
+                return ResourceManager.GetString("WalletTypeLoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hoş geldiniz, {0}! benzeri yerelleştirilmiş bir dize arar.
+        /// </summary>
+        internal static string WelcomeMessage {
+            get {
+                return ResourceManager.GetString("WelcomeMessage", resourceCulture);
+            }
+        }
     }
 }

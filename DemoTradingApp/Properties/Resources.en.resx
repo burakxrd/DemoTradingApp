@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="WalletLoadError" xml:space="preserve">
+    <value>An error occurred while loading wallets: </value>
+  </data>
+  <data name="DatabaseError" xml:space="preserve">
+    <value>Database Error</value>
+  </data>
+  <data name="AssetLoadError" xml:space="preserve">
+    <value>An error occurred while loading assets: </value>
+  </data>
+  <data name="BalanceAddedSuccess" xml:space="preserve">
+    <value>Balance added successfully.</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="BalanceAddError" xml:space="preserve">
+    <value>An error occurred while adding balance: </value>
+  </data>
+  <data name="SelectAssetToRemove" xml:space="preserve">
+    <value>Please select an asset to remove balance from.</value>
+  </data>
+  <data name="MissingInfo" xml:space="preserve">
+    <value>Missing Information</value>
+  </data>
+  <data name="EnterAmountGreaterThanZero" xml:space="preserve">
+    <value>Please enter an amount greater than zero.</value>
+  </data>
+  <data name="InvalidAmount" xml:space="preserve">
+    <value>Invalid Amount</value>
+  </data>
+  <data name="AmountExceedsBalance" xml:space="preserve">
+    <value>The amount you want to withdraw cannot exceed the available balance.</value>
+  </data>
+  <data name="InsufficientBalance" xml:space="preserve">
+    <value>Insufficient Balance</value>
+  </data>
+  <data name="RemoveConfirmationTitle" xml:space="preserve">
+    <value>Remove Confirmation</value>
+  </data>
+  <data name="BalanceRemovedSuccess" xml:space="preserve">
+    <value>Balance removed successfully.</value>
+  </data>
+  <data name="BalanceRemoveFailed" xml:space="preserve">
+    <value>Balance removal failed. There may be insufficient balance.</value>
+  </data>
+  <data name="OperationError" xml:space="preserve">
+    <value>Operation Error</value>
+  </data>
+  <data name="BalanceRemoveError" xml:space="preserve">
+    <value>An error occurred while removing balance: </value>
+  </data>
+  <data name="RemoveConfirmationMessage" xml:space="preserve">
+    <value>Are you sure you want to remove {1} units of balance from {0}?</value>
+  </data>
+  <data name="SelectWallet" xml:space="preserve">
+    <value>Please select a wallet.</value>
+  </data>
+  <data name="SelectCurrency" xml:space="preserve">
+    <value>Please select a currency.</value>
+  </data>
+  <data name="SpendingMoney" xml:space="preserve">
+    <value>Money to Spend:</value>
+  </data>
+  <data name="AssetToBuy" xml:space="preserve">
+    <value>Asset to Buy:</value>
+  </data>
+  <data name="BuyAsset" xml:space="preserve">
+    <value>Buy Asset</value>
+  </data>
+  <data name="AmountToSpend" xml:space="preserve">
+    <value>Amount to Spend:</value>
+  </data>
+  <data name="NoSpendingBalance" xml:space="preserve">
+    <value>No spending balance available.</value>
+  </data>
+  <data name="AssetToSell" xml:space="preserve">
+    <value>Asset to Sell:</value>
+  </data>
+  <data name="MoneyToReceive" xml:space="preserve">
+    <value>Money to Receive:</value>
+  </data>
+  <data name="SellAsset" xml:space="preserve">
+    <value>Sell Asset</value>
+  </data>
+  <data name="AmountToSell" xml:space="preserve">
+    <value>Amount to Sell:</value>
+  </data>
+  <data name="NoAssetsToSell" xml:space="preserve">
+    <value>You don't have any assets to sell.</value>
+  </data>
+  <data name="LivePrice" xml:space="preserve">
+    <value>Live Price: -</value>
+  </data>
+  <data name="EstimatedResult" xml:space="preserve">
+    <value>Estimated Result: -</value>
+  </data>
+  <data name="Balance" xml:space="preserve">
+    <value>Balance: -</value>
+  </data>
+  <data name="BalanceFormat" xml:space="preserve">
+    <value>Balance: 0.00 USD</value>
+  </data>
+  <data name="EstimatedToReceive" xml:space="preserve">
+    <value>Estimated to Receive: ~{0} {1}</value>
+  </data>
+  <data name="NoPriceInfo" xml:space="preserve">
+    <value>No Price Information</value>
+  </data>
+  <data name="EstimatedToGet" xml:space="preserve">
+    <value>Estimated to Get: ~{0} {1}</value>
+  </data>
+  <data name="NoPairPrice" xml:space="preserve">
+    <value>No Pair Price</value>
+  </data>
+  <data name="FillAllFieldsCorrectly" xml:space="preserve">
+    <value>Please fill all fields correctly.</value>
+  </data>
+  <data name="InsufficientBalanceExclamation" xml:space="preserve">
+    <value>Insufficient balance!</value>
+  </data>
+  <data name="PriceNotFoundForAsset" xml:space="preserve">
+    <value>Live price information not found for asset '{0}'.</value>
+  </data>
+  <data name="PriceError" xml:space="preserve">
+    <value>Price Error</value>
+  </data>
+  <data name="CalculationError" xml:space="preserve">
+    <value>An error occurred while calculating required data for the transaction:\n{0}</value>
+  </data>
+  <data name="AssetNotDefinedInDatabase" xml:space="preserve">
+    <value>Asset '{0}' is not defined in the database.</value>
+  </data>
+  <data name="AssetUndefined" xml:space="preserve">
+    <value>Asset Undefined</value>
+  </data>
+  <data name="InvalidPrice" xml:space="preserve">
+    <value>The price of the asset involved in the transaction is zero or invalid. (Price: {0})</value>
+  </data>
+  <data name="InvalidPriceTitle" xml:space="preserve">
+    <value>Invalid Price</value>
+  </data>
+  <data name="CalculatedAmountError" xml:space="preserve">
+    <value>The calculated amount to receive is zero or less. Please check the amount you entered.\nCalculated Amount: {0}</value>
+  </data>
+  <data name="TradeConfirmationMessage" xml:space="preserve">
+    <value>By giving {0} {1},\nyou will receive ~{2} {3}.\n\nDo you confirm the transaction?</value>
+  </data>
+  <data name="TradeConfirmationTitle" xml:space="preserve">
+    <value>Transaction Confirmation</value>
+  </data>
+  <data name="TradeCompletedSuccessfully" xml:space="preserve">
+    <value>Transaction completed successfully.</value>
+  </data>
+  <data name="TradeError" xml:space="preserve">
+    <value>An error occurred during the trade transaction: {0}</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Welcome, {0}!</value>
+  </data>
+  <data name="ExchangeRatesApiError" xml:space="preserve">
+    <value>Could not get exchange rate data from API, using existing data.</value>
+  </data>
+  <data name="ExchangeRatesNotAvailable" xml:space="preserve">
+    <value>Exchange rates could not be retrieved. Default rates will be used.</value>
+  </data>
+  <data name="Wallet" xml:space="preserve">
+    <value>Wallet</value>
+  </data>
+  <data name="Asset" xml:space="preserve">
+    <value>Asset</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount:</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>Unit Price</value>
+  </data>
+  <data name="TotalValue" xml:space="preserve">
+    <value>Total Value</value>
+  </data>
+  <data name="PnL" xml:space="preserve">
+    <value>P/L</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="AssetsLoadError" xml:space="preserve">
+    <value>An error occurred while loading assets: {0}</value>
+  </data>
+  <data name="MarketDataApiError" xml:space="preserve">
+    <value>Could not get new market data from API.</value>
+  </data>
+  <data name="MarketPricesLoadError" xml:space="preserve">
+    <value>An error occurred while loading market prices: {0}</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Market" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="PriceFormat" xml:space="preserve">
+    <value>Price ({0})</value>
+  </data>
+  <data name="MarketTableUpdateError" xml:space="preserve">
+    <value>An error occurred while updating the market table: {0}</value>
+  </data>
+  <data name="RecentTradesLoadError" xml:space="preserve">
+    <value>An error occurred while loading recent trades: {0}</value>
+  </data>
+  <data name="TradeFormCannotOpen" xml:space="preserve">
+    <value>Trade screen cannot be opened because required data could not be loaded.</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="UserLogin" xml:space="preserve">
+    <value>User Login</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot Password</value>
+  </data>
+  <data name="UsernamePasswordRequired" xml:space="preserve">
+    <value>Username and password cannot be empty.</value>
+  </data>
+  <data name="InvalidUsernamePassword" xml:space="preserve">
+    <value>Invalid username or password.</value>
+  </data>
+  <data name="DatabaseErrorWithMessage" xml:space="preserve">
+    <value>Database error: {0}</value>
+  </data>
+  <data name="CriticalError" xml:space="preserve">
+    <value>Critical Error</value>
+  </data>
+  <data name="AllFieldsRequired" xml:space="preserve">
+    <value>All fields must be filled.</value>
+  </data>
+  <data name="PasswordMismatch" xml:space="preserve">
+    <value>The passwords you entered do not match.</value>
+  </data>
+  <data name="PasswordError" xml:space="preserve">
+    <value>Password Error</value>
+  </data>
+  <data name="RegistrationSuccessful" xml:space="preserve">
+    <value>Registration successful! Please log in.</value>
+  </data>
+  <data name="UsernameEmailAlreadyExists" xml:space="preserve">
+    <value>This username or email address is already in use.</value>
+  </data>
+  <data name="RegistrationError" xml:space="preserve">
+    <value>Registration Error</value>
+  </data>
+  <data name="RegistrationDatabaseError" xml:space="preserve">
+    <value>A database error occurred during registration: {0}</value>
+  </data>
+  <data name="PleaseEnterEmail" xml:space="preserve">
+    <value>Please enter your email address.</value>
+  </data>
+  <data name="EmailNotRegistered" xml:space="preserve">
+    <value>This email address is not registered in the system.</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Invalid Email</value>
+  </data>
+  <data name="DatabaseCheckError" xml:space="preserve">
+    <value>An error occurred during database check: {0}</value>
+  </data>
+  <data name="PasswordResetCode" xml:space="preserve">
+    <value>Password Reset Code</value>
+  </data>
+  <data name="PasswordResetCodeMessage" xml:space="preserve">
+    <value>Your verification code to reset your password: {0}</value>
+  </data>
+  <data name="VerificationCodeSent" xml:space="preserve">
+    <value>Verification code has been sent to your email address.</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="EmailSendError" xml:space="preserve">
+    <value>An error occurred while sending email: {0}</value>
+  </data>
+  <data name="InvalidVerificationCode" xml:space="preserve">
+    <value>Invalid verification code!</value>
+  </data>
+  <data name="VerificationError" xml:space="preserve">
+    <value>Verification Error</value>
+  </data>
+  <data name="NewPasswordMismatch" xml:space="preserve">
+    <value>New passwords do not match or cannot be empty.</value>
+  </data>
+  <data name="PasswordUpdatedSuccessfully" xml:space="preserve">
+    <value>Your password has been successfully updated. Please log in with your new password.</value>
+  </data>
+  <data name="PasswordUpdateError" xml:space="preserve">
+    <value>An error occurred while updating the password.</value>
+  </data>
+  <data name="EmailForResetNotFound" xml:space="preserve">
+    <value>Email address for password reset not found. Please restart the process.</value>
+  </data>
+  <data name="WalletTypeLoadError" xml:space="preserve">
+    <value>An error occurred while loading wallet types: </value>
+  </data>
+  <data name="ExistingWalletsLoadError" xml:space="preserve">
+    <value>An error occurred while loading existing wallets: </value>
+  </data>
+  <data name="WalletNameRequired" xml:space="preserve">
+    <value>Wallet name cannot be empty.</value>
+  </data>
+  <data name="SelectWalletType" xml:space="preserve">
+    <value>Please select a wallet type.</value>
+  </data>
+  <data name="WalletCreatedSuccess" xml:space="preserve">
+    <value>Wallet created successfully.</value>
+  </data>
+  <data name="WalletCreateError" xml:space="preserve">
+    <value>An error occurred while creating the wallet.</value>
+  </data>
+  <data name="CriticalDatabaseError" xml:space="preserve">
+    <value>Critical database error: </value>
+  </data>
+  <data name="SelectWalletToDelete" xml:space="preserve">
+    <value>Please select a wallet to delete.</value>
+  </data>
+  <data name="DeleteWalletConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete the wallet '{0}'?
+
+THIS ACTION CANNOT BE UNDONE AND ALL ASSETS IN THE WALLET WILL BE DELETED!</value>
+  </data>
+  <data name="DeleteConfirmationTitle" xml:space="preserve">
+    <value>Delete Confirmation</value>
+  </data>
+  <data name="WalletDeletedSuccess" xml:space="preserve">
+    <value>Wallet deleted successfully.</value>
+  </data>
+  <data name="WalletDeleteError" xml:space="preserve">
+    <value>An error occurred while deleting the wallet.</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Add to Cart</value>
+  </data>
+  <data name="LuxuryWatch" xml:space="preserve">
+    <value>Luxury Watch</value>
+  </data>
+  <data name="MazdaMX5" xml:space="preserve">
+    <value>Mazda MX-5</value>
+  </data>
+  <data name="PrivateJet" xml:space="preserve">
+    <value>Private Jet</value>
+  </data>
+  <data name="Titanic" xml:space="preserve">
+    <value>Titanic</value>
+  </data>
+  <data name="PresidentialComplex" xml:space="preserve">
+    <value>Presidential Complex</value>
+  </data>
+  <data name="TotalPrefix" xml:space="preserve">
+    <value>Total: </value>
+  </data>
+  <data name="RemoveButton" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="TotalZero" xml:space="preserve">
+    <value>Total: 0</value>
+  </data>
+  <data name="CartEmpty" xml:space="preserve">
+    <value>Your cart is currently empty.</value>
+  </data>
+  <data name="PleaseSelectWallet" xml:space="preserve">
+    <value>Please select a wallet...</value>
+  </data>
+  <data name="PaymentMethodsLoadError" xml:space="preserve">
+    <value>Error loading payment methods: </value>
+  </data>
+  <data name="HideCart" xml:space="preserve">
+    <value>Hide Cart</value>
+  </data>
+  <data name="ShowCart" xml:space="preserve">
+    <value>Show Cart</value>
+  </data>
+  <data name="NoItemsInCart" xml:space="preserve">
+    <value>No items in cart to purchase.</value>
+  </data>
+  <data name="EmptyCart" xml:space="preserve">
+    <value>Empty Cart</value>
+  </data>
+  <data name="PleaseSelectPaymentMethod" xml:space="preserve">
+    <value>Please select a payment method (wallet).</value>
+  </data>
+  <data name="MissingInformation" xml:space="preserve">
+    <value>Missing Information</value>
+  </data>
+  <data name="InsufficientBalanceInWallet" xml:space="preserve">
+    <value>Insufficient balance in selected wallet:</value>
+  </data>
+  <data name="NoCurrencyInWallet" xml:space="preserve">
+    <value>You have no {0} in your wallet.</value>
+  </data>
+  <data name="RequiredButAvailable" xml:space="preserve">
+    <value>required, but {0} available.</value>
+  </data>
+  <data name="InsufficientBalanceTitle" xml:space="preserve">
+    <value>Insufficient Balance</value>
+  </data>
+  <data name="BalanceDeductionError" xml:space="preserve">
+    <value>error occurred while deducting balance.</value>
+  </data>
+  <data name="PurchaseCompletedSuccessfully" xml:space="preserve">
+    <value>Purchase completed successfully!</value>
+  </data>
+  <data name="SuccessTitle" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="PurchaseError" xml:space="preserve">
+    <value>An error occurred during purchase: </value>
+  </data>
+  <data name="TransactionFailed" xml:space="preserve">
+    <value>Transaction Failed</value>
+  </data>
+  <data name="NoCurrencyForPurchase" xml:space="preserve">
+    <value>You don't have '{0}' in your wallet to buy this item.</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ItemAddedToCart" xml:space="preserve">
+    <value>{0} added to cart!</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteAssetConfirmation" xml:space="preserve">
+    <value>Are you sure you want to permanently delete this asset?</value>
+  </data>
+  <data name="DeleteConfirmation" xml:space="preserve">
+    <value>Delete Confirmation</value>
+  </data>
+  <data name="AssetDeletedSuccess" xml:space="preserve">
+    <value>Asset deleted successfully.</value>
+  </data>
+  <data name="AssetDeleteError" xml:space="preserve">
+    <value>An error occurred while deleting the asset.</value>
+  </data>
+  <data name="StatusMessage" xml:space="preserve">
+    <value>Status Message</value>
+  </data>
+  <data name="TransactionType" xml:space="preserve">
+    <value>Transaction Type</value>
+  </data>
+  <data name="Sell" xml:space="preserve">
+    <value>Sell</value>
+  </data>
+  <data name="Buy" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="ConfirmTransaction" xml:space="preserve">
+    <value>Confirm Transaction</value>
+  </data>
+  <data name="EstimatedResultFormat" xml:space="preserve">
+    <value>~0.000000 XYZ you will receive</value>
+  </data>
+  <data name="LivePriceFormat" xml:space="preserve">
+    <value>Live Price: $0.00</value>
+  </data>
+  <data name="CryptoStock" xml:space="preserve">
+    <value>Crypto / Stock:</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency:</value>
+  </data>
+  <data name="BuySellScreen" xml:space="preserve">
+    <value>Buy / Sell Screen</value>
+  </data>
+  <data name="TradeTransaction" xml:space="preserve">
+    <value>Trade Transaction</value>
+  </data>
+  <data name="ApiRequestError" xml:space="preserve">
+    <value>API request error, reading from database: {0}</value>
+  </data>
+  <data name="ExchangeRateError" xml:space="preserve">
+    <value>Error retrieving exchange rate, reading from database: {0}</value>
+  </data>
+  <data name="NetUSDCost" xml:space="preserve">
+    <value>Net USD Cost</value>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>Transaction</value>
+  </data>
+  <data name="CounterAsset" xml:space="preserve">
+    <value>Counter Asset</value>
+  </data>
+  <data name="CounterAmount" xml:space="preserve">
+    <value>Counter Amount</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="PurchasePrice" xml:space="preserve">
+    <value>Purchase Price</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="RemoveBalance" xml:space="preserve">
+    <value>Remove Balance</value>
+  </data>
+  <data name="ConfirmRemoveBalance" xml:space="preserve">
+    <value>Remove Balance</value>
+  </data>
+  <data name="AmountToRemove" xml:space="preserve">
+    <value>Amount to Remove:</value>
+  </data>
+  <data name="AssetToRemove" xml:space="preserve">
+    <value>Wallet - Asset to Remove:</value>
+  </data>
+  <data name="AddBalance" xml:space="preserve">
+    <value>Add Balance</value>
+  </data>
+  <data name="ConfirmAddBalance" xml:space="preserve">
+    <value>Add Balance</value>
+  </data>
+  <data name="WalletLabel" xml:space="preserve">
+    <value>Wallet:</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="BalanceManagement" xml:space="preserve">
+    <value>Balance Management</value>
+  </data>
+  <data name="DeleteExistingWallet" xml:space="preserve">
+    <value>Delete Existing Wallet</value>
+  </data>
+  <data name="DeleteSelectedWallet" xml:space="preserve">
+    <value>Delete Selected Wallet</value>
+  </data>
+  <data name="CreateNewWallet" xml:space="preserve">
+    <value>Create New Wallet</value>
+  </data>
+  <data name="CreateWallet" xml:space="preserve">
+    <value>Create Wallet</value>
+  </data>
+  <data name="WalletType" xml:space="preserve">
+    <value>Wallet Type:</value>
+  </data>
+  <data name="WalletName" xml:space="preserve">
+    <value>Wallet Name:</value>
+  </data>
+  <data name="WalletManagement" xml:space="preserve">
+    <value>Wallet Management</value>
+  </data>
+  <data name="MainPanel" xml:space="preserve">
+    <value>Main Panel</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
+  <data name="ConfirmPurchase" xml:space="preserve">
+    <value>Confirm Purchase</value>
+  </data>
+  <data name="ShoppingCart" xml:space="preserve">
+    <value>Shopping Cart</value>
+  </data>
+  <data name="LuxuryMarket" xml:space="preserve">
+    <value>Luxury Market</value>
+  </data>
+  <data name="SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="MyPossessionsButton" xml:space="preserve">
+    <value>My Possessions</value>
+  </data>
+  <data name="MarketButton" xml:space="preserve">
+    <value>Market</value>
+  </data>
+  <data name="TradeButton" xml:space="preserve">
+    <value>Trade</value>
+  </data>
+  <data name="BalanceButton" xml:space="preserve">
+    <value>Add/Remove Balance</value>
+  </data>
+  <data name="WalletButton" xml:space="preserve">
+    <value>Add/Remove Wallet</value>
+  </data>
+  <data name="MyPossessions" xml:space="preserve">
+    <value>My Possessions</value>
+  </data>
+  <data name="DashboardTitle" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="TotalAssetsValue" xml:space="preserve">
+    <value>Total Assets Value</value>
+  </data>
+  <data name="MarketPrices" xml:space="preserve">
+    <value>Market Prices</value>
+  </data>
+  <data name="MyAssets" xml:space="preserve">
+    <value>My Assets</value>
+  </data>
+  <data name="RecentTrades" xml:space="preserve">
+    <value>Recent Trades</value>
+  </data>
+  <data name="BackToLoginLink" xml:space="preserve">
+    <value>&lt; Back to Login</value>
+  </data>
+  <data name="ConfirmPasswordLabel" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>E-Mail</value>
+  </data>
+  <data name="ForgotPasswordLink" xml:space="preserve">
+    <value>Forgot Password</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginLink" xml:space="preserve">
+    <value>Already have an account? Login</value>
+  </data>
+  <data name="NewPasswordConfirmLabel" xml:space="preserve">
+    <value>New Password Again</value>
+  </data>
+  <data name="NewPasswordLabel" xml:space="preserve">
+    <value>New Password</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RegisterButton" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisteredEmailLabel" xml:space="preserve">
+    <value>Your Registered E-Mail Address</value>
+  </data>
+  <data name="RegisterLink" xml:space="preserve">
+    <value>Don't have an account? Register</value>
+  </data>
+  <data name="ResetPasswordButton" xml:space="preserve">
+    <value>Reset Password</value>
+  </data>
+  <data name="SendVerificationCode" xml:space="preserve">
+    <value>Send Verification Code</value>
+  </data>
+  <data name="ShowPassword" xml:space="preserve">
+    <value>Show Password</value>
+  </data>
+  <data name="UsernameLabel" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="VerificationCodeLabel" xml:space="preserve">
+    <value>Verification Code</value>
+  </data>
+  <data name="MarketDataUpdated" xml:space="preserve">
+    <value>Market Data has Updated</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="PossessionInfoFormat" xml:space="preserve">
+    <value>Qty: {0} - {1:N0} {2}</value>
+  </data>
+</root>

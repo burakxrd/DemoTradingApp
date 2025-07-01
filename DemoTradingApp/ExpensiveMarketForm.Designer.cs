@@ -106,7 +106,7 @@
             lblPaymentMethod.Size = new Size(400, 24);
             lblPaymentMethod.StateCommon.ShortText.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblPaymentMethod.TabIndex = 4;
-            lblPaymentMethod.Values.Text = "Ödeme Yöntemi:";
+            lblPaymentMethod.Values.Text = Properties.Resources.PaymentMethod;
             // 
             // btnConfirmPurchase
             // 
@@ -118,7 +118,7 @@
             btnConfirmPurchase.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnConfirmPurchase.TabIndex = 3;
             btnConfirmPurchase.Values.DropDownArrowColor = Color.Empty;
-            btnConfirmPurchase.Values.Text = "Satın Almayı Onayla";
+            btnConfirmPurchase.Values.Text = Properties.Resources.ConfirmPurchase;
             btnConfirmPurchase.Click += btnConfirmPurchase_Click;
             // 
             // lblCartTotal
@@ -130,7 +130,7 @@
             lblCartTotal.Size = new Size(400, 27);
             lblCartTotal.StateCommon.ShortText.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblCartTotal.TabIndex = 2;
-            lblCartTotal.Values.Text = "Toplam: ";
+            lblCartTotal.Values.Text = Properties.Resources.TotalPrefix;
             // 
             // flpCartItems
             // 
@@ -156,7 +156,7 @@
             kryptonHeader1.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             kryptonHeader1.TabIndex = 0;
             kryptonHeader1.Values.Description = "";
-            kryptonHeader1.Values.Heading = "Alışveriş Sepeti";
+            kryptonHeader1.Values.Heading = Properties.Resources.ShoppingCart;
             kryptonHeader1.Values.Image = null;
             // 
             // btnShowCart
@@ -168,7 +168,7 @@
             btnShowCart.Size = new Size(400, 52);
             btnShowCart.TabIndex = 1;
             btnShowCart.Values.DropDownArrowColor = Color.Empty;
-            btnShowCart.Values.Text = "Sepeti Göster";
+            btnShowCart.Values.Text = Properties.Resources.ShowCart;
             btnShowCart.Click += btnShowCart_Click;
             // 
             // ExpensiveMarketForm
@@ -180,7 +180,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "ExpensiveMarketForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Lüks Pazar";
+            Text = Properties.Resources.LuxuryMarket;
             Load += ExpensiveMarketForm_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);

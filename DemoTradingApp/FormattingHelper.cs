@@ -15,7 +15,7 @@ namespace DemoTradingApp
             {
                 case "EUR": return new CultureInfo("de-DE");
                 case "TRY": return new CultureInfo("tr-TR");
-                default: return new CultureInfo("en-US"); // USD ve diğerleri için varsayılan
+                default: return new CultureInfo("en-US"); 
             }
         }
     }

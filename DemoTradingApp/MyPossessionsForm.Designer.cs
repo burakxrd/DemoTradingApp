@@ -57,7 +57,7 @@
             kryptonHeader1.StateCommon.Content.ShortText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             kryptonHeader1.TabIndex = 0;
             kryptonHeader1.Values.Description = "";
-            kryptonHeader1.Values.Heading = "Mal Varlıklarım";
+            kryptonHeader1.Values.Heading = Properties.Resources.MyPossessions;
             kryptonHeader1.Values.Image = null;
             // 
             // MyPossessionsForm
@@ -69,7 +69,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "MyPossessionsForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Mal Varlıklarım";
+            Text = Properties.Resources.MyPossessions;
             Load += MyPossessionsForm_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);

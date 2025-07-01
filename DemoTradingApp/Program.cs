@@ -1,24 +1,25 @@
+using System.Globalization;
+
 namespace DemoTradingApp
 {
-    internal static class Program
+    namespace DemoTradingApp
     {
-        [STAThread]
-        static void Main()
+        internal static class Program
         {
-            ApplicationConfiguration.Initialize();
-
-            // Sadece Giriþ Formu ile baþla
-            using (LoginForm loginForm = new LoginForm())
+            [STAThread]
+            static void Main()
             {
-                // Eðer giriþ baþarýlý olursa (DialogResult.OK dönerse)
-                if (loginForm.ShowDialog() == DialogResult.OK)
+                ApplicationConfiguration.Initialize();
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+                using (LoginForm loginForm = new LoginForm())
                 {
-                    // Ana uygulama olarak Dashboard'u çalýþtýr.
-                    // Bu form kapandýðýnda uygulama da kapanýr.
-                    Application.Run(new DashboardForm(loginForm.LoggedInUser!));
+                    if (loginForm.ShowDialog() == DialogResult.OK)
+                    {
+                        Application.Run(new DashboardForm(loginForm.LoggedInUser!));
+                    }
                 }
             }
-            // Giriþ formu kapatýlýrsa veya giriþ yapýlmazsa, uygulama sessizce sonlanýr.
         }
     }
 }

@@ -31,17 +31,17 @@
             kryptonPanel1.Margin = new Padding(3, 4, 3, 4);
             kryptonPanel1.Name = "kryptonPanel1";
             kryptonPanel1.PanelBackStyle = Krypton.Toolkit.PaletteBackStyle.ControlClient;
-            kryptonPanel1.Size = new Size(134, 359);
+            kryptonPanel1.Size = new Size(185, 359);
             kryptonPanel1.TabIndex = 0;
             // 
             // btnSignOut
             // 
             btnSignOut.Location = new Point(0, 312);
             btnSignOut.Name = "btnSignOut";
-            btnSignOut.Size = new Size(134, 47);
+            btnSignOut.Size = new Size(185, 47);
             btnSignOut.TabIndex = 0;
             btnSignOut.Values.DropDownArrowColor = Color.Empty;
-            btnSignOut.Values.Text = "Çıkış Yap";
+            btnSignOut.Values.Text = Properties.Resources.SignOut;
             btnSignOut.Click += btnSignOut_Click;
             // 
             // btnShowPossessions
@@ -50,11 +50,11 @@
             btnShowPossessions.Location = new Point(0, 252);
             btnShowPossessions.Margin = new Padding(3, 4, 3, 4);
             btnShowPossessions.Name = "btnShowPossessions";
-            btnShowPossessions.Size = new Size(134, 63);
+            btnShowPossessions.Size = new Size(185, 63);
             btnShowPossessions.StateCommon.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             btnShowPossessions.TabIndex = 6;
             btnShowPossessions.Values.DropDownArrowColor = Color.Empty;
-            btnShowPossessions.Values.Text = "Sahip Olunan    \r\n    Varlıklar";
+            btnShowPossessions.Values.Text = Properties.Resources.MyPossessionsButton;
             btnShowPossessions.Click += btnShowPossessions_Click;
             // 
             // btnShowMarket
@@ -63,11 +63,11 @@
             btnShowMarket.Location = new Point(0, 200);
             btnShowMarket.Margin = new Padding(3, 4, 3, 4);
             btnShowMarket.Name = "btnShowMarket";
-            btnShowMarket.Size = new Size(134, 52);
+            btnShowMarket.Size = new Size(185, 52);
             btnShowMarket.StateCommon.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             btnShowMarket.TabIndex = 5;
             btnShowMarket.Values.DropDownArrowColor = Color.Empty;
-            btnShowMarket.Values.Text = "Market";
+            btnShowMarket.Values.Text = Properties.Resources.MarketButton;
             btnShowMarket.Click += btnShowMarket_Click;
             // 
             // btnTrade
@@ -76,11 +76,11 @@
             btnTrade.Location = new Point(0, 150);
             btnTrade.Margin = new Padding(3, 4, 3, 4);
             btnTrade.Name = "btnTrade";
-            btnTrade.Size = new Size(134, 50);
+            btnTrade.Size = new Size(185, 50);
             btnTrade.StateCommon.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             btnTrade.TabIndex = 4;
             btnTrade.Values.DropDownArrowColor = Color.Empty;
-            btnTrade.Values.Text = "Trade Yap";
+            btnTrade.Values.Text = Properties.Resources.TradeButton;
             btnTrade.Click += btnTrade_Click;
             // 
             // btnAddBalance
@@ -89,11 +89,11 @@
             btnAddBalance.Location = new Point(0, 100);
             btnAddBalance.Margin = new Padding(3, 4, 3, 4);
             btnAddBalance.Name = "btnAddBalance";
-            btnAddBalance.Size = new Size(134, 50);
+            btnAddBalance.Size = new Size(185, 50);
             btnAddBalance.StateCommon.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             btnAddBalance.TabIndex = 2;
             btnAddBalance.Values.DropDownArrowColor = Color.Empty;
-            btnAddBalance.Values.Text = "Bakiye Ekle/Sil";
+            btnAddBalance.Values.Text = Properties.Resources.BalanceButton;
             btnAddBalance.Click += btnAddBalance_Click;
             // 
             // btnAddWallet
@@ -102,11 +102,11 @@
             btnAddWallet.Location = new Point(0, 50);
             btnAddWallet.Margin = new Padding(3, 4, 3, 4);
             btnAddWallet.Name = "btnAddWallet";
-            btnAddWallet.Size = new Size(134, 50);
+            btnAddWallet.Size = new Size(185, 50);
             btnAddWallet.StateCommon.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             btnAddWallet.TabIndex = 1;
             btnAddWallet.Values.DropDownArrowColor = Color.Empty;
-            btnAddWallet.Values.Text = "Cüzdan Ekle/Sil";
+            btnAddWallet.Values.Text = Properties.Resources.WalletButton;
             btnAddWallet.Click += btnAddWallet_Click;
             // 
             // btnShowDashboard
@@ -115,18 +115,18 @@
             btnShowDashboard.Location = new Point(0, 0);
             btnShowDashboard.Margin = new Padding(3, 4, 3, 4);
             btnShowDashboard.Name = "btnShowDashboard";
-            btnShowDashboard.Size = new Size(134, 50);
+            btnShowDashboard.Size = new Size(185, 50);
             btnShowDashboard.StateCommon.Content.ShortText.TextH = Krypton.Toolkit.PaletteRelativeAlign.Center;
             btnShowDashboard.TabIndex = 0;
             btnShowDashboard.Values.DropDownArrowColor = Color.Empty;
-            btnShowDashboard.Values.Text = "Ana Panel";
+            btnShowDashboard.Values.Text = Properties.Resources.MainPanel;
             btnShowDashboard.Click += btnShowDashboard_Click;
             // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(134, 359);
+            ClientSize = new Size(185, 359);
             Controls.Add(kryptonPanel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);

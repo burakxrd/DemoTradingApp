@@ -76,3 +76,6 @@ C:\Users\burak\Desktop\C#\DemoTradingApp\DemoTradingApp\obj\Debug\net8.0-windows
 C:\Users\burak\Desktop\C#\DemoTradingApp\DemoTradingApp\obj\Debug\net8.0-windows\DemoTradingApp.genruntimeconfig.cache
 C:\Users\burak\Desktop\C#\DemoTradingApp\DemoTradingApp\obj\Debug\net8.0-windows\ref\DemoTradingApp.dll
 C:\Users\burak\Desktop\C#\DemoTradingApp\DemoTradingApp\obj\Debug\net8.0-windows\DemoTradingApp.AddBalanceForm.resources
+C:\Users\burak\Desktop\C#\DemoTradingApp\DemoTradingApp\bin\Debug\net8.0-windows\en\DemoTradingApp.resources.dll
+C:\Users\burak\Desktop\C#\DemoTradingApp\DemoTradingApp\obj\Debug\net8.0-windows\DemoTradingApp.Properties.Resources.en.resources
+C:\Users\burak\Desktop\C#\DemoTradingApp\DemoTradingApp\obj\Debug\net8.0-windows\en\DemoTradingApp.resources.dll
