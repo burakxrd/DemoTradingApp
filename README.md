@@ -52,7 +52,7 @@ Open your project in Visual Studio (`DemoTradingApp.sln`).
 1.  **Database Connection String:**
     * Open the `DatabaseHelper.cs` file located within the `DemoTradingApp` project.
     * Find the `ConnectionString` constant at the top. Update the `Server=` part to your SQL Server instance name.
-        ```
+        ```c sharp
         public static readonly string ConnectionString = "Server=YOUR_SERVER_NAME;Database=DemoTrading;Trusted_Connection=True;TrustServerCertificate=True;";
         ```
     * **Note on `localhost`:** If your SQL Server is running on the same machine and configured for default local access, `Server=localhost` or `Server=.` (a single dot) might also work without explicitly specifying your PC's name.
@@ -60,7 +60,7 @@ Open your project in Visual Studio (`DemoTradingApp.sln`).
 2.  **Email Settings (for Password Reset):**
     * Open the `LoginForm.cs` file located within the `DemoTradingApp` project.
     * Locate the `client.Authenticate(...)` line within the `btnSendCode_Click` method. Update it with your email address and an "App Password" generated from your email provider (e.g., for Gmail, you need to generate an App Password).
-        ```
+        ```c sharp
         // client.Authenticate("YourEmailAddress", "YourAppPassword");
         client.Authenticate("your_email@gmail.com", "your_app_password");
         ```
@@ -91,4 +91,4 @@ This project is developed for personal demonstration and learning purposes. Cont
 
 ## 📄 License
 
-This project is not distributed under any open-source license and is intended for personal portfolio/demo purposes.
+This project is licensed under the MIT License. See the LICENSE file for more information.
